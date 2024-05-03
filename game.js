@@ -36,5 +36,10 @@ function updateValues() {
     s_points += s_points_per_year;
     c_points = Math.floor(difficulty * Math.pow(year, 4));
     pop += s_points - c_points;
+
+    if (pop <= 0) {
+        alert("LOST");
+        location.href = "difficulty.html";
+    }
 }
 setInterval(updateValues, ms_in_year);
