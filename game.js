@@ -31,7 +31,11 @@ function updateHtml() {
 setInterval(updateHtml, 500);
 
 
+
 function updateValues() {
+    if (paused) {
+        return;
+    }
     year++;
     s_points += s_points_per_year;
     c_points = Math.floor(difficulty * Math.pow(year, 4));
@@ -43,3 +47,8 @@ function updateValues() {
     }
 }
 setInterval(updateValues, ms_in_year);
+
+let paused = false;
+function pause() {
+    paused = !paused;
+}
