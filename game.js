@@ -64,7 +64,7 @@ function choseAction(actionId) {
     s_points_per_year += parseInt(action.dataset.reward);
     action.style.display = "none";
 
-
+    addActionToList(actionId + "'", action.dataset.cost * 2, action.dataset.reward * 1.5);
 }
 
 function addActionToList(actionId, cost, reward) {
@@ -83,4 +83,6 @@ function addActionToList(actionId, cost, reward) {
 
 addActionToList("action1", 1, 1);
 addActionToList("action2", 10, 10);
-addActionToList("action3", 100, 100);
+addActionToList("action3", 10, 10);
+addActionToList("action4", 100, 100);
+addActionToList("action5", 1000, 1000);
