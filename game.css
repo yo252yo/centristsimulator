@@ -4,3 +4,11 @@ div {
     margin: 10px;
     padding: 5px;
 }
+
+
+li {
+    border: solid blue 1px;
+    width: 250px;
+    margin: 10px;
+    padding: 5px;
+}
