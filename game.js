@@ -9,7 +9,7 @@ let s_points_per_year = 1;
 let c_points = 0;
 
 let year = 0;
-let ms_in_year = 1000;
+let ms_in_year = 3000;
 
 let difficulty = 1;
 
@@ -20,7 +20,7 @@ let pop = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/0
 
 
 function updateHtml() {
-    document.getElementById("date").innerHTML = `Year: ${start_year + year}`;
+    document.getElementById("date").innerHTML = `Year: ${start_year + year} (1yr = ${ms_in_year / 1000}s)`;
     document.getElementById("s_points").innerHTML = `Sustainability points: ${s_points}$, ${s_points_per_year}$/yr  `;
     document.getElementById("c_points").innerHTML = `Crisis points: ${c_points}`;
 
@@ -57,8 +57,13 @@ function pause() {
 
 function choseAction(actionId) {
     let action = document.getElementById(actionId);
+    if (action.dataset.cost > s_points) {
+        return; // tODO: communicate that its too expensive
+    }
     s_points -= parseInt(action.dataset.cost);
     s_points_per_year += parseInt(action.dataset.reward);
+    action.style.display = "none";
+
 
 }
 
