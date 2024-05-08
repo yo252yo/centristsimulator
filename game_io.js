@@ -8,8 +8,8 @@ function updateHtmlValues() {
 
     document.getElementById("s_points").innerHTML = good_points;
     document.getElementById("s_income").innerHTML = good_points_per_sec;
-    document.getElementById("c_points").innerHTML = bad_points;
-    document.getElementById("differencial").innerHTML = bad_points - good_points;
+    document.getElementById("c_points").innerHTML = BP;
+    document.getElementById("differencial").innerHTML = BP - good_points;
 
     document.getElementById("population").innerHTML = `${population}`;
 
