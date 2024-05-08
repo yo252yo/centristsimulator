@@ -14,10 +14,21 @@ li {
     padding: 5px;
 }
 
-body {
+@keyframes changeBackground {
+    0% {
+        background-color: #171c16;
+    }
+
+    100% {
+        background-color: #151a14;
+    }
+}
+
+.background {
+    animation: changeBackground 0.1s infinite;
+
     color: #679c9b;
     text-shadow: #679c9bdd 1px 0px 4px;
     font-weight: bold;
-    background: #16151b;
     font-family: 'Courier New', Courier, monospace;
 }
