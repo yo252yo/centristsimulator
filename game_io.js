@@ -9,8 +9,14 @@ function updateHtmlValues() {
     document.getElementById("c_points").innerHTML = bad_points;
     document.getElementById("differencial").innerHTML = bad_points - good_points;
 
-    document.getElementById("population").innerHTML = `${pop}`;
-    document.getElementById("disaster").innerHTML = `..............`;
+    document.getElementById("population").innerHTML = `${population}`;
+
+
+    var disaster_chars = 20;
+    var decimals = MOCK_disaster - Math.floor(MOCK_disaster);
+    var interval = 1 / disaster_chars;
+    var progress = Math.round(decimals / interval);
+    document.getElementById("disaster").innerHTML = "|".repeat(progress) + ".".repeat(disaster_chars - progress);
 }
 setInterval(updateHtmlValues, 500);
 
