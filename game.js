@@ -28,7 +28,7 @@ function updateHtml() {
     document.getElementById("differencial").innerHTML = s_points - c_points;
 
     document.getElementById("population").innerHTML = `${pop}`;
-
+    document.getElementById("disaster").innerHTML = `..............`;
 }
 setInterval(updateHtml, 500);
 

@@ -6,20 +6,26 @@
 </head>
 
 <body class="background">
-    <div id="date_div">
-        <span id="date"></span>
-        <a href="javascript:pause();"><span id="pause">||</span></a>
-    </div>
 
-    <div id="budget_div">
-        +<span id="s_points"></span>$ ($ustainability) (+<span id="s_income"></span>$/s) <br />
-        -<span id="c_points"></span>$ ($train)<br />
-        ------------------------<br />
-        =<span id="differencial"></span>$ ($uffering)
-    </div>
+    <div id="left_block">
+        <div class="cell_div">
+            <span id="date"></span>
+            <a href="javascript:pause();"><span id="pause">||</span></a>
+        </div>
 
-    <div id="population_div">
-        <span id="population"></span>
+        <div class="cell_div">
+            $ustainability.: +$<span id="s_points"></span>(+<span id="s_income"></span>$/yr) <br />
+            $train.........: -$<span id="c_points"></span><br />
+            ---------------------------<br />
+            $uffering......: &nbsp;$<span id="differencial"></span>
+        </div>
+
+        <div class="cell_div">
+            Population:
+            <span id="population"></span><br />
+            Next disaster:<br />
+            <span id="disaster"></span>
+        </div>
     </div>
 
     Actions:
