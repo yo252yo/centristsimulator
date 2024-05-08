@@ -20,8 +20,8 @@ function updateHtmlValues() {
 
     document.getElementById("s_points").innerHTML = formatNumber(good_points);
     document.getElementById("s_income").innerHTML = formatNumber(good_points_per_sec);
-    document.getElementById("c_points").innerHTML = formatNumber(BP);
-    document.getElementById("differencial").innerHTML = formatNumber(BP - good_points);
+    document.getElementById("c_points").innerHTML = formatNumber(bad_points);
+    document.getElementById("differencial").innerHTML = formatNumber(bad_points - good_points);
 
     document.getElementById("population").innerHTML = `${population}`;
 

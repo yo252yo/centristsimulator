@@ -4,7 +4,7 @@ let GAME_PAUSED = false;
 let good_points = 10;
 let good_points_per_sec = 1;
 
-let BP = 0;
+let bad_points = 0;
 
 let seconds_elapsed = 0;
 
@@ -65,8 +65,12 @@ function updatePoints() {
     }
     seconds_elapsed++;
     good_points += good_points_per_sec;
-    BP = getBP(seconds_elapsed);
-    population += good_points - BP;
+    bad_points = getBP(seconds_elapsed);
+    if (good_points > bad_points) { // For safety, this should never happen
+        bad_points = good_points + 1;
+    }
+
+    population += good_points - bad_points;
     MOCK_disaster += Math.random() * 0.4;
 
     if (population <= 0) {
