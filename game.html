@@ -3,18 +3,17 @@
 <head>
     <title>Prototype normality idle</title>
     <link rel="stylesheet" href="game.css">
-    <script src="style.js" defer></script>
 </head>
 
-<body>
-    <div id="date"></div>
+<body class="background">
+    <div id="date_div">
+        <span id="date"></span>
+        <a href="javascript:pause();"><span id="pause">||</span></a>
+    </div>
     <div id="s_points"></div>
     <div id="c_points"></div>
     <div id="differencial"></div>
     <div id="population"></div>
-    <div id="pause">
-        <a href="javascript:pause();">PAUSE</a>
-    </div>
 
     Actions:
     <ul id="actions">

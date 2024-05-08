@@ -51,6 +51,7 @@ setInterval(updateValues, ms_in_year);
 let paused = false;
 function pause() {
     paused = !paused;
+    document.getElementById("pause").innerHTML = paused ? ">>" : "||";
 }
 
 
