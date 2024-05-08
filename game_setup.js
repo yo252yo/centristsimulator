@@ -5,7 +5,7 @@ function choseAction(actionId) {
         return; // tODO: communicate that its too expensive
     }
     good_points -= parseInt(action.dataset.cost);
-    good_points_per_year += parseInt(action.dataset.reward);
+    good_points_per_sec += parseInt(action.dataset.reward);
     action.style.display = "none";
 
     addActionToList(actionId + "'", action.dataset.cost * 2, action.dataset.reward * 1.5);

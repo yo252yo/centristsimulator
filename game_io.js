@@ -2,10 +2,12 @@
 let start_year = (new Date()).getFullYear();
 
 function updateHtmlValues() {
-    document.getElementById("date").innerHTML = `Year: ${start_year + year} (1yr = ${ms_in_year / 1000}s)`;
+    var year = start_year + Math.floor(seconds_elapsed / 4);
+    var season = seconds_elapsed % 4;
+    document.getElementById("date").innerHTML = `Year: ${year} ${"|".repeat(season)}${".".repeat(4 - season)}`;
 
     document.getElementById("s_points").innerHTML = good_points;
-    document.getElementById("s_income").innerHTML = good_points_per_year;
+    document.getElementById("s_income").innerHTML = good_points_per_sec;
     document.getElementById("c_points").innerHTML = bad_points;
     document.getElementById("differencial").innerHTML = bad_points - good_points;
 

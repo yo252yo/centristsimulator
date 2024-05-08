@@ -2,12 +2,11 @@
 let GAME_PAUSED = false;
 
 let good_points = 10;
-let good_points_per_year = 1;
+let good_points_per_sec = 1;
 
 let bad_points = 0;
 
-let year = 0;
-let ms_in_year = 3000;
+let seconds_elapsed = 0;
 
 let difficulty = 1;
 
@@ -17,13 +16,13 @@ let population = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("20
 
 let MOCK_disaster = 0;
 
-function updatePointsYearly() {
+function updatePoints() {
     if (GAME_PAUSED) {
         return;
     }
-    year++;
-    good_points += good_points_per_year;
-    bad_points = Math.floor(difficulty * Math.pow(year, 4));
+    seconds_elapsed++;
+    good_points += good_points_per_sec;
+    bad_points = Math.floor(difficulty * Math.pow(seconds_elapsed, 4));
     population += good_points - bad_points;
     MOCK_disaster += Math.random() * 0.4;
 
@@ -32,4 +31,4 @@ function updatePointsYearly() {
         location.href = "difficulty.html";
     }
 }
-setInterval(updatePointsYearly, ms_in_year);
+setInterval(updatePoints, 1000);
