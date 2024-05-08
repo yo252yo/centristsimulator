@@ -12,6 +12,24 @@ div {
     right: 25px;
 }
 
+#budget_div {
+    position: absolute;
+    width: 300px;
+    top: 75px;
+    right: 25px;
+}
+
+#population_div {
+    position: absolute;
+    width: 300px;
+    top: 200px;
+    right: 25px;
+}
+
+.amount {
+    width: 50px;
+}
+
 
 li {
     border: solid blue 1px;

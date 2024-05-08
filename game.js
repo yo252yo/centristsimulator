@@ -21,11 +21,13 @@ let pop = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/0
 
 function updateHtml() {
     document.getElementById("date").innerHTML = `Year: ${start_year + year} (1yr = ${ms_in_year / 1000}s)`;
-    document.getElementById("s_points").innerHTML = `Sustainability points: ${s_points}$, ${s_points_per_year}$/yr  `;
-    document.getElementById("c_points").innerHTML = `Crisis points: ${c_points}`;
 
-    document.getElementById("differencial").innerHTML = `Differential: ${s_points - c_points}`;
-    document.getElementById("population").innerHTML = `Population: ${pop}`;
+    document.getElementById("s_points").innerHTML = s_points;
+    document.getElementById("s_income").innerHTML = s_points_per_year;
+    document.getElementById("c_points").innerHTML = c_points;
+    document.getElementById("differencial").innerHTML = s_points - c_points;
+
+    document.getElementById("population").innerHTML = `${pop}`;
 
 }
 setInterval(updateHtml, 500);
