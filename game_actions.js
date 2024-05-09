@@ -31,7 +31,7 @@ const TECHNOLOGIES = {
         category: 3,
 
         cost: 20,
-        income: 5,
+        income: 2,
         level_cost_increase: 10,
         level_income_increase: 2.5,
 
@@ -42,7 +42,7 @@ const TECHNOLOGIES = {
         category: 4,
 
         cost: 35,
-        income: 8,
+        income: 4,
         level_cost_increase: 1.5,
         level_income_increase: 0.7,
 
@@ -53,7 +53,7 @@ const TECHNOLOGIES = {
         category: 5,
 
         cost: 50,
-        income: 12,
+        income: 6,
         level_cost_increase: 7,
         level_income_increase: 1.2,
 
@@ -64,7 +64,7 @@ const TECHNOLOGIES = {
         category: 6,
 
         cost: 100,
-        income: 25,
+        income: 10,
         level_cost_increase: 30,
         level_income_increase: 5,
 
