@@ -13,7 +13,6 @@ let difficulty = 1;
 let pop_rate_initial = 1000000000 / ((new Date("2024/01/01")).getTime() - (new Date("2013/01/01")).getTime());
 let population = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
 
-let LICENSING_FEE = 10;
 
 let MOCK_disaster = 0;
 
