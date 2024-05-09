@@ -31,6 +31,7 @@ function addToMarketplace(actionId, cost, reward) {
     li.textContent = `${actionId}: -${cost}$, +${reward}$/s`;
     li.dataset.cost = cost;
     li.dataset.reward = reward;
+    li.dataset.is_market = true;
 
     li.addEventListener("click", function () {
         purchaseTech(actionId);

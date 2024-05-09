@@ -19,6 +19,9 @@ function updateAllPurchases() {
     var listItems = document.querySelectorAll('li');
     listItems.forEach(function (li) {
         var cost = parseFloat(li.dataset.cost);
+        if (li.dataset.is_market) {
+            cost += LICENSING_FEE;
+        }
 
         if (good_points >= cost) {
             li.style.opacity = 1;
@@ -39,6 +42,8 @@ function updatePoints() {
     document.getElementById("s_income").innerHTML = formatNumber(good_points_per_sec);
     document.getElementById("c_points").innerHTML = formatNumber(bad_points);
     document.getElementById("differencial").innerHTML = formatNumber(bad_points - good_points);
+
+    document.getElementById("licensing_fee").innerHTML = formatNumber(LICENSING_FEE);
 }
 
 function updatePopulation() {
