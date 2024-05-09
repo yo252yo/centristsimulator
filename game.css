@@ -14,7 +14,7 @@
 
 #right_block {
     position: absolute;
-    width: 400px;
+    width: 450px;
     top: 25px;
     left: 25px;
 }
@@ -26,7 +26,7 @@
 
 li {
     border: solid #679c9b 1px;
-    width: 300px;
+    width: 350px;
     margin: 10px;
     padding: 5px;
 }
