@@ -1,19 +1,6 @@
 
 let start_year = (new Date()).getFullYear();
 
-function formatNumber(number) {
-    if (number >= 1000000000) {
-        return (number / 1000000000).toFixed(1) + 'B';
-    } else if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'M';
-    } else if (number >= 1000) {
-        return (number / 1000).toFixed(1) + 'K';
-    } else if ((number * 10) % 10 != 0) {
-        return number.toFixed(1).toString();
-    } else {
-        return number.toString();
-    }
-}
 
 function updateAllPurchases() {
     var listItems = document.querySelectorAll('li');
