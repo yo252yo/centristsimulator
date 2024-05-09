@@ -31,6 +31,30 @@ li {
     padding: 5px;
 }
 
+.li_1 {
+    border: solid #9c6795 1px;
+}
+
+.li_2 {
+    border: solid #9c8867 1px;
+}
+
+.li_3 {
+    border: solid #6d9c67 1px;
+}
+
+.li_4 {
+    border: solid #676b9c 1px;
+}
+
+.li_5 {
+    border: solid #989c67 1px;
+}
+
+.li_6 {
+    border: solid #7a679c 1px;
+}
+
 @keyframes changeBackground {
     0% {
         background-color: #171c16;

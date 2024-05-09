@@ -49,6 +49,7 @@ function processTechUpgrade(tech_id) {
 
     var li = document.getElementById("portfolio_" + tech_id);
     li.innerHTML = `${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />
+    
     ${"|".repeat(tech.current_level)}`;
     li.dataset.cost = tech.cost;
 }
@@ -65,8 +66,11 @@ function upgradeTech(tech_id) {
 }
 
 function addToPortfolio(tech_id) {
+    let tech = TECHNOLOGIES[tech_id];
+
     let li = document.createElement("li");
     li.id = "portfolio_" + tech_id;
+    li.classList.add("li_" + tech.category);
 
     li.addEventListener("click", function () {
         upgradeTech(tech_id);
@@ -99,6 +103,7 @@ function addToMarketplace(tech_id) {
     li.innerHTML = `${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s`;
     li.dataset.cost = tech.cost;
     li.dataset.is_market = true;
+    li.classList.add("li_" + tech.category);
 
     li.addEventListener("click", function () {
         purchaseTech(tech_id);
