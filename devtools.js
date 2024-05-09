@@ -60,3 +60,48 @@ function evalTech(tech_id, start) {
         }
     }
 }
+
+
+function bestrun() {
+    GAME_PAUSED = true;
+    var start = 0;
+    let cash = milestone[start].cash;
+    let income = milestone[start].income;
+    let local_lfindex = 0;
+    let license_price = LF_table[local_lfindex];
+
+    for (var i = start; i < 301; i++) {
+        cash += income;
+
+        var best = 0;
+        var argbest = "";
+        for (var t in TECHNOLOGIES) {
+            var tech = TECHNOLOGIES[t];
+            var license = 0;
+            if (tech.current_level == 0) {
+                license += license_price;
+            }
+            var gain = tech.income / (tech.cost + license);
+            if (gain > best) {
+                best = gain;
+                argbest = tech;
+            }
+        }
+        if (cash > argbest.cost) {
+            console.log(".    PURCHASE: " + argbest.name + argbest.current_level);
+            cash -= argbest.cost;
+            income += argbest.income;
+            argbest.cost *= argbest.level_cost_increase;
+            argbest.income *= argbest.level_income_increase;
+            argbest.current_level += 1;
+
+            if (argbest.current_level == 1) {
+                local_lfindex++;
+                license_price = LF_table[local_lfindex];
+            }
+        }
+        if ([10, 30, 60, 90, 120, 240, 300].includes(i)) {
+            console.log(`At ${i}: $${formatNumber(cash)} (+${formatNumber(income)}$/s)`);
+        }
+    }
+}
