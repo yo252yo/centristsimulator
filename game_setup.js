@@ -22,7 +22,7 @@ function addActionToList(actionId, cost, reward) {
         choseAction(actionId);
     });
 
-    document.getElementById("actions").appendChild(li);
+    document.getElementById("portfolio").appendChild(li);
 }
 
 addActionToList("action1", 1, 1);
