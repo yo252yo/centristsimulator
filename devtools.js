@@ -70,7 +70,7 @@ function bestrun() {
     let local_lfindex = 0;
     let license_price = LF_table[local_lfindex];
 
-    for (var i = start; i < 301; i++) {
+    for (var i = start; i < 91; i++) {
         cash += income;
 
         var best = 0;
