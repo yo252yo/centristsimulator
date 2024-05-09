@@ -62,12 +62,12 @@ function evalTech(tech_id, start) {
 }
 
 
-function bestrun() {
+function bestrun(start, start_cash, start_income, start_local_lfindex) {
     GAME_PAUSED = true;
-    var start = 0;
-    let cash = milestone[start].cash;
-    let income = milestone[start].income;
-    let local_lfindex = 0;
+    var start = start || 0;
+    let cash = start_cash || milestone[start].cash;
+    let income = start_income || milestone[start].income;
+    let local_lfindex = start_local_lfindex || 0;
     let license_price = LF_table[local_lfindex];
 
     for (var i = start; i < 91; i++) {
@@ -102,6 +102,27 @@ function bestrun() {
         }
         if ([10, 30, 60, 90, 120, 240, 300].includes(i)) {
             console.log(`At ${i}: $${formatNumber(cash)} (+${formatNumber(income)}$/s)`);
+        }
+    }
+}
+
+function best_run_with(tech_id) {
+
+    GAME_PAUSED = true;
+
+    let tech = TECHNOLOGIES[tech_id];
+    let cash = milestone[0].cash;
+    let income = milestone[0].income;
+
+    for (var i = 0; i < 301; i++) {
+        cash += income;
+        if (cash > tech.cost) {
+            cash -= tech.cost;
+            income += tech.income;
+            tech.cost *= tech.level_cost_increase;
+            tech.income *= tech.level_income_increase;
+            bestrun(i, cash, income, 1);
+            return;
         }
     }
 }
