@@ -12,6 +12,13 @@
     right: 25px;
 }
 
+#right_block {
+    position: absolute;
+    width: 400px;
+    top: 25px;
+    left: 25px;
+}
+
 .amount {
     width: 50px;
 }
