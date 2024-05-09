@@ -6,7 +6,7 @@ let LICENSING_FEE = LF_table[LF_index];
 const TECHNOLOGIES = {
     "wind": {
         name: "wind turbines",
-        category: 1, // for colors
+        category: 1,
 
         cost: 5,
         income: .5,
@@ -15,14 +15,58 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "foodwaste": {
+    "foodwaste1": {
         name: "food waste ads",
-        category: 2, // for colors
+        category: 2,
 
         cost: 10,
         income: 1,
         level_cost_increase: 2.0,
         level_income_increase: 1.5,
+
+        current_level: 0,
+    },
+    "carpool1": {
+        name: "carpooling ads",
+        category: 3,
+
+        cost: 20,
+        income: 5,
+        level_cost_increase: 10,
+        level_income_increase: 2.5,
+
+        current_level: 0,
+    },
+    "insulation": {
+        name: "improve insulation",
+        category: 4,
+
+        cost: 35,
+        income: 8,
+        level_cost_increase: 1.5,
+        level_income_increase: 0.7,
+
+        current_level: 0,
+    },
+    "silvopastures": {
+        name: "silvopastures",
+        category: 5,
+
+        cost: 50,
+        income: 12,
+        level_cost_increase: 7,
+        level_income_increase: 1.2,
+
+        current_level: 0,
+    },
+    "cleancook": {
+        name: "clean cooking",
+        category: 6,
+
+        cost: 100,
+        income: 25,
+        level_cost_increase: 30,
+        level_income_increase: 5,
 
         current_level: 0,
     }
