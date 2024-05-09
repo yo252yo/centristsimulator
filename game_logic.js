@@ -2,7 +2,7 @@
 let GAME_PAUSED = false;
 
 let GOOD_POINTS = 10;
-let GOOD_POINTS_PER_SEC = 1;
+let GOOD_POINTS_PER_SEC = 10;
 
 let BAD_POINTS = 0;
 
@@ -65,6 +65,7 @@ function updatePoints() {
     }
     seconds_elapsed++;
     GOOD_POINTS += GOOD_POINTS_PER_SEC;
+    console.log(`At: ${seconds_elapsed}, ${GOOD_POINTS}$, ${GOOD_POINTS_PER_SEC}$/s`);
     BAD_POINTS = getBP(seconds_elapsed);
     if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
         BAD_POINTS = GOOD_POINTS + 1;
