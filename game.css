@@ -32,27 +32,33 @@ li {
 }
 
 .li_1 {
+    /* Energy */
     border: solid #9c6795 1px;
 }
 
 .li_2 {
-    border: solid #9c8867 1px;
+    /* Food */
+    border: solid #b9b76f 1px;
 }
 
 .li_3 {
-    border: solid #6d9c67 1px;
-}
-
-.li_4 {
+    /* Transport */
     border: solid #676b9c 1px;
 }
 
+.li_4 {
+    /* Industry */
+    border: solid #cca465 1px;
+}
+
 .li_5 {
-    border: solid #989c67 1px;
+    /* Land */
+    border: solid #6d9c67 1px;
 }
 
 .li_6 {
-    border: solid #7a679c 1px;
+    /* Colonialism */
+    border: solid #b1b1b1 1px;
 }
 
 @keyframes changeBackground {
