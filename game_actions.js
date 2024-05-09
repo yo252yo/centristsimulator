@@ -8,9 +8,9 @@ const TECHNOLOGIES = {
         name: "wind turbines",
         category: 1, // for colors
 
-        cost: 10,
-        income: 1,
-        level_cost_increase: 1.4,
+        cost: 5,
+        income: .5,
+        level_cost_increase: 1.3,
         level_income_increase: 1.1,
 
         current_level: 0,
