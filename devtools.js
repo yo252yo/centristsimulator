@@ -32,6 +32,8 @@ let milestone = {
 };
 
 function evalTech(tech_id, start) {
+    GAME_PAUSED = true;
+
     start = start || 0;
     let tech = TECHNOLOGIES[tech_id];
     if (!start in milestone) {
@@ -50,7 +52,7 @@ function evalTech(tech_id, start) {
             tech.income *= tech.level_income_increase;
         }
         if ([10, 30, 60, 120, 240, 300].includes(i)) {
-            console.log(`At ${i}: $${cash} (+${income}$/s)`);
+            console.log(`At ${i}: $${formatNumber(cash)} (+${formatNumber(income)}$/s)`);
         }
     }
 }
