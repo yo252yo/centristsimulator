@@ -75,18 +75,41 @@ function bestrun(start, start_cash, start_income, start_local_lfindex) {
 
         var best = 0;
         var argbest = "";
+        var bestnow = 0;
         for (var t in TECHNOLOGIES) {
             var tech = TECHNOLOGIES[t];
             var license = 0;
             if (tech.current_level == 0) {
                 license += license_price;
             }
-            var gain = tech.income / (tech.cost + license);
+            var cost = (tech.cost + license);
+            if (cost < cash) {
+                if (tech.income > bestnow) {
+                    bestnow = tech.income;
+                }
+            }
+        }
+
+        for (var t in TECHNOLOGIES) {
+            var tech = TECHNOLOGIES[t];
+            var license = 0;
+            if (tech.current_level == 0) {
+                license += license_price;
+            }
+            var cost = (tech.cost + license);
+            if (cost > cash) {
+                // add the miss from waiting
+                var wait = (cost - cash) / income;
+                cost += bestnow * wait;
+            }
+            var gain = tech.income / cost;
+
             if (gain > best) {
                 best = gain;
                 argbest = tech;
             }
         }
+
         if (cash > argbest.cost) {
             console.log(".    PURCHASE: " + argbest.name + argbest.current_level);
             cash -= argbest.cost;
