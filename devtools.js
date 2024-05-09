@@ -31,6 +31,10 @@ let milestone = {
     },
 };
 
+function r() {
+    window.location.href = window.location.href;
+}
+
 function evalTech(tech_id, start) {
     GAME_PAUSED = true;
 
@@ -51,7 +55,7 @@ function evalTech(tech_id, start) {
             tech.cost *= tech.level_cost_increase;
             tech.income *= tech.level_income_increase;
         }
-        if ([10, 30, 60, 120, 240, 300].includes(i)) {
+        if ([10, 30, 60, 90, 120, 240, 300].includes(i)) {
             console.log(`At ${i}: $${formatNumber(cash)} (+${formatNumber(income)}$/s)`);
         }
     }
