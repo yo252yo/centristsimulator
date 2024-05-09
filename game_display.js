@@ -23,7 +23,7 @@ function updateAllPurchases() {
             cost += LICENSING_FEE;
         }
 
-        if (good_points >= cost) {
+        if (GOOD_POINTS >= cost) {
             li.style.opacity = 1;
         } else {
             li.style.opacity = 0.2;
@@ -38,10 +38,10 @@ function updateTime() {
 }
 
 function updatePoints() {
-    document.getElementById("s_points").innerHTML = formatNumber(good_points);
-    document.getElementById("s_income").innerHTML = formatNumber(good_points_per_sec);
-    document.getElementById("c_points").innerHTML = formatNumber(bad_points);
-    document.getElementById("differencial").innerHTML = formatNumber(bad_points - good_points);
+    document.getElementById("s_points").innerHTML = formatNumber(GOOD_POINTS);
+    document.getElementById("s_income").innerHTML = formatNumber(GOOD_POINTS_PER_SEC);
+    document.getElementById("c_points").innerHTML = formatNumber(BAD_POINTS);
+    document.getElementById("differencial").innerHTML = formatNumber(BAD_POINTS - GOOD_POINTS);
 
     document.getElementById("licensing_fee").innerHTML = formatNumber(LICENSING_FEE);
 }

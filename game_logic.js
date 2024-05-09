@@ -1,10 +1,10 @@
 
 let GAME_PAUSED = false;
 
-let good_points = 10;
-let good_points_per_sec = 1;
+let GOOD_POINTS = 10;
+let GOOD_POINTS_PER_SEC = 1;
 
-let bad_points = 0;
+let BAD_POINTS = 0;
 
 let seconds_elapsed = 0;
 
@@ -65,13 +65,13 @@ function updatePoints() {
         return;
     }
     seconds_elapsed++;
-    good_points += good_points_per_sec;
-    bad_points = getBP(seconds_elapsed);
-    if (good_points > bad_points) { // For safety, this should never happen
-        bad_points = good_points + 1;
+    GOOD_POINTS += GOOD_POINTS_PER_SEC;
+    BAD_POINTS = getBP(seconds_elapsed);
+    if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
+        BAD_POINTS = GOOD_POINTS + 1;
     }
 
-    population += good_points - bad_points;
+    population += GOOD_POINTS - BAD_POINTS;
     MOCK_disaster += Math.random() * 0.4;
 
     if (population <= 0) {

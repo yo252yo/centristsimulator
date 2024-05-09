@@ -1,11 +1,11 @@
 
 function purchaseTech(actionId) {
     let action = document.getElementById(actionId);
-    if (action.dataset.cost > good_points) {
+    if (action.dataset.cost > GOOD_POINTS) {
         return; // tODO: communicate that its too expensive
     }
-    good_points -= parseInt(action.dataset.cost);
-    good_points_per_sec += parseInt(action.dataset.reward);
+    GOOD_POINTS -= parseInt(action.dataset.cost);
+    GOOD_POINTS_PER_SEC += parseInt(action.dataset.reward);
     action.style.display = "none";
 
     addToPortfolio(actionId + "'", action.dataset.cost * 2, action.dataset.reward * 1.5);
