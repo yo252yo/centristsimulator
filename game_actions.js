@@ -330,7 +330,8 @@ function purchaseTech(tech_id) {
     GOOD_POINTS -= parseInt(LICENSING_FEE);
     updateLicenseFee();
 
-    document.getElementById("market_" + tech_id).style.display = "none"; // we cant flat out remove it from the DOM i think
+    var elementToRemove = document.getElementById("market_" + tech_id);
+    elementToRemove.parentNode.removeChild(elementToRemove);
     updateHtmlValues();
 }
 
