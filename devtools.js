@@ -247,6 +247,9 @@ function try_all_strat(prefix) {
         }
     }
 }
+
+
+// /*
 try_all_strat();
 console.log(ALL_STRATS);
 
@@ -275,12 +278,17 @@ function evaluate_percentiles(filter, invert) {
         " - \t90%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.90)].toFixed(1) +
         " - \t80%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.80)].toFixed(1) +
         " - \t50%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.50)].toFixed(1));
+    return filteredIncomes[Math.floor(filteredIncomes.length * 0.90)];
 }
 
 console.log("TOTAL: ");
 evaluate_percentiles();
 for (var i = 0; i < TRY_FIRST_N_TECH; i++) {
     console.log("=========== TECH " + i);
-    evaluate_percentiles(i);
-    evaluate_percentiles(i, true);
+    var withit = evaluate_percentiles(i);
+    var without = evaluate_percentiles(i, true);
+
+    console.log("WORTH FACTOR:" + Math.abs(withit / without).toFixed(2));
 }
+
+// */

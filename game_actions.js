@@ -7,19 +7,18 @@ const TECHNOLOGIES = {
     // ===========================================================
     // ===========================================================
     // TIER 1
-
-    "wind": {
+    "t0": {
         name: "wind turbines",
         category: 1,
 
         cost: 5,
         income: .5,
-        level_cost_increase: 1.3,
-        level_income_increase: 1.1,
+        level_cost_increase: 1.1,
+        level_income_increase: 1.01,
 
         current_level: 0,
     },
-    "foodwaste1": {
+    "t1": {
         name: "food waste ads",
         category: 2,
 
@@ -30,7 +29,7 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "carpool1": {
+    "t2": {
         name: "carpooling ads",
         category: 3,
 
@@ -41,7 +40,7 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "insulation": {
+    "t3": {
         name: "improve insulation",
         category: 4,
 
@@ -52,7 +51,7 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "silvopastures": {
+    "t4": {
         name: "silvopastures",
         category: 5,
 
@@ -63,14 +62,40 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "cleancook": {
+    "t5": {
         name: "clean cooking",
         category: 6,
 
         cost: 100,
         income: 10,
         level_cost_increase: 20,
-        level_income_increase: 15,
+        level_income_increase: 5,
+
+        current_level: 0,
+    },
+
+    // ===========================================================
+    // ===========================================================
+    // TIER 2
+    "t6": {
+        name: "LEDs",
+        category: 4,
+
+        cost: 100,
+        income: 30,
+        level_cost_increase: 1.4,// from 1.5
+        level_income_increase: 0.95,// from .7
+
+        current_level: 0,
+    },
+    "t7": {
+        name: "solar panels",
+        category: 1,
+
+        cost: 150,
+        income: 35,
+        level_cost_increase: 1.1, //1.15 from 1.1
+        level_income_increase: .8,//.95 from 1.01
 
         current_level: 0,
     },
@@ -163,29 +188,3 @@ function addToMarketplace(tech_id) {
 for (const t in TECHNOLOGIES) {
     addToMarketplace(t);
 }
-// addToMarketplace("tech1", 1, 1);
-// addToMarketplace("tech1", 2, 1);
-// addToMarketplace("tech2", 5, 5);
-// addToMarketplace("tech3", 10, 10);
-// addToMarketplace("tech4", 10, 10);
-// addToMarketplace("tech4", 20, 20);
-// addToMarketplace("tech5", 50, 50);
-// addToMarketplace("tech5", 100, 100);
-// addToMarketplace("tech6", 200, 200);
-// addToMarketplace("tech6", 500, 200);
-// addToMarketplace("tech7", 1000, 1000);
-// addToMarketplace("tech7", 2000, 1000);
-// addToMarketplace("tech7", 5000, 1000);
-// addToMarketplace("tech8", 10000, 10000);
-// addToMarketplace("tech8", 20000, 10000);
-// addToMarketplace("tech8", 50000, 10000);
-// addToMarketplace("tech9", 100000, 100000);
-// addToMarketplace("tech9", 200000, 100000);
-// addToMarketplace("tech9", 500000, 100000);
-// addToMarketplace("tech10", 1000000, 1000000);
-// addToMarketplace("tech10", 2000000, 1000000);
-// addToMarketplace("tech10", 5000000, 1000000);
-// addToMarketplace("tech11", 10000000, 1000000);
-// addToMarketplace("tech11", 20000000, 1000000);
-// addToMarketplace("tech11", 50000000, 1000000);
-// addToMarketplace("tech12", 100000000, 10000000); //100m
