@@ -7,7 +7,7 @@ const TECHNOLOGIES = {
     // ===========================================================
     // ===========================================================
     // TIER 1
-    "t0": {
+    "t1": {
         name: "wind turbines",
         category: 1,
 
@@ -18,18 +18,18 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "t1": {
-        name: "food waste ads",
-        category: 2,
+    // "t2": {
+    //     name: "food waste ads",
+    //     category: 2,
 
-        cost: 10,
-        income: 1,
-        level_cost_increase: 2.0,
-        level_income_increase: 1.4,
+    //     cost: 10,
+    //     income: 1,
+    //     level_cost_increase: 2.0,
+    //     level_income_increase: 1.4,
 
-        current_level: 0,
-    },
-    "t2": {
+    //     current_level: 0,
+    // },
+    "t3": {
         name: "carpooling ads",
         category: 3,
 
@@ -40,8 +40,8 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "t3": {
-        name: "improve insulation",
+    "t4": {
+        name: "LEDs",
         category: 4,
 
         cost: 35,
@@ -51,7 +51,7 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "t4": {
+    "t5": {
         name: "silvopastures",
         category: 5,
 
@@ -62,40 +62,73 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "t5": {
-        name: "clean cooking",
-        category: 6,
+    // "t6": {
+    //     name: "clean cooking",
+    //     category: 6,
 
-        cost: 100,
-        income: 10,
-        level_cost_increase: 20,
-        level_income_increase: 5,
+    //     cost: 100,
+    //     income: 10,
+    //     level_cost_increase: 20,
+    //     level_income_increase: 5,
 
-        current_level: 0,
-    },
+    //     current_level: 0,
+    // },
 
     // ===========================================================
     // ===========================================================
     // TIER 2
-    "t6": {
-        name: "LEDs",
+    "t7": {
+        name: "improve insulation",
         category: 4,
 
-        cost: 100,
-        income: 30,
-        level_cost_increase: 1.4,// from 1.5
-        level_income_increase: 0.95,// from .7
+        cost: 500,
+        income: 12,
+        level_cost_increase: 1.5,
+        level_income_increase: .7,//.9,
 
         current_level: 0,
     },
-    "t7": {
+    "t8": {
         name: "solar panels",
         category: 1,
 
-        cost: 150,
-        income: 35,
-        level_cost_increase: 1.1, //1.15 from 1.1
-        level_income_increase: .8,//.95 from 1.01
+        cost: 1000,
+        income: 20,
+        level_cost_increase: 1.1,
+        level_income_increase: 1.1,//1.2,
+
+        current_level: 0,
+    },
+    "t9": {
+        name: "veganism ads",
+        category: 2,
+
+        cost: 1500,
+        income: 100,
+        level_cost_increase: 2.0,
+        level_income_increase: 1.8,//1.2,
+
+        current_level: 0,
+    },
+    "u3": {
+        name: "electric cars",
+        category: 3,
+
+        cost: 2000,
+        income: 300,
+        level_cost_increase: .6,
+        level_income_increase: .8,//.8,
+
+        current_level: 0,
+    },
+    "u4": {
+        name: "peatland protection",
+        category: 5,
+
+        cost: 4000,
+        income: 500,
+        level_cost_increase: 7,
+        level_income_increase: 1.3,
 
         current_level: 0,
     },

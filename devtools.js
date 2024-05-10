@@ -48,7 +48,7 @@ function evalTech(tech_id, start) {
     let cash = milestone[start].cash;
     let income = milestone[start].income;
 
-    for (var i = start; i < 301; i++) {
+    for (var i = start; i < 601; i++) {
         cash += income;
         if (cash > tech.cost) {
             cash -= tech.cost;
@@ -56,7 +56,7 @@ function evalTech(tech_id, start) {
             tech.cost *= tech.level_cost_increase;
             tech.income *= tech.level_income_increase;
         }
-        if ([10, 30, 60, 90, 120, 240, 300].includes(i)) {
+        if ([10, 60, 120, 240, 300, 450, 600].includes(i)) {
             console.log(`At ${i}: $${formatNumber(cash)} (+${formatNumber(income)}$/s)`);
         }
     }
@@ -173,8 +173,9 @@ function heuristic_with(tech_id) {
 
 
 var STOP_AT = 120;
-var START_CASH = 1;
-var START_INCOME = 10;
+var START_CASH = 1; //600, [100 - 1000]
+var START_INCOME = 8; //33, [15-50]
+var START_LICENSE = 0;
 
 var TRY_FIRST_N_TECH = Object.keys(TECHNOLOGIES).length;
 
@@ -193,7 +194,7 @@ function try_strat(strat, timestamp_end) {
 
     var cash = START_CASH;
     var income = START_INCOME;
-    var current_license = 0;
+    var current_license = START_LICENSE;
 
     var strat_index = 0;
 
@@ -203,7 +204,7 @@ function try_strat(strat, timestamp_end) {
             throw "Insufficient strat;"
         }
 
-        var next = strat[strat_index];
+        var next = strat[strat_index] - 1;
 
         var purchased = true;
         var incremented = false;
@@ -238,7 +239,7 @@ function try_strat(strat, timestamp_end) {
 var ALL_STRATS = {};
 function try_all_strat(prefix) {
     var strat = prefix || "";
-    for (var s = 0; s < TRY_FIRST_N_TECH; s++) {
+    for (var s = 1; s < 10; s++) {
         try {
             var r = try_strat(strat + s, STOP_AT);
             ALL_STRATS[(strat + s)] = r;
@@ -260,9 +261,9 @@ function evaluate_percentiles(filter, invert) {
     if (filter) {
         filteredKeys = Object.keys(ALL_STRATS).filter(function (key) {
             if (!invert) {
-                return key.includes(filter);
+                return key.includes(filter.toString());
             } else {
-                return !(key.includes(filter));
+                return !(key.includes(filter.toString()));
             }
         });
     }
@@ -277,14 +278,18 @@ function evaluate_percentiles(filter, invert) {
     console.log("99%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.99)].toFixed(1) +
         " - \t90%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.90)].toFixed(1) +
         " - \t80%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.80)].toFixed(1) +
-        " - \t50%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.50)].toFixed(1));
+        " - \t50%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.50)].toFixed(1) +
+        " - \tspread: " + (filteredIncomes[Math.floor(filteredIncomes.length * 0.80)] / filteredIncomes[Math.floor(filteredIncomes.length * 0.99)]).toFixed(1) +
+        " - \tpop: " + filteredIncomes.length
+    );
     return filteredIncomes[Math.floor(filteredIncomes.length * 0.90)];
 }
 
 console.log("TOTAL: ");
 evaluate_percentiles();
-for (var i = 0; i < TRY_FIRST_N_TECH; i++) {
-    console.log("=========== TECH " + i);
+var techs = Object.values(TECHNOLOGIES);
+for (var i = 1; i < 10; i++) {
+    console.log("=========== TECH " + i + " " + techs[i - 1].name);
     var withit = evaluate_percentiles(i);
     var without = evaluate_percentiles(i, true);
 
