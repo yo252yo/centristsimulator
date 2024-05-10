@@ -165,6 +165,7 @@ function best_run_with(tech_id) {
 
 
 
+var STOP_AT = 60;
 
 function try_strat(strat, timestamp_end) {
     var costs = [];
@@ -228,7 +229,7 @@ function try_all_strat(prefix) {
     var strat = prefix || "";
     for (var s = 0; s <= 6; s++) {
         try {
-            var r = try_strat(strat + s, 60);
+            var r = try_strat(strat + s, STOP_AT);
             console.log((strat + s) + ": " + r);
             ALL_STRATS[(strat + s)] = r;
         } catch (e) {
@@ -238,3 +239,36 @@ function try_all_strat(prefix) {
 }
 try_all_strat();
 console.log(ALL_STRATS);
+
+
+
+function evaluate(filter) {
+    var filteredKeys = Object.keys(ALL_STRATS);
+    if (filter) {
+        filteredKeys = Object.keys(ALL_STRATS).filter(function (key) {
+            return key.includes(filter);
+        });
+    }
+
+    var filteredIncomes = filteredKeys.map(function (key) {
+        return ALL_STRATS[key];
+    });
+
+    filteredIncomes.sort(function (a, b) {
+        return a - b;
+    });
+
+    console.log("Result for tech: " + filter);
+    console.log("99%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.99)] +
+        " - 90%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.90)] +
+        " - 80%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.80)] +
+        " - 50%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.50)]);
+}
+
+evaluate();
+evaluate(1);
+evaluate(2);
+evaluate(3);
+evaluate(4);
+evaluate(5);
+evaluate(6);
