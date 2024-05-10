@@ -18,17 +18,18 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    // "t2": {
-    //     name: "food waste ads",
-    //     category: 2,
+    "t2": {
+        name: "food waste ads",
+        category: 2,
 
-    //     cost: 10,
-    //     income: 1,
-    //     level_cost_increase: 2.0,
-    //     level_income_increase: 1.4,
+        cost: 10,
+        income: 1,
+        level_cost_increase: 2.0,
+        level_income_increase: 1.4,
 
-    //     current_level: 0,
-    // },
+        current_level: 0,
+    },
+
     "t3": {
         name: "carpooling ads",
         category: 3,
@@ -62,22 +63,22 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    // "t6": {
-    //     name: "clean cooking",
-    //     category: 6,
+    "t6": {
+        name: "clean cooking",
+        category: 6,
 
-    //     cost: 100,
-    //     income: 10,
-    //     level_cost_increase: 20,
-    //     level_income_increase: 5,
+        cost: 100,
+        income: 10,
+        level_cost_increase: 20,
+        level_income_increase: 5,
 
-    //     current_level: 0,
-    // },
+        current_level: 0,
+    },
 
     // ===========================================================
     // ===========================================================
     // TIER 2
-    "t7": {
+    "u0": {
         name: "improve insulation",
         category: 4,
 
@@ -88,7 +89,7 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "t8": {
+    "u1": {
         name: "solar panels",
         category: 1,
 
@@ -99,7 +100,7 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
-    "t9": {
+    "u2": {
         name: "veganism ads",
         category: 2,
 
@@ -132,6 +133,9 @@ const TECHNOLOGIES = {
 
         current_level: 0,
     },
+    // ===========================================================
+    // ===========================================================
+    // TIER 3
 };
 
 function updateLicenseFee() {
