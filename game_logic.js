@@ -67,9 +67,10 @@ function updatePoints() {
     GOOD_POINTS += GOOD_POINTS_PER_SEC;
     console.log(`At: ${seconds_elapsed}, ${GOOD_POINTS}$, ${GOOD_POINTS_PER_SEC}$/s`);
     BAD_POINTS = getBP(seconds_elapsed);
-    if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
-        BAD_POINTS = GOOD_POINTS + 1;
-    }
+    // I know what i said before but i think we can let them celebrate small victories since they'll be crushed in the end
+    // if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
+    //     BAD_POINTS = GOOD_POINTS + 1;
+    // }
 
     population += GOOD_POINTS - BAD_POINTS;
     MOCK_disaster += Math.random() * 0.4;
