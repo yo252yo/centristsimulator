@@ -67,13 +67,100 @@ function evalTech(tech_id, start) {
 // ==============================================================================
 // TRY ALL STRATS
 
-
-var STOP_AT = 120;
+var MAX_ACTIONS_IN_STRAT = 8;
+var STOP_AT = 60;
 var START_CASH = 1; //600, [100 - 1000]
 var START_INCOME = 8; //33, [15-50]
 var START_LICENSE = 0;
 
 var TRY_FIRST_N_TECH = Object.keys(TECHNOLOGIES).length;
+
+
+var init_costs = [];
+var init_incomes = [];
+var init_levels = [];
+
+var techs = Object.values(TECHNOLOGIES);
+for (let i in techs) {
+    init_costs[i] = techs[i].cost;
+    init_incomes[i] = techs[i].income;
+    init_levels[i] = 0;
+}
+
+function numberToLetter(number) {
+    return String.fromCharCode(number + 97); // Adding 96 to convert 1 to 'a', 2 to 'b', and so on
+}
+function letterToNumber(letter) {
+    return letter.charCodeAt(0) - 97; // Subtracting 96 to convert 'a' to 1, 'b' to 2, and so on
+}
+
+
+function try_strategy_from_string(str_strategy) {
+    var costs = Array.from(init_costs);
+    var incomes = Array.from(init_incomes);
+    var levels = Array.from(init_levels);
+
+    var cash = START_CASH;
+    var income = START_INCOME;
+    var current_license = START_LICENSE;
+
+    var t = 0;
+    for (var s of str_strategy) {
+        var next_purchase = letterToNumber(s);
+
+
+
+        var next_cost = parseInt(costs[next_purchase]);
+        if (levels[next_purchase] == 0) {
+            next_cost += parseInt(LF_table[current_license]);
+        }
+
+        var time_to_pay = Math.max(1, Math.ceil((next_cost - cash) / income));
+        t += time_to_pay;
+        if (t > STOP_AT) {
+            throw "This strategy is too long";
+        }
+
+        cash += time_to_pay * income;
+        cash -= next_cost;
+
+        income += incomes[next_purchase];
+        incomes[next_purchase] *= techs[next_purchase].level_income_increase;
+        costs[next_purchase] *= techs[next_purchase].level_cost_increase;
+
+        if (levels[next_purchase] == 0) {
+            current_license++;
+        }
+        levels[next_purchase]++;
+    }
+    cash += income * (STOP_AT - t);
+    return income;
+}
+
+function try_strategy_extentions(current_strat) {
+    var results = {};
+    for (let i = 0; i < techs.length; i++) {
+        var potential_extention = current_strat + numberToLetter(i);
+        try {
+            var value = try_strategy_from_string(potential_extention);
+            results[potential_extention] = value;
+            if (potential_extention.length < MAX_ACTIONS_IN_STRAT) {
+                Object.assign(results, try_strategy_extentions(potential_extention));
+            }
+        } catch (e) { } //unfeasable strategies
+    }
+    return results;
+}
+
+var res = try_strategy_extentions("");
+console.log(res);
+console.log(Object.keys(res).length);
+
+
+
+/*
+
+
 
 function try_strat(strat, timestamp_end) {
     var costs = [];
