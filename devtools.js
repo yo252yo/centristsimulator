@@ -40,7 +40,7 @@ function r() {
 
 function evalTech(tech_id, start) {
     start = start || 0;
-    let tech = TECHNOLOGIES[tech_id];
+    let tech = Object.assign({}, Object.values(TECHNOLOGIES)[tech_id]);
     if (!start in milestone) {
         console.log("INVALID START TIME");
         return;
@@ -172,9 +172,11 @@ function heuristic_with(tech_id) {
 // TRY ALL STRATS
 
 
-var STOP_AT = 60;
+var STOP_AT = 120;
 var START_CASH = 1;
 var START_INCOME = 10;
+
+var TRY_FIRST_N_TECH = Object.keys(TECHNOLOGIES).length;
 
 function try_strat(strat, timestamp_end) {
     var costs = [];
@@ -236,7 +238,7 @@ function try_strat(strat, timestamp_end) {
 var ALL_STRATS = {};
 function try_all_strat(prefix) {
     var strat = prefix || "";
-    for (var s = 0; s <= 5; s++) {
+    for (var s = 0; s < TRY_FIRST_N_TECH; s++) {
         try {
             var r = try_strat(strat + s, STOP_AT);
             ALL_STRATS[(strat + s)] = r;
@@ -277,7 +279,7 @@ function evaluate_percentiles(filter, invert) {
 
 console.log("TOTAL: ");
 evaluate_percentiles();
-for (var i = 0; i <= 5; i++) {
+for (var i = 0; i < TRY_FIRST_N_TECH; i++) {
     console.log("=========== TECH " + i);
     evaluate_percentiles(i);
     evaluate_percentiles(i, true);

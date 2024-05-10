@@ -4,6 +4,10 @@ let LF_table = [1, 5, 10, 100, 1000, 50000, 1000000, 1000000000];
 let LICENSING_FEE = LF_table[LF_index];
 
 const TECHNOLOGIES = {
+    // ===========================================================
+    // ===========================================================
+    // TIER 1
+
     "wind": {
         name: "wind turbines",
         category: 1,
@@ -22,7 +26,7 @@ const TECHNOLOGIES = {
         cost: 10,
         income: 1,
         level_cost_increase: 2.0,
-        level_income_increase: 1.5,
+        level_income_increase: 1.4,
 
         current_level: 0,
     },
@@ -65,11 +69,11 @@ const TECHNOLOGIES = {
 
         cost: 100,
         income: 10,
-        level_cost_increase: 30,
-        level_income_increase: 5,
+        level_cost_increase: 20,
+        level_income_increase: 15,
 
         current_level: 0,
-    }
+    },
 };
 
 function updateLicenseFee() {
