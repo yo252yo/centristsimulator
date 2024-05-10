@@ -62,8 +62,12 @@ function evalTech(tech_id, start) {
     }
 }
 
+// ==============================================================================
+// ==============================================================================
+// ==============================================================================
+// HEURISTIC
 
-function bestrun(start, start_cash, start_income, start_local_lfindex, start_techtree) {
+function heuristic(start, start_cash, start_income, start_local_lfindex, start_techtree) {
     var tech_tree = start_techtree || Object.assign({}, TECHNOLOGIES);
     for (var t in tech_tree) {
         tech_tree[t] = Object.assign({}, tech_tree[t]);
@@ -139,7 +143,7 @@ function bestrun(start, start_cash, start_income, start_local_lfindex, start_tec
     }
 }
 
-function best_run_with(tech_id) {
+function heuristic_with(tech_id) {
     var tech_tree = Object.assign({}, TECHNOLOGIES);
     for (var t in tech_tree) {
         tech_tree[t] = Object.assign({}, tech_tree[t]);
@@ -156,16 +160,21 @@ function best_run_with(tech_id) {
             tech.cost *= tech.level_cost_increase;
             tech.income *= tech.level_income_increase;
             tech.current_level += 1;
-            bestrun(i, cash, income, 1, tech_tree);
+            heuristic(i, cash, income, 1, tech_tree);
             return;
         }
     }
 }
 
-
+// ==============================================================================
+// ==============================================================================
+// ==============================================================================
+// TRY ALL STRATS
 
 
 var STOP_AT = 60;
+var START_CASH = 1;
+var START_INCOME = 10;
 
 function try_strat(strat, timestamp_end) {
     var costs = [];
@@ -180,8 +189,8 @@ function try_strat(strat, timestamp_end) {
         }
     }
 
-    var cash = 1;
-    var income = 10;
+    var cash = START_CASH;
+    var income = START_INCOME;
     var current_license = 0;
 
     var strat_index = 0;
@@ -227,10 +236,9 @@ function try_strat(strat, timestamp_end) {
 var ALL_STRATS = {};
 function try_all_strat(prefix) {
     var strat = prefix || "";
-    for (var s = 0; s <= 6; s++) {
+    for (var s = 0; s <= 5; s++) {
         try {
             var r = try_strat(strat + s, STOP_AT);
-            console.log((strat + s) + ": " + r);
             ALL_STRATS[(strat + s)] = r;
         } catch (e) {
             try_all_strat(strat + s);
@@ -242,11 +250,15 @@ console.log(ALL_STRATS);
 
 
 
-function evaluate(filter) {
+function evaluate_percentiles(filter, invert) {
     var filteredKeys = Object.keys(ALL_STRATS);
     if (filter) {
         filteredKeys = Object.keys(ALL_STRATS).filter(function (key) {
-            return key.includes(filter);
+            if (!invert) {
+                return key.includes(filter);
+            } else {
+                return !(key.includes(filter));
+            }
         });
     }
 
@@ -257,18 +269,16 @@ function evaluate(filter) {
     filteredIncomes.sort(function (a, b) {
         return a - b;
     });
-
-    console.log("Result for tech: " + filter);
-    console.log("99%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.99)] +
-        " - 90%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.90)] +
-        " - 80%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.80)] +
-        " - 50%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.50)]);
+    console.log("99%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.99)].toFixed(1) +
+        " - \t90%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.90)].toFixed(1) +
+        " - \t80%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.80)].toFixed(1) +
+        " - \t50%: " + filteredIncomes[Math.floor(filteredIncomes.length * 0.50)].toFixed(1));
 }
 
-evaluate();
-evaluate(1);
-evaluate(2);
-evaluate(3);
-evaluate(4);
-evaluate(5);
-evaluate(6);
+console.log("TOTAL: ");
+evaluate_percentiles();
+for (var i = 0; i <= 5; i++) {
+    console.log("=========== TECH " + i);
+    evaluate_percentiles(i);
+    evaluate_percentiles(i, true);
+}
