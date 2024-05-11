@@ -63,7 +63,7 @@ function getBP(seconds) {
 
 var pop_disaster_ratio = 100;
 var death_alert_threshold = 1;
-var disasters_before_new_compassion_lvl = 0;
+var disasters_before_new_compassion_lvl = -1; // the first time we need one extra popup
 
 function current_population() {
     return Math.max(0, Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / pop_disaster_ratio));
@@ -78,7 +78,7 @@ function dismissDisaster() {
     PENDING_DISASTER_POINTS = 0;
 
     disasters_before_new_compassion_lvl++;
-    if (disasters_before_new_compassion_lvl == 3) {
+    if (disasters_before_new_compassion_lvl == 2) {
         document.getElementById("compassion_slider").max = 1 + parseInt(document.getElementById("compassion_slider").max);
         document.getElementById("compassion_slider").disabled = false;
         document.getElementById("compassion_slider_disclaimer").style.display = "block";
