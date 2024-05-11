@@ -343,6 +343,7 @@ function addToMarketplace(tech_id) {
     li.innerHTML = `${tech.name}:<br /> -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s`;
     li.dataset.cost = tech.cost;
     li.dataset.is_market = true;
+    li.style.display = "none";
     li.classList.add("li_" + tech.category);
 
     li.addEventListener("click", function () {

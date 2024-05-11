@@ -9,9 +9,7 @@ function displayAllPurchases() {
         if (li.dataset.is_market) {
             cost += LICENSING_FEE;
 
-            if (GOOD_POINTS_PER_SEC * 100 < cost) {
-                li.style.display = "none";
-            } else {
+            if (GOOD_POINTS_PER_SEC * 100 >= cost) {
                 li.style.display = "block";
             }
         }
