@@ -32,7 +32,7 @@ const BP_milestones = {
     "300": 11000000000,
 }
 
-function getMilestone(x) {
+function getBPMilestone(x) {
     let previousKey, nextKey = null;
     for (let key in BP_milestones) {
         if (key <= x) {
@@ -51,13 +51,21 @@ function getBP(seconds) {
     } else if (seconds > 300) {
         return Math.floor(1.4 * Math.pow(seconds, 4));
     } else {
-        const milestones = getMilestone(seconds);
+        const milestones = getBPMilestone(seconds);
         const before = milestones.previousKey;
         const after = milestones.nextKey;
         const rate = (BP_milestones[after] - BP_milestones[before]) / (after - before);
         const interpol = BP_milestones[before] + rate * (seconds - before);
         return Math.floor(interpol);
     }
+}
+
+function current_population() {
+    return Math.max(0, Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / 100));
+}
+
+function disaster_progress() { // in [0,1]
+    return (TOTAL_DISASTER_POINTS - Math.floor(TOTAL_DISASTER_POINTS / 100) * 100) / 100;
 }
 
 function updatePoints() {
@@ -79,7 +87,7 @@ function updatePoints() {
 
     TOTAL_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
 
-    if (TOTAL_DISASTER_POINTS / 100 > START_POPULATION) {
+    if (current_population() <= 0) {
         pause();
         alert("LOST");
         location.href = "difficulty.html";

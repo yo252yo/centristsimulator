@@ -45,14 +45,14 @@ function displayPoints() {
 }
 
 function displayPopulation() {
-    var decimals = (TOTAL_DISASTER_POINTS - Math.floor(TOTAL_DISASTER_POINTS / 100) * 100) / 100;
+    var decimals = disaster_progress();
 
     var gauge_characters = 20;
     var interval = 1 / gauge_characters;
     var progress = Math.round(decimals / interval);
     document.getElementById("disaster").innerHTML = "|".repeat(progress) + ".".repeat(gauge_characters - progress);
 
-    document.getElementById("population").innerHTML = `${Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / 100)}`;
+    document.getElementById("population").innerHTML = `${current_population()}`;
 }
 
 function updateHtmlValues() {
