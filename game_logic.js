@@ -1,4 +1,6 @@
 
+let SPEED = 1;
+
 let GAME_PAUSED = false;
 
 let GOOD_POINTS = 10;
@@ -59,7 +61,11 @@ function getBP(seconds) {
     }
 }
 
+
 function updatePoints() {
+    // Plan the next tick
+    setTimeout(updatePoints, 1000 / SPEED);
+
     if (GAME_PAUSED) {
         return;
     }
@@ -80,4 +86,4 @@ function updatePoints() {
         location.href = "difficulty.html";
     }
 }
-setInterval(updatePoints, 1000);
+setTimeout(updatePoints, 1000);

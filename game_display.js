@@ -2,7 +2,7 @@
 let start_year = (new Date()).getFullYear();
 
 
-function updateAllPurchases() {
+function displayAllPurchases() {
     var listItems = document.querySelectorAll('li');
     listItems.forEach(function (li) {
         var cost = parseFloat(li.dataset.cost);
@@ -24,13 +24,13 @@ function updateAllPurchases() {
     });
 }
 
-function updateTime() {
+function displayTime() {
     var year = start_year + Math.floor(seconds_elapsed / 4);
     var season = seconds_elapsed % 4;
     document.getElementById("date").innerHTML = `Year: ${year} ${"|".repeat(season)}${".".repeat(4 - season)}`;
 }
 
-function updatePoints() {
+function displayPoints() {
     document.getElementById("s_points").innerHTML = formatNumber(GOOD_POINTS);
     document.getElementById("s_income").innerHTML = formatNumber(GOOD_POINTS_PER_SEC);
     document.getElementById("c_points").innerHTML = formatNumber(BAD_POINTS);
@@ -39,7 +39,7 @@ function updatePoints() {
     document.getElementById("licensing_fee").innerHTML = formatNumber(LICENSING_FEE);
 }
 
-function updatePopulation() {
+function displayPopulation() {
     document.getElementById("population").innerHTML = `${population}`;
     var disaster_chars = 20;
     var decimals = MOCK_disaster - Math.floor(MOCK_disaster);
@@ -49,10 +49,10 @@ function updatePopulation() {
 }
 
 function updateHtmlValues() {
-    updateTime();
-    updatePoints();
-    updatePopulation();
-    updateAllPurchases();
+    displayTime();
+    displayPoints();
+    displayPopulation();
+    displayAllPurchases();
 }
 updateHtmlValues();
 setInterval(updateHtmlValues, 500);
@@ -60,4 +60,12 @@ setInterval(updateHtmlValues, 500);
 function pause() {
     GAME_PAUSED = !GAME_PAUSED;
     document.getElementById("pause").innerHTML = GAME_PAUSED ? ">>" : "||";
+}
+
+function speed() {
+    SPEED *= 2;
+    if (SPEED > 8) {
+        SPEED = 1;
+    }
+    document.getElementById("speed").innerHTML = `x${SPEED}`;
 }
