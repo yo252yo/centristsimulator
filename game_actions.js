@@ -287,9 +287,16 @@ function processTechUpgrade(tech_id) {
     tech.income *= tech.level_income_increase;
 
     var li = document.getElementById("portfolio_" + tech_id);
-    li.innerHTML = `${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />
-    
-    ${"|".repeat(tech.current_level)}`;
+
+    var nb_bars = tech.current_level;
+    var nb_cross = 0;
+    if (nb_bars > 20) {
+        nb_cross = Math.floor(nb_bars / 10);
+        nb_bars -= nb_cross * 10;
+    }
+    var bars = "X".repeat(nb_cross) + "|".repeat(nb_bars);
+    li.innerHTML = `${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
+    ${bars}`;
     li.dataset.cost = tech.cost;
 }
 

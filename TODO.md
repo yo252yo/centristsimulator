@@ -1,8 +1,5 @@
 
 death gauge, 
-Tech level above 20
-
-bugfix: do not remove market options if they're visible
 
 
 ==============
