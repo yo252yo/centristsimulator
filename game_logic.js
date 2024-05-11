@@ -4,7 +4,7 @@ let SPEED = 1;
 let GAME_PAUSED = false;
 
 let GOOD_POINTS = 10;
-let GOOD_POINTS_PER_SEC = 10;
+let GOOD_POINTS_PER_SEC = 2;
 
 let BAD_POINTS = 0;
 
@@ -60,7 +60,6 @@ function getBP(seconds) {
         return Math.floor(interpol);
     }
 }
-
 
 function updatePoints() {
     // Plan the next tick

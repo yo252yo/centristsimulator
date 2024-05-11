@@ -34,7 +34,8 @@ function displayPoints() {
     document.getElementById("s_points").innerHTML = formatNumber(GOOD_POINTS);
     document.getElementById("s_income").innerHTML = formatNumber(GOOD_POINTS_PER_SEC);
     document.getElementById("c_points").innerHTML = formatNumber(BAD_POINTS);
-    document.getElementById("differencial").innerHTML = formatNumber(BAD_POINTS - GOOD_POINTS);
+    var d = Math.max(0, BAD_POINTS - GOOD_POINTS);
+    document.getElementById("differencial").innerHTML = formatNumber(d);
 
     document.getElementById("licensing_fee").innerHTML = formatNumber(LICENSING_FEE);
 }
@@ -56,6 +57,19 @@ function updateHtmlValues() {
 }
 updateHtmlValues();
 setInterval(updateHtmlValues, 500);
+
+
+
+function clicker() {
+    if (GAME_PAUSED) {
+        return;
+    }
+
+    GOOD_POINTS += Math.min(1, SPEED);
+    displayPoints();
+}
+
+
 
 function pause() {
     GAME_PAUSED = !GAME_PAUSED;
@@ -103,5 +117,4 @@ function handleKeyPress(event) {
         speed("-");
     }
 }
-
 document.addEventListener('keypress', handleKeyPress);
