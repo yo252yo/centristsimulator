@@ -36,6 +36,13 @@ function displayPoints() {
     document.getElementById("c_points").innerHTML = formatNumber(BAD_POINTS);
     var d = Math.max(0, BAD_POINTS - GOOD_POINTS);
     document.getElementById("differencial").innerHTML = formatNumber(d);
+    if (d > 0) {
+        document.getElementById("differencial").classList.add("number_bad");
+        document.getElementById("differencial").classList.remove("number_good");
+    } else {
+        document.getElementById("differencial").classList.remove("number_bad");
+        document.getElementById("differencial").classList.add("number_good");
+    }
 
     document.getElementById("licensing_fee").innerHTML = formatNumber(LICENSING_FEE);
 }

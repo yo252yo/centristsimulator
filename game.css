@@ -79,3 +79,19 @@ li {
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.number {
+    font-size: xx-large;
+}
+
+.number_good {
+    font-size: xx-large;
+    color: #61bc87;
+    text-shadow: #61bc87dd 1px 0px 4px;
+}
+
+.number_bad {
+    font-size: xx-large;
+    color: #b96060;
+    text-shadow: #b96060dd 1px 0px 4px;
+}
