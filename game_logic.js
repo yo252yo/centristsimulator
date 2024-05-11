@@ -60,12 +60,13 @@ function getBP(seconds) {
     }
 }
 
+var pop_disaster_ratio = 100;
 function current_population() {
-    return Math.max(0, Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / 100));
+    return Math.max(0, Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / pop_disaster_ratio));
 }
 
 function disaster_progress() { // in [0,1]
-    return (TOTAL_DISASTER_POINTS - Math.floor(TOTAL_DISASTER_POINTS / 100) * 100) / 100;
+    return (TOTAL_DISASTER_POINTS - Math.floor(TOTAL_DISASTER_POINTS / pop_disaster_ratio) * pop_disaster_ratio) / pop_disaster_ratio;
 }
 
 function updatePoints() {
