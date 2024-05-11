@@ -95,3 +95,12 @@ li {
     color: #b96060;
     text-shadow: #b96060dd 1px 0px 4px;
 }
+
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: inherit;
+}
