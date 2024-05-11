@@ -1,7 +1,6 @@
 
 let start_year = (new Date()).getFullYear();
 
-
 function displayAllPurchases() {
     var listItems = document.querySelectorAll('li');
     listItems.forEach(function (li) {
@@ -46,12 +45,14 @@ function displayPoints() {
 }
 
 function displayPopulation() {
-    document.getElementById("population").innerHTML = `${population}`;
-    var disaster_chars = 20;
-    var decimals = MOCK_disaster - Math.floor(MOCK_disaster);
-    var interval = 1 / disaster_chars;
+    var decimals = (TOTAL_DISASTER_POINTS - Math.floor(TOTAL_DISASTER_POINTS / 100) * 100) / 100;
+
+    var gauge_characters = 20;
+    var interval = 1 / gauge_characters;
     var progress = Math.round(decimals / interval);
-    document.getElementById("disaster").innerHTML = "|".repeat(progress) + ".".repeat(disaster_chars - progress);
+    document.getElementById("disaster").innerHTML = "|".repeat(progress) + ".".repeat(gauge_characters - progress);
+
+    document.getElementById("population").innerHTML = `${Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / 100)}`;
 }
 
 function updateHtmlValues() {

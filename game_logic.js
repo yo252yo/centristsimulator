@@ -12,11 +12,10 @@ let seconds_elapsed = 0;
 
 let difficulty = 1;
 
+let TOTAL_DISASTER_POINTS = 0;
+
 let pop_rate_initial = 1000000000 / ((new Date("2024/01/01")).getTime() - (new Date("2013/01/01")).getTime());
-let population = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
-
-
-let MOCK_disaster = 0;
+let START_POPULATION = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
 
 const BP_milestones = {
     "1": 1,
@@ -72,17 +71,17 @@ function updatePoints() {
     GOOD_POINTS += GOOD_POINTS_PER_SEC;
     console.log(`At: ${seconds_elapsed}, ${GOOD_POINTS}$, ${GOOD_POINTS_PER_SEC}$/s`);
     BAD_POINTS = getBP(seconds_elapsed);
+
     // I know what i said before but i think we can let them celebrate small victories since they'll be crushed in the end
     // if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
     //     BAD_POINTS = GOOD_POINTS + 1;
     // }
 
-    population += GOOD_POINTS - BAD_POINTS;
-    MOCK_disaster += Math.random() * 0.4;
+    TOTAL_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
 
-    if (population <= 0) {
-        alert("LOST");
-        location.href = "difficulty.html";
-    }
+    // if (population <= 0) {
+    //     alert("LOST");
+    //     location.href = "difficulty.html";
+    // }
 }
 setTimeout(updatePoints, 1000);
