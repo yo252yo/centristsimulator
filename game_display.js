@@ -62,10 +62,46 @@ function pause() {
     document.getElementById("pause").innerHTML = GAME_PAUSED ? ">>" : "||";
 }
 
-function speed() {
-    SPEED *= 2;
-    if (SPEED > 8) {
-        SPEED = 1;
+function speed(set_at) {
+    if (!set_at) {
+        SPEED *= 2;
+        if (SPEED > 8) {
+            SPEED = .5;
+        }
+    } else if (set_at == "+") {
+        if (SPEED < 8) {
+            SPEED *= 2;
+        }
+    } else if (set_at == "-") {
+        SPEED = Math.max(.5, SPEED / 2);
+    } else {
+        SPEED = set_at;
     }
     document.getElementById("speed").innerHTML = `x${SPEED}`;
 }
+
+function handleKeyPress(event) {
+    if (event.key === ' ' || event.key === '0' || event.key === 'Enter' || event.key === 'Return') {
+        pause();
+    }
+    if (event.key === '1') {
+        speed(1);
+    }
+    if (event.key === '2') {
+        speed(2);
+    }
+    if (event.key === '3') {
+        speed(4);
+    }
+    if (event.key === '4') {
+        speed(8);
+    }
+    if (event.key === '+') {
+        speed("+");
+    }
+    if (event.key === '-') {
+        speed("-");
+    }
+}
+
+document.addEventListener('keypress', handleKeyPress);
