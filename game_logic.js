@@ -79,9 +79,10 @@ function updatePoints() {
 
     TOTAL_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
 
-    // if (population <= 0) {
-    //     alert("LOST");
-    //     location.href = "difficulty.html";
-    // }
+    if (TOTAL_DISASTER_POINTS / 100 > START_POPULATION) {
+        pause();
+        alert("LOST");
+        location.href = "difficulty.html";
+    }
 }
 setTimeout(updatePoints, 1000);
