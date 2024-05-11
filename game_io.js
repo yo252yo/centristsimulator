@@ -83,7 +83,6 @@ function displayPopup() {
     document.getElementById("popup").style.visibility = "visible";
 }
 
-
 function pause(forced_state) {
     if (forced_state) {
         if (forced_state == "ON") {

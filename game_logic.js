@@ -63,24 +63,44 @@ function getBP(seconds) {
 
 var pop_disaster_ratio = 100;
 var death_alert_threshold = 1;
+var disasters_before_new_compassion_lvl = 0;
 
 function current_population() {
     return Math.max(0, Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / pop_disaster_ratio));
 }
 
 function disaster_progress() { // in [0,1]
-    return Math.min(1, PENDING_DISASTER_POINTS / pop_disaster_ratio);
+    return Math.min(1, PENDING_DISASTER_POINTS / (death_alert_threshold * pop_disaster_ratio));
 }
 
 function dismissDisaster() {
     TOTAL_DISASTER_POINTS += PENDING_DISASTER_POINTS;
     PENDING_DISASTER_POINTS = 0;
+
+    disasters_before_new_compassion_lvl++;
+    if (disasters_before_new_compassion_lvl == 3) {
+        document.getElementById("compassion_slider").max = 1 + parseInt(document.getElementById("compassion_slider").max);
+        document.getElementById("compassion_slider").disabled = false;
+        document.getElementById("compassion_slider_disclaimer").style.display = "block";
+    }
+
     displayPopulation();
     pause("ON");
 }
 
+var death_alert_thresholds = [1, 2, 5, 10, 20, 50, 100, 1000, 10000, 100000, 1000000, 10000000, 1000000000];
+function changeCompassionSlider() {
+    var index = document.getElementById("compassion_slider").value;
+    if (index >= death_alert_thresholds.length) {
+        index = death_alert_thresholds.length - 1;
+    }
+    death_alert_threshold = death_alert_thresholds[index];
+    document.getElementById("compassion_fade").innerText = formatNumber(death_alert_threshold);
+    disasters_before_new_compassion_lvl = 0;
+}
+
 function handleDisaster() {
-    if (PENDING_DISASTER_POINTS > 100) {
+    if (PENDING_DISASTER_POINTS > pop_disaster_ratio * death_alert_threshold) {
         pause("OFF");
         displayPopulation();
         displayPopup();
