@@ -111,5 +111,6 @@ function updatePoints() {
     //     BAD_POINTS = GOOD_POINTS + 1;
     // }
     handleDisaster();
+    updateHtmlValues();
 }
 setTimeout(updatePoints, 1000);

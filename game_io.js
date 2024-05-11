@@ -62,7 +62,6 @@ function updateHtmlValues() {
     displayAllPurchases();
 }
 updateHtmlValues();
-setInterval(updateHtmlValues, 500);
 
 
 
