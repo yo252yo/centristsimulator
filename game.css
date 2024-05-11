@@ -19,10 +19,21 @@
     left: 25px;
 }
 
+#popup {
+    position: absolute;
+    top: 50px;
+    left: 20%;
+    right: 20%;
+    padding: 20;
+    z-index: 10;
+    border: solid 1px #b96060;
+    box-shadow: -1px -1px 2px 2px #b9606022;
+    visibility: hidden;
+}
+
 .amount {
     width: 50px;
 }
-
 
 li {
     border: solid #679c9b 1px;

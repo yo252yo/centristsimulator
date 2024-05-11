@@ -13,6 +13,7 @@ let seconds_elapsed = 0;
 let difficulty = 1;
 
 let TOTAL_DISASTER_POINTS = 0;
+let PENDING_DISASTER_POINTS = 0;
 
 let pop_rate_initial = 1000000000 / ((new Date("2024/01/01")).getTime() - (new Date("2013/01/01")).getTime());
 let START_POPULATION = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
@@ -61,12 +62,35 @@ function getBP(seconds) {
 }
 
 var pop_disaster_ratio = 100;
+var death_alert_threshold = 1;
+
 function current_population() {
     return Math.max(0, Math.ceil(START_POPULATION - TOTAL_DISASTER_POINTS / pop_disaster_ratio));
 }
 
 function disaster_progress() { // in [0,1]
-    return (TOTAL_DISASTER_POINTS - Math.floor(TOTAL_DISASTER_POINTS / pop_disaster_ratio) * pop_disaster_ratio) / pop_disaster_ratio;
+    return Math.min(1, PENDING_DISASTER_POINTS / pop_disaster_ratio);
+}
+
+function dismissDisaster() {
+    TOTAL_DISASTER_POINTS += PENDING_DISASTER_POINTS;
+    PENDING_DISASTER_POINTS = 0;
+    displayPopulation();
+    pause("ON");
+}
+
+function handleDisaster() {
+    if (PENDING_DISASTER_POINTS > 100) {
+        pause("OFF");
+        displayPopulation();
+        displayPopup();
+    }
+
+    if (current_population() <= 0) {
+        pause();
+        alert("LOST");
+        location.href = "difficulty.html";
+    }
 }
 
 function updatePoints() {
@@ -80,18 +104,12 @@ function updatePoints() {
     GOOD_POINTS += GOOD_POINTS_PER_SEC;
     console.log(`At: ${seconds_elapsed}, ${GOOD_POINTS}$, ${GOOD_POINTS_PER_SEC}$/s`);
     BAD_POINTS = getBP(seconds_elapsed);
+    PENDING_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
 
     // I know what i said before but i think we can let them celebrate small victories since they'll be crushed in the end
     // if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
     //     BAD_POINTS = GOOD_POINTS + 1;
     // }
-
-    TOTAL_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
-
-    if (current_population() <= 0) {
-        pause();
-        alert("LOST");
-        location.href = "difficulty.html";
-    }
+    handleDisaster();
 }
 setTimeout(updatePoints, 1000);

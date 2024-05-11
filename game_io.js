@@ -75,10 +75,30 @@ function clicker() {
     displayPoints();
 }
 
+function dismissPopup() {
+    document.getElementById("popup").style.visibility = "hidden";
+    dismissDisaster();
+}
+
+function displayPopup() {
+    document.getElementById("popup").style.visibility = "visible";
+}
 
 
-function pause() {
-    GAME_PAUSED = !GAME_PAUSED;
+function pause(forced_state) {
+    if (forced_state) {
+        if (forced_state == "ON") {
+            GAME_PAUSED = false;
+        }
+        if (forced_state == "OFF") {
+            GAME_PAUSED = true;
+        }
+    } else {
+        GAME_PAUSED = !GAME_PAUSED;
+    }
+    if (!GAME_PAUSED) {
+        document.getElementById("popup").style.visibility = "hidden";
+    }
     document.getElementById("pause").innerHTML = GAME_PAUSED ? ">>" : "||";
 }
 

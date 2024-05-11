@@ -4,9 +4,10 @@ death gauge,
 
 ==============
 
-popups on mouseover
+popup on death should black out the rest and be pretty and have death info and so on
+tooltip on mouseover
 difficulty implementation
-real game
+real game (out of the box thinking): where do you find ideas outside of capitalism? real politic?
 mobile version
 game over screen
 victory screen
