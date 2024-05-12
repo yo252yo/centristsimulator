@@ -5,9 +5,29 @@ let GAME_PAUSED = false;
 let seconds_elapsed = 0;
 
 // ==================================================================
+// Difficulty
+var difficulty_param = 0;
+var match = window.location.href.match(/[?&]difficulty=(\d)/);
+
+if (match) {
+    difficulty_param = parseInt(match[1]);
+}
+
+var DIFFICULTY = 1;
+if (difficulty_param == 1) { // easy
+    DIFFICULTY = 0.5;
+} else if (difficulty_param == 2) { // new normal
+    DIFFICULTY = 2;
+} else if (difficulty_param == 3) { // post new normal
+    DIFFICULTY = 3;
+} else if (difficulty_param == 4) { // impossible
+    DIFFICULTY = 4;
+}
+
+// ==================================================================
 // Basic points
-let GOOD_POINTS = 10;
-let GOOD_POINTS_PER_SEC = 2;
+let GOOD_POINTS = Math.floor(20 / DIFFICULTY);
+let GOOD_POINTS_PER_SEC = 2 / DIFFICULTY;
 
 let BAD_POINTS = 0;
 
@@ -54,13 +74,23 @@ function getBP(seconds) {
         bp = Math.floor(interpol);
     }
 
-    return bp;
+    return Math.floor(bp * Math.sqrt(DIFFICULTY));
 }
 
 // This is the main game loop
 function updatePoints() {
     // Plan the next tick
-    setTimeout(updatePoints, 1000 / SPEED);
+    var delay = 1000 / SPEED;
+    if (DIFFICULTY == 0.5) {
+        delay *= 2;
+    } else if (DIFFICULTY == 2) {
+        delay *= .9;
+    } else if (DIFFICULTY == 3) {
+        delay *= .8;
+    } else if (DIFFICULTY == 4) {
+        delay *= .75;
+    }
+    setTimeout(updatePoints, delay);
 
     if (GAME_PAUSED) {
         return;
@@ -141,10 +171,5 @@ function handleDisaster() {
         location.href = "difficulty.html";
     }
 }
-
-// ==================================================================
-// Difficulty
-var params = new URLSearchParams(window.location.href);
-var difficulty = params.get('difficulty') || 0;
 
 
