@@ -127,7 +127,9 @@ function pause(forced_state) {
         GAME_PAUSED = !GAME_PAUSED;
     }
     if (!GAME_PAUSED) {
-        document.getElementById("popup").style.visibility = "hidden";
+        if (document.getElementById("popup").style.visibility != "hidden") {
+            dismissPopup();
+        }
     }
     document.getElementById("pause").innerHTML = GAME_PAUSED ? "UNPAUSE" : "PAUSE";
     if (GAME_PAUSED) {
