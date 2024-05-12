@@ -47,7 +47,7 @@
             Compassion fade:<br />
             <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
                 disabled="true"><br />
-            <span id="compassion_fade">1</span> deaths for an alert.<br />
+            <span id="compassion_fade">1</span> deaths for an alert<br />
             <br />
             Population: <span id="population"></span>
         </div>
@@ -55,8 +55,12 @@
 
 
     <div id="right_block">
-        <div class="cell_div">
+        <div class="cell_div" id="carbon_capture_div">
             <input type="button" value="Carbon capture project +1$" onclick="clicker();" />
+        </div>
+        <div class="cell_div" id="carbon_capture_div_alternative" style="display:none">
+            No virtue signaling in IMPOSSIBLE mode<br />
+            <input type="button" value="Carbon capture project +1$" onclick="clicker();" disabled="true" />
         </div>
 
         <div class="cell_div">
@@ -68,6 +72,12 @@
         <div class="cell_div">
             Marketplace of ideas<br />
             Licensing fee: $<span id="licensing_fee"></span>
+            <ul id="marketplace">
+            </ul>
+        </div>
+
+        <div class="cell_div" id="politics_div" style="display:none;">
+            Political Grand Narratives<br />
             <ul id="marketplace">
             </ul>
         </div>

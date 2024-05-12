@@ -22,6 +22,9 @@ if (difficulty_param == 1) { // easy
     DIFFICULTY = 3;
 } else if (difficulty_param == 4) { // impossible
     DIFFICULTY = 4;
+    document.getElementById("carbon_capture_div").style.display = "none";
+    document.getElementById("carbon_capture_div_alternative").style.display = "block";
+    document.getElementById("politics_div").style.display = "block";
 }
 
 // ==================================================================
