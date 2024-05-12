@@ -75,7 +75,6 @@ li {
 .li_7 {
     /* Policies */
     border: solid #ffdefa 1px;
-    background-color: #2b2821;
     box-shadow: -2px -2px 4px 4px #ffdefa22;
 }
 
@@ -91,6 +90,25 @@ li {
 
 .background {
     animation: changeBackground 0.1s infinite;
+
+    color: #679c9b;
+    text-shadow: #679c9bdd 1px 0px 4px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@keyframes changeBackground_paused {
+    0% {
+        background-color: #3a3a3a;
+    }
+
+    100% {
+        background-color: #383838;
+    }
+}
+
+.background_paused {
+    animation: changeBackground_paused 0.1s infinite;
 
     color: #679c9b;
     text-shadow: #679c9bdd 1px 0px 4px;

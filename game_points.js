@@ -148,7 +148,6 @@ function dismissDisaster() {
     }
 
     displayPopulation();
-    pause("ON");
 }
 
 var death_alert_thresholds = [1, 2, 5, 10, 20, 50, 100, 1000, 10000, 100000, 1000000, 10000000, 1000000000];

@@ -129,7 +129,14 @@ function pause(forced_state) {
     if (!GAME_PAUSED) {
         document.getElementById("popup").style.visibility = "hidden";
     }
-    document.getElementById("pause").innerHTML = GAME_PAUSED ? ">>" : "||";
+    document.getElementById("pause").innerHTML = GAME_PAUSED ? "UNPAUSE" : "PAUSE";
+    if (GAME_PAUSED) {
+        document.body.classList.add('background_paused');
+        document.body.classList.remove('background');
+    } else {
+        document.body.classList.add('background');
+        document.body.classList.remove('background_paused');
+    }
 }
 
 function speed(set_at) {
@@ -176,5 +183,7 @@ function handleKeyPress(event) {
     if (event.key === '-') {
         speed("-");
     }
+    event.stopPropagation();
+    event.preventDefault();
 }
 document.addEventListener('keypress', handleKeyPress);
