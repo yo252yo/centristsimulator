@@ -345,6 +345,15 @@ function purchaseTech(tech_id) {
     updateHtmlValues();
 }
 
+function skip_market(event, tech_id) {
+    event.stopPropagation();
+
+    var elementToRemove = document.getElementById("market_" + tech_id);
+    elementToRemove.parentNode.removeChild(elementToRemove);
+    addToMarketplace(tech_id);
+    displayAllPurchases();
+}
+
 // ==================================================================
 // Radical policies
 
@@ -425,7 +434,15 @@ function addToMarketplace(tech_id) {
 
     let li = document.createElement("li");
     li.id = "market_" + tech_id;
-    li.innerHTML = `${tech.name}:<br /> -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s`;
+    li.innerHTML = `
+        <span style="display:flex;float:left">${tech.name}</span>
+        <span style="display:flex;float:right">
+        <a onClick="skip_market(event, '${tech_id}')">
+            SKIP
+        </a></span>
+        <br />
+        -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s
+    `;
     li.dataset.cost = tech.cost;
     li.dataset.is_market = true;
     li.style.display = "none";
