@@ -5,6 +5,7 @@ difficulty implementation
 skip button for marketplace
 real game (out of the box thinking): where do you find ideas outside of capitalism? real politic? => Think, its a place of real thoughts and experimentation and trying things, im not sure it exists in the world. grand political narrative/ideology box/radical ideas  
 
+https://aleclownes.com/2017/02/01/crt-display.html
 
 ======================
 
