@@ -2,21 +2,14 @@
 let SPEED = 1;
 
 let GAME_PAUSED = false;
+let seconds_elapsed = 0;
 
+// ==================================================================
+// Basic points
 let GOOD_POINTS = 10;
 let GOOD_POINTS_PER_SEC = 2;
 
 let BAD_POINTS = 0;
-
-let seconds_elapsed = 0;
-
-let difficulty = 1;
-
-let TOTAL_DISASTER_POINTS = 0;
-let PENDING_DISASTER_POINTS = 0;
-
-let pop_rate_initial = 1000000000 / ((new Date("2024/01/01")).getTime() - (new Date("2013/01/01")).getTime());
-let START_POPULATION = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
 
 const BP_milestones = {
     "1": 1,
@@ -47,19 +40,55 @@ function getBPMilestone(x) {
 }
 
 function getBP(seconds) {
+    var bp = 0;
     if (seconds in BP_milestones) {
-        return BP_milestones[seconds];
+        bp = BP_milestones[seconds];
     } else if (seconds > 300) {
-        return Math.floor(1.4 * Math.pow(seconds, 4));
+        bp = Math.floor(1.4 * Math.pow(seconds, 4));
     } else {
         const milestones = getBPMilestone(seconds);
         const before = milestones.previousKey;
         const after = milestones.nextKey;
         const rate = (BP_milestones[after] - BP_milestones[before]) / (after - before);
         const interpol = BP_milestones[before] + rate * (seconds - before);
-        return Math.floor(interpol);
+        bp = Math.floor(interpol);
     }
+
+    return bp;
 }
+
+// This is the main game loop
+function updatePoints() {
+    // Plan the next tick
+    setTimeout(updatePoints, 1000 / SPEED);
+
+    if (GAME_PAUSED) {
+        return;
+    }
+    seconds_elapsed++;
+    GOOD_POINTS += GOOD_POINTS_PER_SEC;
+    console.log(`At: ${seconds_elapsed}, ${GOOD_POINTS}$, ${GOOD_POINTS_PER_SEC}$/s`);
+    BAD_POINTS = getBP(seconds_elapsed);
+    PENDING_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
+
+    // I know what i said before but i think we can let them celebrate small victories since they'll be crushed in the end
+    // if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
+    //     BAD_POINTS = GOOD_POINTS + 1;
+    // }
+    handleDisaster();
+    updateHtmlValues();
+}
+setTimeout(updatePoints, 1000);
+
+
+// ==================================================================
+// Disaster / population
+let TOTAL_DISASTER_POINTS = 0;
+let PENDING_DISASTER_POINTS = 0;
+
+let pop_rate_initial = 1000000000 / ((new Date("2024/01/01")).getTime() - (new Date("2013/01/01")).getTime());
+let START_POPULATION = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
+
 
 var pop_disaster_ratio = 100;
 var death_alert_threshold = 1;
@@ -113,24 +142,9 @@ function handleDisaster() {
     }
 }
 
-function updatePoints() {
-    // Plan the next tick
-    setTimeout(updatePoints, 1000 / SPEED);
+// ==================================================================
+// Difficulty
+var params = new URLSearchParams(window.location.href);
+var difficulty = params.get('difficulty') || 0;
 
-    if (GAME_PAUSED) {
-        return;
-    }
-    seconds_elapsed++;
-    GOOD_POINTS += GOOD_POINTS_PER_SEC;
-    console.log(`At: ${seconds_elapsed}, ${GOOD_POINTS}$, ${GOOD_POINTS_PER_SEC}$/s`);
-    BAD_POINTS = getBP(seconds_elapsed);
-    PENDING_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
 
-    // I know what i said before but i think we can let them celebrate small victories since they'll be crushed in the end
-    // if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
-    //     BAD_POINTS = GOOD_POINTS + 1;
-    // }
-    handleDisaster();
-    updateHtmlValues();
-}
-setTimeout(updatePoints, 1000);

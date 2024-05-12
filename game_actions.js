@@ -1,4 +1,7 @@
 
+// ==================================================================
+// Basic technologies
+
 let LF_index = 0;
 let LF_table = [1, 5, 10, 100, 1000, 50000, 1000000, 1000000000];
 let LICENSING_FEE = LF_table[LF_index];
@@ -267,15 +270,6 @@ const TECHNOLOGIES = {
     }
 };
 
-function updateLicenseFee() {
-    if (LF_index < LF_table.length - 1) {
-        LF_index++;
-        LICENSING_FEE = LF_table[LF_index];
-    } else {
-        LICENSING_FEE *= LICENSING_FEE;
-    }
-}
-
 function processTechUpgrade(tech_id) {
     let tech = TECHNOLOGIES[tech_id];
 
@@ -325,6 +319,15 @@ function addToPortfolio(tech_id) {
     document.getElementById("portfolio").appendChild(li);
 }
 
+function updateLicenseFee() {
+    if (LF_index < LF_table.length - 1) {
+        LF_index++;
+        LICENSING_FEE = LF_table[LF_index];
+    } else {
+        LICENSING_FEE *= LICENSING_FEE;
+    }
+}
+
 function purchaseTech(tech_id) {
     let tech = TECHNOLOGIES[tech_id];
 
@@ -341,6 +344,9 @@ function purchaseTech(tech_id) {
     elementToRemove.parentNode.removeChild(elementToRemove);
     updateHtmlValues();
 }
+
+// ==================================================================
+// Setup
 
 function addToMarketplace(tech_id) {
     let tech = TECHNOLOGIES[tech_id];

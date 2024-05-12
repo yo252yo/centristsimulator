@@ -1,4 +1,6 @@
 
+// ==================================================================
+// HTML display
 let start_year = (new Date()).getFullYear();
 
 function displayAllPurchases() {
@@ -64,6 +66,8 @@ function updateHtmlValues() {
 updateHtmlValues();
 
 
+// ==================================================================
+// Interactions
 
 function clicker() {
     if (GAME_PAUSED) {
@@ -117,6 +121,10 @@ function speed(set_at) {
     }
     document.getElementById("speed").innerHTML = `x${SPEED}`;
 }
+
+
+// ==================================================================
+// Keyboard
 
 function handleKeyPress(event) {
     if (event.key === ' ' || event.key === '0' || event.key === 'Enter' || event.key === 'Return') {
