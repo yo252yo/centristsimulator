@@ -17,8 +17,10 @@ function displayAllPurchases() {
 
         if (GOOD_POINTS >= cost) {
             li.style.opacity = 1;
-        } else {
+        } else if (li.dataset.is_market) {
             li.style.opacity = 0.2;
+        } else {
+            li.style.opacity = 0.4;
         }
     });
 }
@@ -44,6 +46,11 @@ function displayPoints() {
     }
 
     document.getElementById("licensing_fee").innerHTML = formatNumber(LICENSING_FEE);
+
+    var policies = document.getElementsByClassName("policyCost");
+    for (var p of policies) {
+        p.innerHTML = formatNumber(GOOD_POINTS_PER_SEC / 2);
+    }
 }
 
 function displayPopulation() {

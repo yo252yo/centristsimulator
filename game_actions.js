@@ -346,6 +346,78 @@ function purchaseTech(tech_id) {
 }
 
 // ==================================================================
+// Radical policies
+
+const joker_policy = "[[Your Own Radical Idea]]";
+let policies_purchased = 0;
+const POLICIES = [
+    "Severe Wealth Taxation",
+    "Degrowth",
+    "Participative Democracy",
+    "Abolish Private Property",
+    "Outlaw Planned Obsolescence",
+    "Worldwide Governance",
+    "Defund The Army",
+    "Nationalize Tech Companies",
+    joker_policy,
+];
+
+function addPolicyToPortfolio(policy, cost, reward) {
+    let li = document.createElement("li");
+    li.id = "portfolio_policy_" + policy;
+    policies_purchased++;
+
+    if (policy == joker_policy) {
+        li.id += "_" + policies_purchased;
+    }
+    li.classList.add("li_7");
+
+    li.innerHTML = `${policy}: +${formatNumber(reward)}$/s`;
+    li.dataset.cost = 0;
+    li.style.opacity = 0.6;
+
+    document.getElementById("portfolio").appendChild(li);
+}
+
+function rewardForPolicy() {
+    var lootbox_chance = Math.random();
+    if (policies_purchased == 0) {
+        lootbox_chance = 1; // First policy just works
+    }
+
+    if (lootbox_chance < 0.2) { // bad outcome
+        return GOOD_POINTS_PER_SEC * Math.max(0.5 * Math.random(), 0.1);
+    } else if (lootbox_chance < 0.5) { // medium outcome, reimburse more or less 
+        return (0.5 * GOOD_POINTS_PER_SEC) * (0.7 + Math.random() * 1);
+    } else if (lootbox_chance < 0.8) { // good outcome, doubles
+        return GOOD_POINTS_PER_SEC * (1.5 + Math.random() * 3.5);
+    } else { // best outcome, change order of magnitude
+        var base = 10;
+        var oom_rng = Math.random();
+        if (oom_rng < 0.1) {
+            base = 1000;
+        } else if (oom_rng < 0.8 || policies_purchased == 0) {
+            base = 100;
+        }
+
+        return GOOD_POINTS_PER_SEC * base * (0.9 + 0.2 * Math.random());
+    }
+}
+
+function purchasePolicy(policy) {
+    var reward = rewardForPolicy();
+    GOOD_POINTS_PER_SEC /= 2;
+    addPolicyToPortfolio(policy, GOOD_POINTS_PER_SEC, reward);
+    GOOD_POINTS_PER_SEC += reward;
+
+    if (policy != joker_policy) {
+        var elementToRemove = document.getElementById("policy_" + policy);
+        elementToRemove.parentNode.removeChild(elementToRemove);
+    }
+    updateHtmlValues();
+}
+
+// ==================================================================
 // Setup
 
 function addToMarketplace(tech_id) {
@@ -368,4 +440,33 @@ function addToMarketplace(tech_id) {
 
 for (const t in TECHNOLOGIES) {
     addToMarketplace(t);
+}
+
+function addToPolicies(policy) {
+    if (DIFFICULTY < 4) {
+        return;
+    }
+    let li = document.createElement("li");
+    li.id = "policy_" + policy;
+    li.innerHTML = `${policy}:<br /> -<span class="policyCost"></span>$/s, +????$/s`;
+    li.dataset.cost = 0;
+    li.classList.add("li_7");
+
+    li.addEventListener("click", function () {
+        purchasePolicy(policy);
+    });
+
+    document.getElementById("politics").appendChild(li);
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+for (const t of shuffleArray(POLICIES)) {
+    addToPolicies(t);
 }

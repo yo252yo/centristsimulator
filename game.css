@@ -72,6 +72,13 @@ li {
     border: solid #b1b1b1 1px;
 }
 
+.li_7 {
+    /* Policies */
+    border: solid #ffdefa 1px;
+    background-color: #2b2821;
+    box-shadow: -2px -2px 4px 4px #ffdefa22;
+}
+
 @keyframes changeBackground {
     0% {
         background-color: #171c16;
