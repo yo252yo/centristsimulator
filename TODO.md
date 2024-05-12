@@ -4,8 +4,6 @@ https://aleclownes.com/2017/02/01/crt-display.html
 i need to stay paused when dismissing popup otherwise it'll just stay in loop. mb i can grey out the screen in pause.
 alert dismissed with keyboard dont trigger compassion fade increase
 
-cooldown for policies to avoid spam
-
 ======================
 
 ideally each death would be its own popup and make you click as many times as there are death

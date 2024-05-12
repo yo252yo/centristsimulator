@@ -110,6 +110,7 @@ function updatePoints() {
     // }
     handleDisaster();
     updateHtmlValues();
+    POLICIES_COOLDOWN--;
 }
 setTimeout(updatePoints, 1000);
 

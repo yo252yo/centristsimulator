@@ -22,6 +22,14 @@ function displayAllPurchases() {
         } else {
             li.style.opacity = 0.4;
         }
+
+        if (li.dataset.is_policy) {
+            if (POLICIES_COOLDOWN <= 0) {
+                li.style.opacity = 1.0;
+            } else {
+                li.style.opacity = 0.2;
+            }
+        }
     });
 }
 
@@ -64,11 +72,24 @@ function displayPopulation() {
     document.getElementById("population").innerHTML = `${current_population()}`;
 }
 
+function displayPoliticsCooldown() {
+    if (POLICIES_COOLDOWN <= 0) {
+        document.getElementById("politics_cooldown").innerHTML = ``;
+    } else {
+        document.getElementById("politics_cooldown").innerHTML = `
+            <br />COOLDOWN: 
+            ${"|".repeat(POLICIES_COOLDOWN_MAX - POLICIES_COOLDOWN)}${".".repeat(POLICIES_COOLDOWN)}
+        `;
+    }
+
+}
+
 function updateHtmlValues() {
     displayTime();
     displayPoints();
     displayPopulation();
     displayAllPurchases();
+    displayPoliticsCooldown();
 }
 updateHtmlValues();
 

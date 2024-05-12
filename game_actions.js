@@ -359,6 +359,9 @@ function skip_market(event, tech_id) {
 
 const joker_policy = "[[Your Own Radical Idea]]";
 let policies_purchased = 0;
+let POLICIES_COOLDOWN = 0;
+let POLICIES_COOLDOWN_MAX = 20;
+
 const POLICIES = [
     "Severe Wealth Taxation",
     "Degrowth",
@@ -375,6 +378,7 @@ function addPolicyToPortfolio(policy, cost, reward) {
     let li = document.createElement("li");
     li.id = "portfolio_policy_" + policy;
     policies_purchased++;
+    POLICIES_COOLDOWN_MAX *= .9;
 
     if (policy == joker_policy) {
         li.id += "_" + policies_purchased;
@@ -414,6 +418,9 @@ function rewardForPolicy() {
 }
 
 function purchasePolicy(policy) {
+    if (POLICIES_COOLDOWN > 0) {
+        return;
+    }
     var reward = rewardForPolicy();
     GOOD_POINTS_PER_SEC /= 2;
     addPolicyToPortfolio(policy, GOOD_POINTS_PER_SEC, reward);
@@ -423,6 +430,7 @@ function purchasePolicy(policy) {
         var elementToRemove = document.getElementById("policy_" + policy);
         elementToRemove.parentNode.removeChild(elementToRemove);
     }
+    POLICIES_COOLDOWN = POLICIES_COOLDOWN_MAX;
     updateHtmlValues();
 }
 
@@ -468,6 +476,7 @@ function addToPolicies(policy) {
     li.innerHTML = `${policy}:<br /> -<span class="policyCost"></span>$/s, +????$/s`;
     li.dataset.cost = 0;
     li.classList.add("li_7");
+    li.dataset.is_policy = true;
 
     li.addEventListener("click", function () {
         purchasePolicy(policy);
