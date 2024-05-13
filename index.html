@@ -1,18 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Prototype normality idle</title>
-    <link rel="stylesheet" href="game.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centrist Simulator</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 
-<body class="background">
-    <h1>Centrist Simulator</h1>
-    <h2><i>An idle game about the violence of inaction</i></h2>
-
-    <a href="difficulty.html">START</a><br />
-    OPTIONS?<br />
-    CREDITS
-
+<body style="margin: 0; padding: 0;">
+    <iframe src="src/title.html" frameborder="0" style="width: 100%; height: 100vh; border: none;"></iframe>
 </body>
 
 </html>

@@ -10,6 +10,7 @@ victory screen
 balance check
 force normal difficulty for first playthrough
 compassion fade should subsist within runs or simply be easier on second run
+disallow text selection
 
 ====================== Death engine
 Death narrative engine
