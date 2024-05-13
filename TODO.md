@@ -1,7 +1,6 @@
 
 
 
-properly write tech tree
 the joker policy should have an input textbox
 tooltip on mouseover
 options menu to deactivate death and have a centrist mode etc...

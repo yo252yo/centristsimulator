@@ -8,7 +8,7 @@ let LICENSING_FEE = LF_table[LF_index];
 
 const TECHNOLOGIES = {
     "t1_1": {
-        "name": "wind turbines",
+        "name": "Wind Turbines",
         "category": 1,
         "cost": 5,
         "income": 1,
@@ -17,7 +17,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t1_2": {
-        "name": "food waste ads",
+        "name": "Food Waste Ads",
         "category": 2,
         "cost": 10,
         "income": 1,
@@ -26,7 +26,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t1_3": {
-        "name": "carpooling ads",
+        "name": "Carpooling",
         "category": 3,
         "cost": 20,
         "income": 2,
@@ -35,7 +35,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t1_4": {
-        "name": "LEDs",
+        "name": "LED",
         "category": 4,
         "cost": 35,
         "income": 4,
@@ -44,7 +44,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t1_5": {
-        "name": "silvopastures",
+        "name": "Silvopastures",
         "category": 5,
         "cost": 50,
         "income": 6,
@@ -53,7 +53,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t1_6": {
-        "name": "clean cooking",
+        "name": "Clean cooking",
         "category": 6,
         "cost": 100,
         "income": 10,
@@ -62,7 +62,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t2_1": {
-        "name": "improve insulation",
+        "name": "Better Insulation",
         "category": 4,
         "cost": 500,
         "income": 50,
@@ -71,7 +71,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t2_2": {
-        "name": "solar panels",
+        "name": "Solar Panels",
         "category": 1,
         "cost": 1000,
         "income": 100,
@@ -80,7 +80,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t2_3": {
-        "name": "veganism ads",
+        "name": "Plant-based Diet Ads",
         "category": 2,
         "cost": 1500,
         "income": 200,
@@ -89,7 +89,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t2_4": {
-        "name": "electric cars",
+        "name": "Electric Cars",
         "category": 3,
         "cost": 2000,
         "income": 300,
@@ -98,7 +98,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t2_5": {
-        "name": "peatland protection",
+        "name": "Peatland Protection",
         "category": 5,
         "cost": 3500,
         "income": 400,
@@ -107,7 +107,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t3_1": {
-        "name": "refrigerant",
+        "name": "Refrigerant",
         "category": 4,
         "cost": 5000,
         "income": 500,
@@ -116,7 +116,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t3_2": {
-        "name": "food waste subsidy",
+        "name": "Food Waste Subsidy",
         "category": 2,
         "cost": 7500,
         "income": 2000,
@@ -125,7 +125,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t3_3": {
-        "name": "more public transport",
+        "name": "Public Transport",
         "category": 3,
         "cost": 10000,
         "income": 6000,
@@ -134,7 +134,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t3_4": {
-        "name": "Family planning",
+        "name": "Family Planning",
         "category": 6,
         "cost": 15000,
         "income": 7500,
@@ -143,7 +143,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t3_5": {
-        "name": "metal recycling",
+        "name": "Metal Recycling",
         "category": 4,
         "cost": 20000,
         "income": 20000,
@@ -161,7 +161,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t3_7": {
-        "name": "Plant based diet subsidy",
+        "name": "Plant-based Diet Subsidy",
         "category": 2,
         "cost": 30000,
         "income": 40000,
@@ -170,7 +170,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t3_8": {
-        "name": "bioplastics",
+        "name": "Bioplastics",
         "category": 4,
         "cost": 50000,
         "income": 50000,
@@ -179,7 +179,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t4_1": {
-        "name": "Rnd for efficient vehicles",
+        "name": "Efficient Vehicles",
         "category": 3,
         "cost": 100000,
         "income": 10000,
@@ -188,7 +188,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t4_2": {
-        "name": "Geothermal plant",
+        "name": "Geothermal Plant",
         "category": 1,
         "cost": 150000,
         "income": 15000,
@@ -197,7 +197,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t4_3": {
-        "name": "Food waste law",
+        "name": "Food Waste Bill",
         "category": 2,
         "cost": 200000,
         "income": 22000,
@@ -215,7 +215,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t4_5": {
-        "name": "universal education",
+        "name": "Universal Education",
         "category": 6,
         "cost": 500000,
         "income": 75000,
@@ -224,7 +224,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t4_6": {
-        "name": "Alternative cement",
+        "name": "Alternative Cement",
         "category": 4,
         "cost": 1000000,
         "income": 250000,
@@ -233,7 +233,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t5_1": {
-        "name": "Nuclear plant",
+        "name": "Nuclear Plant",
         "category": 1,
         "cost": 5000000,
         "income": 500000,
@@ -242,7 +242,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t5_2": {
-        "name": "Plant based diet law",
+        "name": "Plant-based Diet Bill",
         "category": 2,
         "cost": 10000000,
         "income": 750000,
@@ -251,7 +251,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t5_3": {
-        "name": "Forbid monoculture",
+        "name": "Stop Monoculture",
         "category": 5,
         "cost": 100000000,
         "income": 1000000,
@@ -260,7 +260,7 @@ const TECHNOLOGIES = {
         "current_level": 0
     },
     "t5_4": {
-        "name": "5 minute city/bike infra",
+        "name": "Walkable Cities",
         "category": 3,
         "cost": 1000000000,
         "income": 1500000,
