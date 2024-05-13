@@ -81,12 +81,16 @@ function displayPopulation() {
 }
 
 function displayPoliticsCooldown() {
+    var gauge_characters = 30;
+    var interval = 1 / gauge_characters;
+    var progress = Math.round((1 - POLICIES_COOLDOWN / POLICIES_COOLDOWN_MAX) / interval);
+
     if (POLICIES_COOLDOWN <= 0) {
         document.getElementById("politics_cooldown").innerHTML = ``;
     } else {
         document.getElementById("politics_cooldown").innerHTML = `
             <br />COOLDOWN: 
-            ${"|".repeat(POLICIES_COOLDOWN_MAX - POLICIES_COOLDOWN)}${".".repeat(POLICIES_COOLDOWN)}
+            ${"|".repeat(progress)}${".".repeat(gauge_characters - progress)}
         `;
     }
 
@@ -124,6 +128,9 @@ function displayPopup() {
 }
 
 function pause(forced_state) {
+    if (GAME_OVER) {
+        return;
+    }
     if (forced_state) {
         if (forced_state == "ON") {
             GAME_PAUSED = false;
@@ -165,6 +172,23 @@ function speed(set_at) {
         SPEED = set_at;
     }
     document.getElementById("speed").innerHTML = `x${SPEED}`;
+}
+
+
+// ==================================================================
+// Ending
+var GAME_OVER = false;
+
+function win() {
+    pause("OFF");
+    GAME_OVER = true;
+    document.getElementById("popup_win").style.visibility = "visible";
+}
+
+function lose() {
+    pause("OFF");
+    GAME_OVER = true;
+    document.getElementById("popup_lose").style.visibility = "visible";
 }
 
 

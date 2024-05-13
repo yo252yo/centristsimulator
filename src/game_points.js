@@ -183,9 +183,9 @@ function handleDisaster() {
     }
 
     if (current_population() <= 0) {
-        pause();
-        alert("LOST");
-        location.href = "difficulty.html";
+        lose();
+    } else if (CAN_WIN() && seconds_elapsed > GOAL_SECONDS) {
+        win();
     }
 }
 

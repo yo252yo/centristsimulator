@@ -19,16 +19,24 @@
     left: 25px;
 }
 
-#popup {
+.popup {
     position: absolute;
     top: 50px;
     left: 20%;
     right: 20%;
     padding: 20;
     z-index: 10;
+    visibility: hidden;
+}
+
+.redbox {
     border: solid 1px #b96060;
     box-shadow: -1px -1px 2px 2px #b9606022;
-    visibility: hidden;
+}
+
+.bluebox {
+    border: solid 1px #58c6df;
+    box-shadow: -1px -1px 2px 2px #58c6df22;
 }
 
 .amount {
