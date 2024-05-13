@@ -164,6 +164,11 @@ function speed(set_at) {
 // Keyboard
 
 function handleKeyPress(event) {
+
+    if (event.target.tagName.toLowerCase() === 'input') {
+        return; // If it's an input, don't capture the event
+    }
+
     if (event.key === ' ' || event.key === '0' || event.key === 'Enter' || event.key === 'Return') {
         pause();
     }
@@ -185,6 +190,7 @@ function handleKeyPress(event) {
     if (event.key === '-') {
         speed("-");
     }
+
     event.stopPropagation();
     event.preventDefault();
 }

@@ -1,8 +1,6 @@
 
 
 
-the joker policy should have an input textbox
-tooltip on mouseover
 options menu to deactivate death and have a centrist mode etc...
 game over screen
 victory screen
@@ -20,6 +18,7 @@ look overhaul
 tutorial/onboarding
 mb add scroll to markets?
 mobile version
+tooltip on mouseover
 
 
 ====================== MUSIC/SFX

@@ -354,6 +354,10 @@ function skip_market(event, tech_id) {
     displayAllPurchases();
 }
 
+function cancel_buy(event) {
+    event.stopPropagation();
+}
+
 // ==================================================================
 // Radical policies
 
@@ -363,7 +367,7 @@ let POLICIES_COOLDOWN = 0;
 let POLICIES_COOLDOWN_MAX = 20;
 
 const POLICIES = [
-    "Severe Wealth Taxation",
+    //   "Severe Wealth Taxation",
     "Degrowth",
     "Participative Democracy",
     "Abolish Private Property",
@@ -380,12 +384,15 @@ function addPolicyToPortfolio(policy, cost, reward) {
     policies_purchased++;
     POLICIES_COOLDOWN_MAX *= .9;
 
+    var policy_text = policy;
     if (policy == joker_policy) {
         li.id += "_" + policies_purchased;
+        policy_text = document.getElementById("policy_input").value;
+        document.getElementById("policy_input").value = joker_policy;
     }
     li.classList.add("li_7");
 
-    li.innerHTML = `${policy}: +${formatNumber(reward)}$/s`;
+    li.innerHTML = `${policy_text}: +${formatNumber(reward)}$/s`;
     li.dataset.cost = 0;
     li.style.opacity = 0.6;
 
@@ -473,7 +480,12 @@ function addToPolicies(policy) {
     }
     let li = document.createElement("li");
     li.id = "policy_" + policy;
-    li.innerHTML = `${policy}:<br /> -<span class="policyCost"></span>$/s, +????$/s`;
+    var policy_title = policy;
+
+    if (policy == joker_policy) {
+        policy_title = `<input type="text" id="policy_input" value="${joker_policy}" onClick="cancel_buy(event);" />`;
+    }
+    li.innerHTML = `${policy_title}:<br /> -<span class="policyCost"></span>$/s, +????$/s`;
     li.dataset.cost = 0;
     li.classList.add("li_7");
     li.dataset.is_policy = true;
