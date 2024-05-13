@@ -27,6 +27,10 @@ if (difficulty_param == 1) { // easy
     document.getElementById("politics_div").style.display = "block";
 }
 
+function CAN_WIN() {
+    return (DIFFICULTY >= 4);
+}
+
 // ==================================================================
 // Basic points
 let GOOD_POINTS = Math.floor(20 / DIFFICULTY);
@@ -67,7 +71,14 @@ function getBP(seconds) {
     if (seconds in BP_milestones) {
         bp = BP_milestones[seconds];
     } else if (seconds > 300) {
-        bp = Math.floor(1.4 * Math.pow(seconds, 4));
+        bp = Math.floor(1.4 * Math.pow(seconds, 4.5));
+    } else if (seconds >= 400) {
+        if (CAN_WIN()) {
+            bp = Math.floor(1.4 * Math.pow(seconds, 4.5));
+        } else {
+            // Let's be honest this should never happen but just in case.
+            bp = 716800000000 * Math.exp(seconds - 400);
+        }
     } else {
         const milestones = getBPMilestone(seconds);
         const before = milestones.previousKey;
@@ -120,8 +131,10 @@ setTimeout(updatePoints, 1000);
 let TOTAL_DISASTER_POINTS = 0;
 let PENDING_DISASTER_POINTS = 0;
 
-let pop_rate_initial = 1000000000 / ((new Date("2024/01/01")).getTime() - (new Date("2013/01/01")).getTime());
-let START_POPULATION = Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
+//let pop_rate_initial = 1000000000 / ((new Date("2024/01/01")).getTime() - (new Date("2013/01/01")).getTime());
+let START_POPULATION = 8106672020;// Math.floor(8106672020 + ((new Date()).getTime() - (new Date("2024/05/02")).getTime()) * pop_rate_initial);
+let start_year = 2024;
+let GOAL_SECONDS = 504;
 
 
 var pop_disaster_ratio = 100;

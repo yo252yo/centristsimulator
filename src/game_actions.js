@@ -475,7 +475,7 @@ for (const t in TECHNOLOGIES) {
 }
 
 function addToPolicies(policy) {
-    if (DIFFICULTY < 4) {
+    if (!CAN_WIN()) {
         return;
     }
     let li = document.createElement("li");

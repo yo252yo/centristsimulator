@@ -1,7 +1,6 @@
 
 // ==================================================================
 // HTML display
-let start_year = (new Date()).getFullYear();
 
 function displayAllPurchases() {
     var listItems = document.querySelectorAll('li');
@@ -37,6 +36,15 @@ function displayTime() {
     var year = start_year + Math.floor(seconds_elapsed / 4);
     var season = seconds_elapsed % 4;
     document.getElementById("date").innerHTML = `Year: ${year} ${"|".repeat(season)}${".".repeat(4 - season)}`;
+
+    var gauge_characters = 30;
+    var interval = 1 / gauge_characters;
+    var progress = Math.round((seconds_elapsed / GOAL_SECONDS) / interval);
+    if (!CAN_WIN()) {
+        // Let's be honest this should never happen but just in case.
+        progress = Math.min(progress, gauge_characters - 1);
+    }
+    document.getElementById("timer").innerHTML = "|".repeat(progress) + ".".repeat(gauge_characters - progress);
 }
 
 function displayPoints() {
@@ -165,7 +173,7 @@ function speed(set_at) {
 
 function handleKeyPress(event) {
 
-    if (event.target.tagName.toLowerCase() === 'input') {
+    if (event.target.tagName.toLowerCase() === 'input' && event.target.type.toLowerCase() === 'text') {
         return; // If it's an input, don't capture the event
     }
 
