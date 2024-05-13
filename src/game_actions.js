@@ -364,7 +364,7 @@ function cancel_buy(event) {
 const joker_policy = "[[Your Own Radical Idea]]";
 let policies_purchased = 0;
 let POLICIES_COOLDOWN = 0;
-let POLICIES_COOLDOWN_MAX = 20;
+let POLICIES_COOLDOWN_MAX = 60;
 
 const POLICIES = [
     //   "Severe Wealth Taxation",
@@ -382,7 +382,7 @@ function addPolicyToPortfolio(policy, cost, reward) {
     let li = document.createElement("li");
     li.id = "portfolio_policy_" + policy;
     policies_purchased++;
-    POLICIES_COOLDOWN_MAX *= .9;
+    POLICIES_COOLDOWN_MAX *= Math.min(10, POLICIES_COOLDOWN_MAX * .75);
 
     var policy_text = policy;
     if (policy == joker_policy) {
