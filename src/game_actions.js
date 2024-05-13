@@ -382,7 +382,7 @@ function addPolicyToPortfolio(policy, cost, reward) {
     let li = document.createElement("li");
     li.id = "portfolio_policy_" + policy;
     policies_purchased++;
-    POLICIES_COOLDOWN_MAX *= Math.min(10, POLICIES_COOLDOWN_MAX * .75);
+    POLICIES_COOLDOWN_MAX = Math.max(10, parseInt(POLICIES_COOLDOWN_MAX) * .75);
 
     var policy_text = policy;
     if (policy == joker_policy) {
