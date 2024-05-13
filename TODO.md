@@ -1,21 +1,32 @@
 
 
 
-
-======================
-
-ideally each death would be its own popup and make you click as many times as there are death
-popup on death should black out the rest and be pretty and have death info and so on
+properly write tech tree
+the joker policy should have an input textbox
 tooltip on mouseover
 options menu to deactivate death and have a centrist mode etc...
-mobile version
 game over screen
 victory screen
-tutorial/onboarding
-look overhaul
 balance check
-music and sfx
 force normal difficulty for first playthrough
-mb add scroll to markets?
-
 compassion fade should subsist within runs or simply be easier on second run
+
+====================== Death engine
+Death narrative engine
+ideally each death would be its own popup and make you click as many times as there are death
+
+
+====================== LOOKS-related
+look overhaul
+tutorial/onboarding
+mb add scroll to markets?
+mobile version
+
+
+====================== MUSIC/SFX
+for music i can contact https://yearn.bandcamp.com/ from https://www.oselkasound.com/
+https://yearn.bandcamp.com/track/near
+https://yearn.bandcamp.com/track/jiro-dreams
+https://yearn.bandcamp.com/track/always-on
+
+if roz: @hotline.gov, interstellar capitalism, hangover
