@@ -10,7 +10,6 @@ victory screen
 balance check
 force normal difficulty for first playthrough
 compassion fade should subsist within runs or simply be easier on second run
-disallow text selection
 
 ====================== Death engine
 Death narrative engine
@@ -31,3 +30,8 @@ https://yearn.bandcamp.com/track/jiro-dreams
 https://yearn.bandcamp.com/track/always-on
 
 if roz: @hotline.gov, interstellar capitalism, hangover
+
+
+====================== Stretch i dont think we need
+save/load system for the game
+change options during the game

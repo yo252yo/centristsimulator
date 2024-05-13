@@ -3,6 +3,12 @@
 <head>
     <title>Prototype normality idle</title>
     <link rel="stylesheet" href="game.css">
+    <script>
+        function showCredits() {
+            document.getElementById("credits").style.display = "block";
+            document.getElementById("credits_link").style.display = "none";
+        }
+    </script>
 </head>
 
 <body class="background">
@@ -11,7 +17,23 @@
 
     <a href="difficulty.html">START</a><br />
     OPTIONS?<br />
-    CREDITS
+    <a onClick="showCredits()" id="credits_link">CREDITS</a>
+
+    <div id="credits" class="selectable cell_div" style="display:none;">
+        CREDITS<br />
+        Game design/writing/programming: <a href="https://www.yo252yo.com" target="_blank">yo252yo</a><br />
+        Art/visual design: <a href="https://oliviahaselow.com/" target="_blank">Olivia Haselow</a><br />
+        Music: TBC<br />
+        Climate solutions inspired by <a href="https://drawdown.org/" target="_blank">Project Drawdown</a><br />
+        <br />
+        DISCLAIMER<br />
+        This is a game and a work of fiction that takes place on an imaginary cyberpunk dystopia ravaged by
+        capitalism.<br />
+        It focuses on the climate crisis because the data was easy to obtain and model, but it is important to note that
+        the mechanisms illustrated by this game are omnipresent in this fictional society.<br />
+        The normalization of the status quo by extremist capitalist forces is causing deaths and suffering in
+        many more ways than only environmental ones.
+    </div>
 
 </body>
 
