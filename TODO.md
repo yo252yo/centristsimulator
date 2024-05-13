@@ -3,7 +3,6 @@
 
 options menu to deactivate death and have a centrist mode etc...
 balance check
-force normal difficulty for first playthrough
 compassion fade should subsist within runs or simply be easier on second run
 
 ====================== Death engine

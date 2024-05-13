@@ -17,6 +17,13 @@
                 return number.toString();
             }
         }
+
+        if (localStorage.getItem("playthroughs")) {
+            var count = parseInt(localStorage.getItem("playthroughs"));
+            localStorage.setItem("playthroughs", count + 1);
+        } else {
+            localStorage.setItem("playthroughs", 1);
+        }
     </script>
 </head>
 

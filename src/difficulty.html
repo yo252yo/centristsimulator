@@ -10,8 +10,8 @@
         DIFFICULTY: Pick your lifestyle
     </h2>
     <table border="1">
-        <tr>
-            <td style="width:20%"><a href="game.html?difficulty=1">Easier times</a></td>
+        <tr class="toGreyOutFirstVisit">
+            <td style="width:20%"><a href="game.html?difficulty=1" class="to_cancel_first_visit">Easier times</a></td>
             <td style="width:80%">For people longing for a simpler experience, brings you back to a time when pace was
                 slower.</td>
         </tr>
@@ -19,19 +19,35 @@
             <td><a href="game.html?difficulty=0">Normal</a></td>
             <td>The default game experience, recommended.</td>
         </tr>
-        <tr>
-            <td><a href="game.html?difficulty=2">New Normal</a></td>
+        <tr class="toGreyOutFirstVisit">
+            <td><a href="game.html?difficulty=2" class="to_cancel_first_visit">New Normal</a></td>
             <td>Normality has become more challenging and survival more complicated.</td>
         </tr>
-        <tr>
-            <td><a href="game.html?difficulty=3">Post New Normal</a></td>
+        <tr class="toGreyOutFirstVisit">
+            <td><a href="game.html?difficulty=3" class="to_cancel_first_visit">Post New Normal</a></td>
             <td>Life has become even more difficult, make sure you're ready.</td>
         </tr>
-        <tr>
-            <td><a href="game.html?difficulty=4">IMPOSSIBLE</a></td>
+        <tr class="toGreyOutFirstVisit">
+            <td><a href="game.html?difficulty=4" class="to_cancel_first_visit">IMPOSSIBLE</a></td>
             <td>Extreme challenge with more complexity for people who are not afraid to tackle an impossible fight.</td>
         </tr>
     </table>
+    <script>
+        var hasPlayed = localStorage.getItem("playthroughs");
+        if (!hasPlayed) {
+            var elements = document.getElementsByClassName("toGreyOutFirstVisit");
+            for (var e of elements) {
+                e.style.opacity = 0.25;
+                e.title = "You must try the normal mode first to unlock the other options";
+            }
+
+            var links = document.getElementsByClassName("to_cancel_first_visit");
+            for (var l of links) {
+                l.href = "#";
+                l.style.textDecoration = "line-through";
+            }
+        }
+    </script>
 
 </body>
 
