@@ -1,9 +1,8 @@
 
 
 
-options menu to deactivate death and have a centrist mode etc...
+options menu for audio and to deactivate death and have a centrist mode etc...
 balance check
-compassion fade should subsist within runs or simply be easier on second run
 
 ====================== Death engine
 Death narrative engine
