@@ -20,6 +20,17 @@
             border: none;
         }
     </style>
+    <script>
+        var audio = new Audio()
+        audio.src = "files/bgm.mp3";
+
+        function startMusic() {
+            audio.play().catch(function (error) {
+                setTimeout(startMusic, 100);
+            });
+        }
+        startMusic();
+    </script>
 </head>
 
 <body style="margin: 0; padding: 0;">
