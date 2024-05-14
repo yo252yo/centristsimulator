@@ -191,6 +191,20 @@ function lose() {
     document.getElementById("popup_lose").style.visibility = "visible";
 }
 
+// ==================================================================
+// Options
+
+if (localStorage.getItem("setting_confirmation") == "true") {
+    for (var e of document.getElementsByClassName("hide_confirmation")) {
+        e.style.display = "none";
+    }
+}
+if (localStorage.getItem("setting_normalization") == "true") {
+    for (var e of document.getElementsByClassName("hide_normalization")) {
+        e.style.display = "none";
+    }
+}
+
 
 // ==================================================================
 // Keyboard

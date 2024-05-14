@@ -1,8 +1,8 @@
 
+force policy modification with prompt
 
 Tooltip for tech tree
-Add SFX
-Funny centrist mode options
+
 
 == > balance check
 
@@ -17,6 +17,7 @@ tutorial/onboarding
 mb add scroll to markets?
 mobile version
 stylize buttons/input type text
+clicker visual effect
 
 ====================== MUSIC/SFX
 for music i can contact https://yearn.bandcamp.com/ from https://www.oselkasound.com/
@@ -25,6 +26,17 @@ https://yearn.bandcamp.com/track/jiro-dreams
 https://yearn.bandcamp.com/track/always-on
 
 if roz: @hotline.gov, interstellar capitalism, hangover
+
+SFX
+- in options for volume test 
+- purchase tech 
+- upgrade tech
+- purchase policy 
+- alert deaths 
+- defeat 
+- victory
+- time tick 
+- clicker 
 
 
 ====================== Stretch i dont think we need

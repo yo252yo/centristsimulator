@@ -13,6 +13,18 @@
     <br />
     SFX....: <input type="range" id="sfx-volume-slider" min="0" max="100" value="100" oninput="changeVolume('sfx');">
 
+    <h2>Centrist vision</h2>
+
+    <span onClick="toggle('confirmation')">
+        <h3 style="display:inline"><input type="checkbox" id="confirmation_box" />Confirmation Bias</h3>
+        (hides all negative numbers)
+    </span>
+    <br />
+    <span onClick="toggle('normalization')">
+        <h3 style="display:inline"><input type="checkbox" id="normalization_box" />Normalize Status-Quo</h3>
+        (hides human cost and death toll of your actions)
+    </span>
+
     <a href="title.html">
         <h2>BACK</h2>
     </a>
@@ -24,6 +36,17 @@
         }
         document.getElementById("music-volume-slider").value = localStorage.getItem("music_volume") || 100;
         document.getElementById("sfx-volume-slider").value = localStorage.getItem("sfx_volume") || 100;
+
+        function toggle(target) {
+            var state = !document.getElementById(target + "_box").checked;
+            document.getElementById(target + "_box").checked = state;
+            localStorage.setItem("setting_" + target, state);
+        }
+
+        document.getElementById("confirmation_box").checked = (localStorage.getItem("setting_confirmation") == "true") || false;
+        document.getElementById("normalization_box").checked = (localStorage.getItem("setting_normalization") == "true") || false;
+
+
     </script>
 
 </body>

@@ -188,9 +188,11 @@ function handleDisaster() {
         ${death_alert_threshold} people died in horrible circumstances.        
         `;
 
-        pause("OFF");
+        if (localStorage.getItem("setting_normalization") != "true") {
+            pause("OFF");
+            displayPopup();
+        }
         displayPopulation();
-        displayPopup();
     }
 
     if (current_population() <= 0) {
