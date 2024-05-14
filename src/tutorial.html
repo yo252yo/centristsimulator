@@ -1,0 +1,213 @@
+<html>
+
+<head>
+    <title>Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body class="background">
+    <div id="left_block">
+        <div class="cell_div" id="options_div">
+            <a href="javascript:pause();"><span id="pause">UNPAUSE</span></a> -
+            Speed <a href="javascript:speed();"><span id="speed">x1</span></a> -
+            <a href="difficulty.html">retry</a>
+        </div>
+
+        <div class="cell_div" id="time_div">
+            <span id="date">Year: 2024 ....</span><br />
+            WIN if humanity survives until 2150
+            <span id="timer">..............................</span>
+        </div>
+
+        <div class="cell_div" id="points_div">
+            $ignaling..: +$<span id="s_points" class="number number_good">3</span>(+<span id="s_income">1</span>$/s)
+            <span class="hide_confirmation">
+                <br />
+                <span id="strain">$train.....: -$<span id="c_points" class="number number_bad">2</span></span><br />
+                ---------------------------<br />
+                <span id="suffering">$uffering..: -$<span id="differencial" class="number number_bad">1</span></span>
+            </span>
+        </div>
+
+        <div class="cell_div hide_normalization" id="population_div">
+            $uffering kills ($100 = 1 life)<br />
+            <span id="disaster">....................</span><br />
+            <br />
+            Population: <span id="population">8106672020</span><br />
+            LOSE if it reaches 0
+        </div>
+
+        <div class="cell_div hide_normalization" id="alerts_div">
+            You get an alert when people die.<br />
+            This slider controls when it triggers.<br />
+            Compassion fade:
+            <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
+                disabled="true" style="width:60px"> <span id="compassion_fade">1</span> deaths<br />
+        </div>
+    </div>
+
+
+    <div id="right_block">
+        <div class="cell_div" id="carbon_capture_div">
+            <input type="button" value="Carbon capture project +1$" onclick="clicker();" />
+        </div>
+
+        <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
+            No virtue signaling in IMPOSSIBLE mode<br />
+            <input type="button" value="Carbon capture project +1$" onclick="clicker();" disabled="true" />
+        </div>
+
+        <div class="cell_div" id="portfolio_div">
+            <h3>Current portfolio</h3>
+            <ul id="portfolio">
+                <li class="li_1">Invest more here: -1$, +1.0$/s<br />||</li>
+            </ul>
+        </div>
+
+        <div class="cell_div" id="marketplace_div">
+            <h3>Marketplace of ideas</h3>
+            Licensing fee: $<span id="licensing_fee"></span>
+            <ul id="marketplace">
+                <li class="li_2">New Technology<br />-1$,+1.0$/s</li>
+                <li class="li_3">Other Technology<br />-10$,+2.0$/s</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="background popup bluebox" id="tuto" style="left:500px;right:500px"></div>
+
+
+    <script>
+        for (var e of document.getElementsByClassName("cell_div")) {
+            e.style.opacity = 0.2;
+        }
+
+
+        function displayPopup(text, callback_name) {
+            document.getElementById("tuto").innerHTML = `
+            <div style="height:200px">${text}</div>
+            <br /><input type="button" onClick="${callback_name}();" value="NEXT">
+            <br /><br /><a href="game.html">Skip tutorial</a>
+            `;
+            document.getElementById("tuto").style.visibility = "visible";
+            document.body.classList.add('background_paused');
+            document.body.classList.remove('background');
+        }
+
+        displayPopup("Centrist Simulator is a game where you need to save humanity.", "step1");
+
+        function step1() {
+            displayPopup(`
+            It's simple: you win if you survive past 2150.<br />
+            You can see the date and control the time on the top right.<br />
+            If you have a keyboard, you can use SPACE to pause and the numbers to control speed.
+            `, "step2");
+
+            document.getElementById("time_div").style.opacity = 1;
+            document.getElementById("options_div").style.opacity = 1;
+        }
+
+        function step2() {
+            displayPopup(`
+            The screen is grey when the game is PAUSED like now.<br />
+            You can still take decisions but time does not progress.
+            `, "step3");
+        }
+
+        function step3() {
+            displayPopup(`
+            This is an idle game. It revolves around a score that increases over time called $ignaling.
+            `, "step4");
+
+            document.getElementById("options_div").style.opacity = 0.2;
+            document.getElementById("points_div").style.opacity = 1;
+            document.getElementById("strain").style.opacity = 0.2;
+            document.getElementById("suffering").style.opacity = 0.2;
+        }
+
+        function step4() {
+            displayPopup(`
+            However, this game has a twist. Contrary to normal idle games, you are in competition with an "enemy" score called $train that also increases over time.
+            `, "step5");
+
+            document.getElementById("strain").style.opacity = 1;
+        }
+
+        function step5() {
+            displayPopup(`
+            Their difference, $uffering, corresponds to this complex mathematical equation:<br />
+            $uffering = $ignaling - $train
+            `, "step6");
+
+            document.getElementById("suffering").style.opacity = 1;
+        }
+
+        function step6() {
+            displayPopup(`
+            $uffering accumulates over time and kills human at a rate of 100$/life.<br />
+            You lose when you run out of humans.
+            `, "step7");
+
+            document.getElementById("time_div").style.opacity = 0.2;
+            document.getElementById("population_div").style.opacity = 1;
+        }
+
+        function step7() {
+            displayPopup(`
+            You'll get an alert bulletin when people die. You can control when in the bottom right.<br />
+            Over time, you can group more and more death together so they shouldn't bother you too much.
+            `, "step8");
+
+            document.getElementById("points_div").style.opacity = 0.2;
+            document.getElementById("alerts_div").style.opacity = 1;
+        }
+
+        function step8() {
+            displayPopup(`
+            To gain $ignaling, you may click this button like crazy. This is an idle game after all.
+            `, "step9");
+
+            document.getElementById("population_div").style.opacity = 0.2;
+            document.getElementById("alerts_div").style.opacity = 0.2;
+            document.getElementById("carbon_capture_div").style.opacity = 1;
+        }
+
+        function step9() {
+            displayPopup(`
+            However, in this world, technology allows you to automate away this kind of tedious tasks.<br />
+            Buy some new technologies in the marketplace, or invest in your existing portfolio.
+            `, "step10");
+
+            document.getElementById("carbon_capture_div").style.opacity = 0.2;
+            document.getElementById("portfolio_div").style.opacity = 1;
+            document.getElementById("marketplace_div").style.opacity = 1;
+        }
+        function step10() {
+            displayPopup(`
+            Be careful, buying technologies in the marketplace require an increasing license fee!<br />
+            Win by being a smart investor and building the right portfolio that can out-race the climate crisis!
+
+            `, "step11");
+        }
+
+        function step11() {
+            displayPopup(`
+            Ok, that's about it, I've told you everything I know.<br />
+            Are you ready to save the world? We're all counting on you!
+            `, "step12");
+
+            document.getElementById("portfolio_div").style.opacity = .2;
+            document.getElementById("marketplace_div").style.opacity = .2;
+        }
+
+        function step12() {
+            location.href = "game.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

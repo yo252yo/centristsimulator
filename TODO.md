@@ -8,7 +8,6 @@ ideally each death would be its own popup and make you click as many times as th
 
 ====================== LOOKS-related
 look overhaul
-tutorial/onboarding
 mb add scroll to markets?
 mobile version
 stylize buttons/input type text
