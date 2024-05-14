@@ -191,6 +191,8 @@ function handleDisaster() {
         if (localStorage.getItem("setting_normalization") != "true") {
             pause("OFF");
             displayPopup();
+        } else {
+            dismissDisaster();
         }
         displayPopulation();
     }
