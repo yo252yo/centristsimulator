@@ -33,8 +33,11 @@ function CAN_WIN() {
 
 // ==================================================================
 // Basic points
-let GOOD_POINTS = Math.floor(20 / DIFFICULTY);
+let GOOD_POINTS = Math.floor(30 / DIFFICULTY);
 let GOOD_POINTS_PER_SEC = 2 / DIFFICULTY;
+if (CAN_WIN()) {
+    GOOD_POINTS = -5;
+}
 
 let BAD_POINTS = 0;
 
@@ -185,7 +188,7 @@ function handleDisaster() {
         }
 
         document.getElementById("death_report").innerHTML = `
-        ${death_alert_threshold} people died in horrible circumstances.        
+        ${Math.floor(PENDING_DISASTER_POINTS / pop_disaster_ratio)} people died in horrible circumstances.        
         `;
 
         if (localStorage.getItem("setting_normalization") != "true") {
