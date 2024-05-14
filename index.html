@@ -21,11 +21,28 @@
         }
     </style>
     <script>
-        var audio = new Audio()
-        audio.src = "files/bgm.mp3";
+        var MUSIC_AUDIO = new Audio();
+        var SFX_AUDIO = new Audio();
+
+        function checkVolume() {
+            const savedMusicVolume = localStorage.getItem('music_volume');
+            if (savedMusicVolume !== null) {
+                MUSIC_AUDIO.volume = savedMusicVolume / 100;
+            }
+
+            const savedSFXVolume = localStorage.getItem('sfx_volume');
+            if (savedSFXVolume !== null) {
+                SFX_AUDIO.volume = savedSFXVolume / 100;
+            }
+        }
+        setInterval(checkVolume, 250);
+
+
+
+        MUSIC_AUDIO.src = "files/bgm.mp3";
 
         function startMusic() {
-            audio.play().catch(function (error) {
+            MUSIC_AUDIO.play().catch(function (error) {
                 setTimeout(startMusic, 100);
             });
         }

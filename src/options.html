@@ -3,20 +3,29 @@
 <head>
     <title>Prototype normality idle</title>
     <link rel="stylesheet" href="game.css">
-    <script>
-        function showCredits() {
-            document.getElementById("credits").style.display = "block";
-            document.getElementById("credits_link").style.display = "none";
-        }
-    </script>
 </head>
 
 <body class="background">
     <h1>Options</h1>
 
+    Music..: <input type="range" id="music-volume-slider" min="0" max="100" value="100"
+        oninput="changeVolume('music');">
+    <br />
+    SFX....: <input type="range" id="sfx-volume-slider" min="0" max="100" value="100" oninput="changeVolume('sfx');">
+
     <a href="title.html">
         <h2>BACK</h2>
     </a>
+
+    <script>
+        function changeVolume(target) {
+            var value = document.getElementById(target + "-volume-slider").value;
+            localStorage.setItem(target + '_volume', value);
+        }
+        document.getElementById("music-volume-slider").value = localStorage.getItem("music_volume") || 100;
+        document.getElementById("sfx-volume-slider").value = localStorage.getItem("sfx_volume") || 100;
+    </script>
+
 </body>
 
 </html>

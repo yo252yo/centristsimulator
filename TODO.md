@@ -1,7 +1,8 @@
 
 
 Tooltip for tech tree
-options menu for audio and to deactivate death and have a centrist mode etc...
+Add SFX
+Funny centrist mode options
 
 == > balance check
 
