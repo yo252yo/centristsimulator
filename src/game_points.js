@@ -184,6 +184,10 @@ function handleDisaster() {
             document.getElementById("compassion_slider_disclaimer").style.display = "block";
         }
 
+        document.getElementById("death_report").innerHTML = `
+        ${death_alert_threshold} people died in horrible circumstances.        
+        `;
+
         pause("OFF");
         displayPopulation();
         displayPopup();
