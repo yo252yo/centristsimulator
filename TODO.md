@@ -1,8 +1,7 @@
 
 
-
+Tooltip for tech tree
 options menu for audio and to deactivate death and have a centrist mode etc...
-tooltip on mouseover
 
 == > balance check
 
@@ -16,7 +15,7 @@ look overhaul
 tutorial/onboarding
 mb add scroll to markets?
 mobile version
-
+stylize buttons/input type text
 
 ====================== MUSIC/SFX
 for music i can contact https://yearn.bandcamp.com/ from https://www.oselkasound.com/
@@ -32,7 +31,7 @@ save/load system for the game
 change options during the game
 
 
-====================== Stylize tooltips:"
+====================== Stylize tooltips??
 
     <Script>
 

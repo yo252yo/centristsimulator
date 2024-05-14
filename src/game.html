@@ -31,7 +31,7 @@
     <div id="left_block">
         <div class="cell_div">
             <a href="javascript:pause();"><span id="pause">PAUSE</span></a> -
-            <a href="javascript:speed();"><span id="speed">x1</span></a> -
+            Speed <a href="javascript:speed();"><span id="speed">x1</span></a> -
             <a href="difficulty.html">retry</a>
         </div>
 
@@ -53,13 +53,16 @@
             $uffering kills ($100 = 1 life)<br />
             <span id="disaster"></span><br />
             <br />
-            Compassion fade:<br />
-            <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
-                disabled="true">
-            alert on <span id="compassion_fade">1</span> deaths<br />
-            <br />
             Population: <span id="population"></span><br />
             LOSE if it reaches 0
+        </div>
+
+        <div class="cell_div">
+            You get an alert when people die.<br />
+            This slider controls when it triggers.<br />
+            Compassion fade:
+            <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
+                disabled="true" style="width:60px"> <span id="compassion_fade">1</span> deaths<br />
         </div>
     </div>
 
@@ -68,7 +71,7 @@
         <div class="cell_div" id="carbon_capture_div">
             <input type="button" value="Carbon capture project +1$" onclick="clicker();" />
         </div>
-        <div class="cell_div" id="carbon_capture_div_alternative" style="display:none">
+        <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
             No virtue signaling in IMPOSSIBLE mode<br />
             <input type="button" value="Carbon capture project +1$" onclick="clicker();" disabled="true" />
         </div>
@@ -97,10 +100,11 @@
 
 
     <div class="background popup redbox" id="popup">
-        <span id="death_report"></span><br />
+        <h2>ALERT</h2>
+        <span id="death_report"></span><br /><br />
         <span id="compassion_slider_disclaimer" style="display:none;">You can change your threshold for compassion fade
             to see this less often
-            with the slider on the bottom right.</span>
+            with the slider on the bottom right.</span><br />
         <input type="button" value="Dismiss" onclick="dismissPopup();" />
     </div>
 

@@ -292,6 +292,9 @@ function processTechUpgrade(tech_id) {
     li.innerHTML = `${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
     ${bars}`;
     li.dataset.cost = tech.cost;
+    if (tech.tooltip) {
+        li.title = tech.tooltip;
+    }
 }
 
 function upgradeTech(tech_id) {
@@ -466,6 +469,10 @@ function addToMarketplace(tech_id) {
     li.addEventListener("click", function () {
         purchaseTech(tech_id);
     });
+
+    if (tech.tooltip) {
+        li.title = tech.tooltip;
+    }
 
     document.getElementById("marketplace").appendChild(li);
 }
