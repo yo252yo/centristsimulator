@@ -14,7 +14,8 @@ const TECHNOLOGIES = {
         "income": 1,
         "level_cost_increase": 1.1,
         "level_income_increase": 0.98,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Offshore or onshore, these buildings are a cheap and green source of energy."
     },
     "t1_2": {
         "name": "Food Waste Ads",
@@ -23,7 +24,8 @@ const TECHNOLOGIES = {
         "income": 1,
         "level_cost_increase": 2,
         "level_income_increase": 1.3,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Advertising campaigns against food waste. Food waste is responsible for around 8% of global emissions."
     },
     "t1_3": {
         "name": "Carpooling",
@@ -32,16 +34,18 @@ const TECHNOLOGIES = {
         "income": 2,
         "level_cost_increase": 5,
         "level_income_increase": 2,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Offer financial benefits and infrastructure for carpoolers."
     },
     "t1_4": {
-        "name": "LED",
+        "name": "LED Lighting",
         "category": 4,
         "cost": 35,
         "income": 4,
         "level_cost_increase": 1.5,
         "level_income_increase": 0.7,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Replace conventional lightbulbs with LEDs that use 90% less energy."
     },
     "t1_5": {
         "name": "Silvopastures",
@@ -50,16 +54,18 @@ const TECHNOLOGIES = {
         "income": 6,
         "level_cost_increase": 7,
         "level_income_increase": 1.2,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Build pastures with trees to sequester carbon."
     },
     "t1_6": {
-        "name": "Clean cooking",
+        "name": "Clean Cooking",
         "category": 6,
         "cost": 100,
         "income": 10,
         "level_cost_increase": 20,
         "level_income_increase": 4,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Encourage people to cook with clean energies instead of wood and coal."
     },
     "t2_1": {
         "name": "Better Insulation",
@@ -68,7 +74,8 @@ const TECHNOLOGIES = {
         "income": 50,
         "level_cost_increase": 1.5,
         "level_income_increase": 0.9,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Use better building materials to increase global adoption of insulation."
     },
     "t2_2": {
         "name": "Solar Panels",
@@ -77,16 +84,18 @@ const TECHNOLOGIES = {
         "income": 100,
         "level_cost_increase": 1.1,
         "level_income_increase": 0.6,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Building capturing a virtually unlimited, clean, and free energy source."
     },
     "t2_3": {
-        "name": "Plant-based Diet Ads",
+        "name": "Plant-rich Diet Ads",
         "category": 2,
         "cost": 1500,
         "income": 200,
         "level_cost_increase": 2,
         "level_income_increase": 0.3,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Encourage people to eat more vegetables through persuasive advertisement campaigns."
     },
     "t2_4": {
         "name": "Electric Cars",
@@ -95,7 +104,8 @@ const TECHNOLOGIES = {
         "income": 300,
         "level_cost_increase": 5,
         "level_income_increase": 0.1,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Make vehicles that are as green as your electricity production (plus production cost)."
     },
     "t2_5": {
         "name": "Peatland Protection",
@@ -104,7 +114,8 @@ const TECHNOLOGIES = {
         "income": 400,
         "level_cost_increase": 7,
         "level_income_increase": 1.3,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Protect peatland, a kind of marsh made of decomposing plant matter that store more carbon than forests."
     },
     "t3_1": {
         "name": "Refrigerant",
@@ -113,7 +124,8 @@ const TECHNOLOGIES = {
         "income": 500,
         "level_cost_increase": 1.5,
         "level_income_increase": 1.49,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Replace hydrofluorocarbons by alternative, less poluting refrigerants."
     },
     "t3_2": {
         "name": "Food Waste Subsidy",
@@ -122,7 +134,8 @@ const TECHNOLOGIES = {
         "income": 2000,
         "level_cost_increase": 1.1,
         "level_income_increase": 1.05,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Use government subsidies to incentivise good behavior. Food waste is responsible for around 8% of global emissions."
     },
     "t3_3": {
         "name": "Public Transport",
@@ -131,7 +144,8 @@ const TECHNOLOGIES = {
         "income": 6000,
         "level_cost_increase": 2.5,
         "level_income_increase": 1.8,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Multiply public transport options to relieve traffic and reduces the energy cost of movement."
     },
     "t3_4": {
         "name": "Family Planning",
@@ -140,7 +154,8 @@ const TECHNOLOGIES = {
         "income": 7500,
         "level_cost_increase": 20,
         "level_income_increase": 10,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": `"Family planning generates numerous benefits for maternal and child health, nutrition, and economic development, and contributes to gender equality, climate adaptation, and resilience."`
     },
     "t3_5": {
         "name": "Metal Recycling",
@@ -149,7 +164,8 @@ const TECHNOLOGIES = {
         "income": 20000,
         "level_cost_increase": 1.3,
         "level_income_increase": 1.05,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Use recycled metals instead of virgin materials to reduce their considerable extraction costs."
     },
     "t3_6": {
         "name": "Perennial Staple Crops",
@@ -158,16 +174,18 @@ const TECHNOLOGIES = {
         "income": 30000,
         "level_cost_increase": 7,
         "level_income_increase": 2.6,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Plant crops with multiple year yield, as opposed to annual crops like maize and wheat."
     },
     "t3_7": {
-        "name": "Plant-based Diet Subsidy",
+        "name": "Plant-based Diet Ads",
         "category": 2,
         "cost": 30000,
         "income": 40000,
         "level_cost_increase": 2,
         "level_income_increase": 1.2,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Encourage people to lower their meat consumption through persuasive advertisement campaigns."
     },
     "t3_8": {
         "name": "Bioplastics",
@@ -176,7 +194,8 @@ const TECHNOLOGIES = {
         "income": 50000,
         "level_cost_increase": 1.5,
         "level_income_increase": 1.01,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Replace plastic by alternatives made from biomass."
     },
     "t4_1": {
         "name": "Efficient Vehicles",
@@ -185,7 +204,8 @@ const TECHNOLOGIES = {
         "income": 10000,
         "level_cost_increase": 3,
         "level_income_increase": 2.5,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Improve the design of planes and trucks to be more energy efficient."
     },
     "t4_2": {
         "name": "Geothermal Plant",
@@ -194,7 +214,8 @@ const TECHNOLOGIES = {
         "income": 15000,
         "level_cost_increase": 1.1,
         "level_income_increase": 1.05,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Building that taps into underground reservoirs of hot water thanks to new technologies."
     },
     "t4_3": {
         "name": "Food Waste Bill",
@@ -203,7 +224,8 @@ const TECHNOLOGIES = {
         "income": 22000,
         "level_cost_increase": 2,
         "level_income_increase": 1.7,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Pass laws to forbid food waste. Food waste is responsible for around 8% of global emissions."
     },
     "t4_4": {
         "name": "Tropical Forest Restoration",
@@ -212,7 +234,8 @@ const TECHNOLOGIES = {
         "income": 30000,
         "level_cost_increase": 7,
         "level_income_increase": 4.5,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Restore forests that have been destroyed to restore their ability to sequester carbon."
     },
     "t4_5": {
         "name": "Universal Education",
@@ -221,7 +244,8 @@ const TECHNOLOGIES = {
         "income": 75000,
         "level_cost_increase": 18,
         "level_income_increase": 10,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Offer access to education in order to improved livelihoods, better economic opportunities, and encourage sustainable consumption."
     },
     "t4_6": {
         "name": "Alternative Cement",
@@ -230,7 +254,8 @@ const TECHNOLOGIES = {
         "income": 250000,
         "level_cost_increase": 1.3,
         "level_income_increase": 0.7,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Use and develop alternatives to the common portland cement which emits a lot of carbon dioxide."
     },
     "t5_1": {
         "name": "Nuclear Plant",
@@ -239,25 +264,28 @@ const TECHNOLOGIES = {
         "income": 500000,
         "level_cost_increase": 1.6,
         "level_income_increase": 0.6,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Extremely efficient energy generation building that requires a high level of safety and waste management."
     },
     "t5_2": {
-        "name": "Plant-based Diet Bill",
+        "name": "Plant-based Diet Subsidy",
         "category": 2,
         "cost": 10000000,
         "income": 750000,
         "level_cost_increase": 2.8,
         "level_income_increase": 0.5,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Use government subsidies to shift the ratio of meat to vegetable in stores and restaurants."
     },
     "t5_3": {
-        "name": "Stop Monoculture",
+        "name": "Conservation Agriculture",
         "category": 5,
         "cost": 100000000,
         "income": 1000000,
         "level_cost_increase": 9,
         "level_income_increase": 0.9,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Use crop rotation, cover cropping, and reduced tillage to reduce emissions and sequester greenhouse."
     },
     "t5_4": {
         "name": "Walkable Cities",
@@ -266,7 +294,8 @@ const TECHNOLOGIES = {
         "income": 1500000,
         "level_cost_increase": 2.5,
         "level_income_increase": 2,
-        "current_level": 0
+        "current_level": 0,
+        "tooltip": "Increase walking by designing and retrofitting urban environments to encourage walking for transportation."
     }
 };
 
@@ -364,7 +393,7 @@ function cancel_buy(event) {
 // ==================================================================
 // Radical policies
 
-const joker_policy = "[[Your Own Radical Idea]]";
+const joker_policy = "[Type Your Radical Idea]";
 let policies_purchased = 0;
 let POLICIES_COOLDOWN = 0;
 let POLICIES_COOLDOWN_MAX = 60;
@@ -391,6 +420,9 @@ function addPolicyToPortfolio(policy, cost, reward) {
     if (policy == joker_policy) {
         li.id += "_" + policies_purchased;
         policy_text = document.getElementById("policy_input").value;
+        while (policy_text == joker_policy) {
+            policy_text = prompt(`Enter a "far left" radical proposal to change the world`);
+        }
         document.getElementById("policy_input").value = joker_policy;
     }
     li.classList.add("li_7");

@@ -1,9 +1,4 @@
 
-force policy modification with prompt
-
-Tooltip for tech tree
-
-
 == > balance check
 
 ====================== Death engine
