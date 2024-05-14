@@ -202,7 +202,11 @@ function handleKeyPress(event) {
     }
 
     if (event.key === ' ' || event.key === '0' || event.key === 'Enter' || event.key === 'Return') {
-        pause();
+        if (document.getElementById("popup").style.visibility != "hidden") {
+            dismissPopup();
+        } else {
+            pause();
+        }
     }
     if (event.key === '1') {
         speed(1);

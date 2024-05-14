@@ -4,9 +4,6 @@
 options menu for audio and to deactivate death and have a centrist mode etc...
 tooltip on mouseover
 "someone died" report improve a bit
-have space dismiss popup and not unpause if there is a popup
-
-
 balance check
 
 ====================== Death engine
