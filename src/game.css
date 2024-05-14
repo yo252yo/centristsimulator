@@ -84,6 +84,7 @@ li {
     /* Policies */
     border: solid #ffdefa 1px;
     box-shadow: -2px -2px 4px 4px #ffdefa22;
+    background-color: #ffdefa22;
 }
 
 @keyframes changeBackground {
