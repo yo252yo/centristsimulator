@@ -8,54 +8,59 @@
 <body>
     <div id="screenfilter" class="screenfilter screenfilter_unpaused">
     </div>
-    <h2>
-        DIFFICULTY: Pick your lifestyle
-    </h2>
-    <table border="1">
-        <tr class="toGreyOutFirstVisit">
-            <td style="width:20%"><a href="game.html?difficulty=1" class="to_cancel_first_visit">EASIER TIMES</a></td>
-            <td style="width:80%">For people longing for a simpler experience, brings you back to a time when pace was
-                slower.</td>
-        </tr>
-        <tr>
-            <td><a href="game.html?difficulty=0" id="normal_link">NORMAL</a></td>
-            <td>The default game experience, recommended.</td>
-        </tr>
-        <tr class="toGreyOutFirstVisit">
-            <td><a href="game.html?difficulty=2" class="to_cancel_first_visit">NEW NORMAL</a></td>
-            <td>Normality has become more challenging and survival more complicated.</td>
-        </tr>
-        <tr class="toGreyOutFirstVisit">
-            <td><a href="game.html?difficulty=3" class="to_cancel_first_visit">POST NEW NORMAL</a></td>
-            <td>Life has become even more difficult, make sure you're ready.</td>
-        </tr>
-        <tr class="toGreyOutFirstVisit">
-            <td><a href="choice.html" class="to_cancel_first_visit">IMPOSSIBLE</a></td>
-            <td>Extreme challenge with more complexity for people who are not afraid to tackle an impossible fight.</td>
-        </tr>
-    </table>
-    <div style="margin-top:20px" id="tutorial_link">
-        If you missed the initial explanations, you can redo the <a href="tutorial.html">TUTORIAL</a>.
+    <div id="screen" class="cell_div">
+        <h2>
+            DIFFICULTY: Pick your lifestyle
+        </h2>
+        <table border="1">
+            <tr class="toGreyOutFirstVisit">
+                <td style="width:20%"><a href="game.html?difficulty=1" class="to_cancel_first_visit">EASIER TIMES</a>
+                </td>
+                <td style="width:80%">For people longing for a simpler experience, brings you back to a time when pace
+                    was
+                    slower.</td>
+            </tr>
+            <tr>
+                <td><a href="game.html?difficulty=0" id="normal_link">NORMAL</a></td>
+                <td>The default game experience, recommended.</td>
+            </tr>
+            <tr class="toGreyOutFirstVisit">
+                <td><a href="game.html?difficulty=2" class="to_cancel_first_visit">NEW NORMAL</a></td>
+                <td>Normality has become more challenging and survival more complicated.</td>
+            </tr>
+            <tr class="toGreyOutFirstVisit">
+                <td><a href="game.html?difficulty=3" class="to_cancel_first_visit">POST NEW NORMAL</a></td>
+                <td>Life has become even more difficult, make sure you're ready.</td>
+            </tr>
+            <tr class="toGreyOutFirstVisit">
+                <td><a href="choice.html" class="to_cancel_first_visit">IMPOSSIBLE</a></td>
+                <td>Extreme challenge with more complexity for people who are not afraid to tackle an impossible fight.
+                </td>
+            </tr>
+        </table>
+        <div style="margin-top:20px" id="tutorial_link">
+            If you missed the initial explanations, you can redo the <a href="tutorial.html">TUTORIAL</a>.
+        </div>
+        <script>
+            var hasPlayed = localStorage.getItem("playthroughs");
+            if (!hasPlayed) {
+                var elements = document.getElementsByClassName("toGreyOutFirstVisit");
+                for (var e of elements) {
+                    e.style.opacity = 0.25;
+                    e.title = "You must try the normal mode first to unlock the other options";
+                }
+
+                var links = document.getElementsByClassName("to_cancel_first_visit");
+                for (var l of links) {
+                    l.href = "#";
+                    l.style.textDecoration = "line-through";
+                }
+
+                document.getElementById("normal_link").href = "tutorial.html";
+                document.getElementById("tutorial_link").style.visibility = "hidden";
+            } 
+        </script>
     </div>
-    <script>
-        var hasPlayed = localStorage.getItem("playthroughs");
-        if (!hasPlayed) {
-            var elements = document.getElementsByClassName("toGreyOutFirstVisit");
-            for (var e of elements) {
-                e.style.opacity = 0.25;
-                e.title = "You must try the normal mode first to unlock the other options";
-            }
-
-            var links = document.getElementsByClassName("to_cancel_first_visit");
-            for (var l of links) {
-                l.href = "#";
-                l.style.textDecoration = "line-through";
-            }
-
-            document.getElementById("normal_link").href = "tutorial.html";
-            document.getElementById("tutorial_link").style.visibility = "hidden";
-        } 
-    </script>
 
 </body>
 
