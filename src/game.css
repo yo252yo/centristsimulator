@@ -5,3 +5,111 @@ body {
     margin: 0;
     background-color: black;
 }
+
+
+#left_block {
+    position: absolute;
+    width: 400px;
+    top: 25px;
+    right: 25px;
+}
+
+#right_block {
+    position: absolute;
+    width: 450px;
+    top: 25px;
+    left: 25px;
+}
+
+.popup {
+    position: absolute;
+    top: 50px;
+    left: 20%;
+    right: 20%;
+    padding: 20;
+    z-index: 10;
+    visibility: hidden;
+    background-color: black;
+    opacity: 1.0;
+
+    animation: flicker_unpaused 0.1s infinite;
+
+    background: linear-gradient(rgba(15, 13, 13, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 6px, 5px 100%;
+    z-index: 3;
+}
+
+.redbox {
+    border: solid 2px #fb4447;
+    box-shadow: -1px -1px 2px 2px #fb444722;
+}
+
+.bluebox {
+    border: solid 2px #bffdfb;
+    box-shadow: -1px -1px 2px 2px #bffdfb22;
+}
+
+.amount {
+    width: 50px;
+}
+
+li {
+    border: solid #679c9b 1px;
+    width: 350px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.li_1 {
+    /* Energy */
+    border: solid #9c6795 1px;
+}
+
+.li_2 {
+    /* Food */
+    border: solid #b9b76f 1px;
+}
+
+.li_3 {
+    /* Transport */
+    border: solid #676b9c 1px;
+}
+
+.li_4 {
+    /* Industry */
+    border: solid #cca465 1px;
+}
+
+.li_5 {
+    /* Land */
+    border: solid #6d9c67 1px;
+}
+
+.li_6 {
+    /* Colonialism */
+    border: solid #b1b1b1 1px;
+}
+
+.li_7 {
+    /* Policies */
+    border: solid #ffdefa 1px;
+    box-shadow: -2px -2px 4px 4px #ffdefa22;
+    background-color: #ffdefa22;
+}
+
+.number {
+    font-size: xx-large;
+}
+
+.number_good {
+    font-size: xx-large;
+    color: #45cb8b;
+    text-shadow: #45cb8bdd 1px 0px 4px;
+}
+
+.number_bad {
+    font-size: xx-large;
+    color: #fb4447;
+    text-shadow: #fb4447dd 1px 0px 4px;
+}
