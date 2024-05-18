@@ -1,5 +1,5 @@
 first space press is ignored
-
+option to deactivate crt effect
 
 == > balance check
 
