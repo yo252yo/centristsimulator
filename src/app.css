@@ -28,7 +28,7 @@
 
 @keyframes flicker_paused {
     0% {
-        background-color: #3a3a3a;
+        background-color: #383838;
     }
 
     100% {
@@ -39,11 +39,11 @@
 .screenfilter_paused {
     animation: flicker_paused 0.1s infinite;
 
-    background: linear-gradient(rgba(15, 13, 13, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
+    background: linear-gradient(rgba(5, 3, 3, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
         linear-gradient(90deg, rgba(255, 0, 0, 0.15), rgba(0, 255, 0, 0.06), rgba(0, 0, 255, 0.15));
     background-size: 100% 6px, 5px 100%;
 
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .screenfilter {
