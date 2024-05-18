@@ -318,7 +318,9 @@ function processTechUpgrade(tech_id) {
         nb_bars -= nb_cross * 10;
     }
     var bars = "X".repeat(nb_cross) + "|".repeat(nb_bars);
-    li.innerHTML = `${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
+    li.innerHTML = `
+        <img src="../files/icon_cat_${tech.category}.png" class="marketplace_icon" />
+        ${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
     ${bars}`;
     li.dataset.cost = tech.cost;
     if (tech.tooltip) {
@@ -485,6 +487,7 @@ function addToMarketplace(tech_id) {
     let li = document.createElement("li");
     li.id = "market_" + tech_id;
     li.innerHTML = `
+        <img src="../files/icon_cat_${tech.category}.png" class="marketplace_icon" />
         <span style="display:flex;float:left">${tech.name}</span>
         <span style="display:flex;float:right">
         <a onClick="skip_market(event, '${tech_id}')">
