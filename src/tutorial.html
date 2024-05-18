@@ -35,21 +35,21 @@
             </span>
         </div>
 
-        <div class="cell_div hide_normalization" id="population_div">
+        <div class="cell_div hide_normalization" id="alerts_div">
             $uffering kills ($100 = 1 life)<br />
+
+            Next alert:
+            <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
+                disabled="true" style="width:60px"> <span id="compassion_fade">1</span> deaths<br />
+
             <span id="disaster">....................</span><br />
-            <br />
+        </div>
+
+        <div class="cell_div hide_normalization" id="population_div">
             Population: <span id="population">8106672020</span><br />
             LOSE if it reaches 0
         </div>
 
-        <div class="cell_div hide_normalization" id="alerts_div">
-            You get an alert when people die.<br />
-            This slider controls when it triggers.<br />
-            Compassion fade:
-            <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
-                disabled="true" style="width:60px"> <span id="compassion_fade">1</span> deaths<br />
-        </div>
     </div>
 
 
