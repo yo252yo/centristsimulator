@@ -3,9 +3,12 @@
 <head>
     <title>Game</title>
     <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="game.css">
 </head>
 
-<body class="background">
+<body>
+    <div id="screenfilter" class="screenfilter screenfilter_unpaused">
+    </div>
     <div id="left_block">
         <div class="cell_div" id="options_div">
             <a href="javascript:pause();"><span id="pause">UNPAUSE</span></a> -
@@ -76,7 +79,7 @@
 
 
 
-    <div class="background popup bluebox" id="tuto" style="left:500px;right:500px"></div>
+    <div class="bluebox popup" id="tuto" style="left:500px;right:500px"></div>
 
 
     <script>
@@ -92,8 +95,8 @@
             <br /><br /><a href="game.html">Skip tutorial</a>
             `;
             document.getElementById("tuto").style.visibility = "visible";
-            document.body.classList.add('background_paused');
-            document.body.classList.remove('background');
+            document.getElementById("screenfilter").classList.add('screenfilter_paused');
+            document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
         }
 
         displayPopup("Centrist Simulator is a game where you need to save humanity.", "step1");

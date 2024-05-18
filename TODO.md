@@ -1,3 +1,5 @@
+first space press is ignored
+
 
 == > balance check
 
@@ -23,14 +25,14 @@ if roz: @hotline.gov, interstellar capitalism, hangover
 
 SFX
 - in options for volume test 
-- purchase tech 
-- upgrade tech
+- purchase technology 
+- upgrade technology
 - purchase policy 
-- alert deaths 
-- defeat 
+- alert bulletin on deaths 
+- defeat
 - victory
-- time tick 
-- clicker 
+- time tick (metronome?)
+- clicker button 
 
 
 ====================== Stretch i dont think we need

@@ -27,6 +27,15 @@
     padding: 20;
     z-index: 10;
     visibility: hidden;
+    background-color: black;
+    opacity: 1.0;
+
+    animation: flicker_unpaused 0.1s infinite;
+
+    background: linear-gradient(rgba(15, 13, 13, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 6px, 5px 100%;
+    z-index: 3;
 }
 
 .redbox {
@@ -87,7 +96,7 @@ li {
     background-color: #ffdefa22;
 }
 
-@keyframes changeBackground {
+@keyframes flicker_unpaused {
     0% {
         background-color: #171c16;
     }
@@ -97,21 +106,17 @@ li {
     }
 }
 
-.background {
-    animation: changeBackground 0.1s infinite;
-
-    color: #679c9b;
-    text-shadow: #679c9bdd 1px 0px 4px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+.screenfilter_unpaused {
+    animation: flicker_unpaused 0.1s infinite;
 
     background: linear-gradient(rgba(15, 13, 13, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
         linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
     background-size: 100% 6px, 5px 100%;
 
+    opacity: 0.6;
 }
 
-@keyframes changeBackground_paused {
+@keyframes flicker_paused {
     0% {
         background-color: #3a3a3a;
     }
@@ -121,17 +126,24 @@ li {
     }
 }
 
-.background_paused {
-    animation: changeBackground_paused 0.1s infinite;
-
-    color: #679c9b;
-    text-shadow: #679c9bdd 1px 0px 4px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
+.screenfilter_paused {
+    animation: flicker_paused 0.1s infinite;
 
     background: linear-gradient(rgba(15, 13, 13, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
         linear-gradient(90deg, rgba(255, 0, 0, 0.15), rgba(0, 255, 0, 0.06), rgba(0, 0, 255, 0.15));
     background-size: 100% 6px, 5px 100%;
+
+    opacity: 0.8;
+}
+
+.screenfilter {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: -1;
 }
 
 .number {
@@ -159,16 +171,23 @@ a:visited {
     color: inherit;
 }
 
-body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 .selectable {
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
+}
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    color: #679c9b;
+    text-shadow: #679c9bdd 1px 0px 4px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+
+    background-color: black;
 }

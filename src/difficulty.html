@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="app.css">
 </head>
 
-<body class="background">
+<body>
+    <div id="screenfilter" class="screenfilter screenfilter_unpaused">
+    </div>
     <h2>
         DIFFICULTY: Pick your lifestyle
     </h2>
@@ -33,7 +35,7 @@
         </tr>
     </table>
     <div style="margin-top:20px" id="tutorial_link">
-        If you missed the initial explanations, you can redo the <a href="tutorial">TUTORIAL</a>.
+        If you missed the initial explanations, you can redo the <a href="tutorial.html">TUTORIAL</a>.
     </div>
     <script>
         var hasPlayed = localStorage.getItem("playthroughs");

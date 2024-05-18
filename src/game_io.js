@@ -148,11 +148,11 @@ function pause(forced_state) {
     }
     document.getElementById("pause").innerHTML = GAME_PAUSED ? "UNPAUSE" : "PAUSE";
     if (GAME_PAUSED) {
-        document.body.classList.add('background_paused');
-        document.body.classList.remove('background');
+        document.getElementById("screenfilter").classList.add('screenfilter_paused');
+        document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
     } else {
-        document.body.classList.add('background');
-        document.body.classList.remove('background_paused');
+        document.getElementById("screenfilter").classList.add('screenfilter_unpaused');
+        document.getElementById("screenfilter").classList.remove('screenfilter_paused');
     }
 }
 

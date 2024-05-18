@@ -1,0 +1,7 @@
+body {
+    background-image: url('../files/background.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    margin: 0;
+    background-color: black;
+}
