@@ -5,6 +5,14 @@ refresh disaster progress every time you tweak the compassion gauge
 
 == > balance check
 
+
+
+
+
+On mobile the right column div is at the top, fixed, subdivided in two colimns
+And the left column is scrollable under. 
+Mb on desktop the left column is further subdivided into two columns 
+
 ====================== Death engine
 Death narrative engine
 ideally each death would be its own popup and make you click as many times as there are death
