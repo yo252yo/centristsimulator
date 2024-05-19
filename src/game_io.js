@@ -210,13 +210,14 @@ if (localStorage.getItem("setting_normalization") == "true") {
 // Keyboard
 
 function handleKeyPress(event) {
+    console.log("AA");
 
     if (event.target.tagName.toLowerCase() === 'input' && event.target.type.toLowerCase() === 'text') {
         return; // If it's an input, don't capture the event
     }
 
     if (event.key === ' ' || event.key === '0' || event.key === 'Enter' || event.key === 'Return') {
-        if (document.getElementById("popup").style.visibility != "hidden") {
+        if (document.getElementById("popup").style.visibility == "visible") {
             dismissPopup();
         } else {
             pause();

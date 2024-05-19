@@ -1,6 +1,6 @@
 
 
-first space press is ignored
+
 make divs collapsable for mobile
 
 
@@ -13,7 +13,7 @@ refresh disaster progress every time you tweak the compassion gauge
 == > balance check
 
 
-mobile issues:
+====================== Mobile rendering
 - bottom of the screen is wrong somehow
 - the first purchase is displayed in a different css??
 
