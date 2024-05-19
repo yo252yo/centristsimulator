@@ -30,10 +30,12 @@ ideally each death would be its own popup and make you click as many times as th
 
 
 ====================== LOOKS-related
-look overhaul
-mb add scroll to markets?
-mobile version
-stylize buttons/input type text
+stylize:
+- clicker buttons
+- input type text policy
+- scrollbars
+- compassion slider
+
 clicker visual effect
 
 ====================== MUSIC/SFX

@@ -85,33 +85,37 @@
 
 
     <div id="action_zone">
-        <div class="cell_div" id="carbon_capture_div">
-            <input type="button" value="Carbon capture project +1$" onclick="clicker();" />
-        </div>
-        <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
-            No virtue signaling in IMPOSSIBLE<br />
-            <input type="button" value="Carbon capture project +1$" onclick="clicker();" disabled="true" />
+        <div id="action_column_exploit">
+            <div class="cell_div" id="carbon_capture_div">
+                <input type="button" value="Carbon capture project +1$" onclick="clicker();" />
+            </div>
+            <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
+                No virtue signaling in IMPOSSIBLE<br />
+                <input type="button" value="Carbon capture project +1$" onclick="clicker();" disabled="true" />
+            </div>
+
+            <div class="cell_div" id="portfolio_div">
+                <h3>Current portfolio</h3>
+                <ul id="portfolio">
+                </ul>
+            </div>
         </div>
 
-        <div class="cell_div" id="portfolio_div">
-            <h3>Current portfolio</h3>
-            <ul id="portfolio">
-            </ul>
-        </div>
+        <div id="action_column_explore">
+            <div class="cell_div" id="marketplace_div">
+                <h3>Marketplace of ideas</h3>
+                Licensing fee: $<span id="licensing_fee"></span>
+                <ul id="marketplace">
+                </ul>
+            </div>
 
-        <div class="cell_div" id="marketplace_div">
-            <h3>Marketplace of ideas</h3>
-            Licensing fee: $<span id="licensing_fee"></span>
-            <ul id="marketplace">
-            </ul>
-        </div>
-
-        <div class="cell_div" id="politics_div" style="display:none;">
-            <h3>Political Grand Narratives</h3>
-            High cost, unpredictable results with very high potential
-            <span id="politics_cooldown"></span>
-            <ul id="politics">
-            </ul>
+            <div class="cell_div" id="politics_div" style="display:none;">
+                <h3>Political Grand Narratives</h3>
+                High cost, unpredictable results with very high potential
+                <span id="politics_cooldown"></span>
+                <ul id="politics">
+                </ul>
+            </div>
         </div>
     </div>
 

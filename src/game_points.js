@@ -37,6 +37,8 @@ let GOOD_POINTS = Math.floor(30 / DIFFICULTY);
 let GOOD_POINTS_PER_SEC = 2 / DIFFICULTY;
 if (CAN_WIN()) {
     GOOD_POINTS = -5;
+} else {
+    document.getElementById("marketplace_div").style.maxHeight = "80vh";
 }
 
 let BAD_POINTS = 0;

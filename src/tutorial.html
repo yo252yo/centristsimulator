@@ -64,29 +64,33 @@
 
 
     <div id="action_zone">
-        <div class="cell_div" id="carbon_capture_div">
-            <input type="button" value="Carbon capture project +1$" onclick="clicker();" />
+        <div id="action_column_exploit">
+            <div class="cell_div" id="carbon_capture_div">
+                <input type="button" value="Carbon capture project +1$" onclick="clicker();" />
+            </div>
+
+            <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
+                No virtue signaling in IMPOSSIBLE<br />
+                <input type="button" value="Carbon capture project +1$" onclick="clicker();" disabled="true" />
+            </div>
+
+            <div class="cell_div" id="portfolio_div">
+                <h3>Current portfolio</h3>
+                <ul id="portfolio">
+                    <li class="li_1">Invest more here: -1$, +1.0$/s<br />||</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
-            No virtue signaling in IMPOSSIBLE<br />
-            <input type="button" value="Carbon capture project +1$" onclick="clicker();" disabled="true" />
-        </div>
-
-        <div class="cell_div" id="portfolio_div">
-            <h3>Current portfolio</h3>
-            <ul id="portfolio">
-                <li class="li_1">Invest more here: -1$, +1.0$/s<br />||</li>
-            </ul>
-        </div>
-
-        <div class="cell_div" id="marketplace_div">
-            <h3>Marketplace of ideas</h3>
-            Licensing fee: $<span id="licensing_fee"></span>
-            <ul id="marketplace">
-                <li class="li_2">New Technology<br />-1$,+1.0$/s</li>
-                <li class="li_3">Other Technology<br />-10$,+2.0$/s</li>
-            </ul>
+        <div id="action_column_explore">
+            <div class="cell_div" id="marketplace_div">
+                <h3>Marketplace of ideas</h3>
+                Licensing fee: $<span id="licensing_fee"></span>
+                <ul id="marketplace">
+                    <li class="li_2">New Technology<br />-1$,+1.0$/s</li>
+                    <li class="li_3">Other Technology<br />-10$,+2.0$/s</li>
+                </ul>
+            </div>
         </div>
     </div>
 

@@ -22,6 +22,11 @@
         font-size: x-large;
     }
 
+    ul {
+        list-style-type: none;
+        padding-left: 8px;
+        width: 95%;
+    }
 
     #action_zone {
         position: fixed;
@@ -84,6 +89,12 @@
 
 @media (orientation: landscape) {
 
+    ul {
+        list-style-type: none;
+        padding-left: 20px;
+        width: 85%;
+    }
+
     .number {
         font-size: xx-large;
     }
@@ -95,11 +106,47 @@
         right: 45px;
     }
 
+    #status_zone div {
+        background-color: #bffdfb22;
+    }
+
     #action_zone {
-        position: absolute;
-        width: 450px;
+        position: fixed;
+        width: calc(100vw - 550px);
         top: 40px;
         left: 40px;
+        bottom: 15px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        overflow: hidden;
+    }
+
+    #action_column_exploit {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    #action_column_explore {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #marketplace_div {
+        max-height: 50vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    #politics_div {
+        max-height: 30vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    #portfolio_div {
+        max-height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .vertical_only {
@@ -141,13 +188,10 @@
     box-shadow: -1px -1px 2px 2px #bffdfb22;
 }
 
-.amount {
-    width: 50px;
-}
+
 
 li {
     border: solid #679c9b 1px;
-    width: 350px;
     margin: 10px;
     padding: 5px;
 }
@@ -215,5 +259,12 @@ li {
     width: 38px;
     height: 38px;
     margin-right: 20px;
+    float: left;
+}
+
+.portfolio_icon {
+    width: 57px;
+    height: 57px;
+    margin-right: 10px;
     float: left;
 }

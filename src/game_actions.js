@@ -168,7 +168,7 @@ const TECHNOLOGIES = {
         "tooltip": "Use recycled metals instead of virgin materials to reduce their considerable extraction costs."
     },
     "t3_6": {
-        "name": "Perennial Staple Crops",
+        "name": "Perennial Crops",
         "category": 5,
         "cost": 25000,
         "income": 30000,
@@ -228,7 +228,7 @@ const TECHNOLOGIES = {
         "tooltip": "Pass laws to forbid food waste. Food waste is responsible for around 8% of global emissions."
     },
     "t4_4": {
-        "name": "Tropical Forest Restoration",
+        "name": "Tropical Forest",
         "category": 5,
         "cost": 250000,
         "income": 30000,
@@ -319,8 +319,8 @@ function processTechUpgrade(tech_id) {
     }
     var bars = "X".repeat(nb_cross) + "|".repeat(nb_bars);
     li.innerHTML = `
-        <img src="../files/icon_cat_${tech.category}.png" class="marketplace_icon" />
-        ${tech.name}: -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
+        <img src="../files/icon_cat_${tech.category}.png" class="portfolio_icon" />
+        ${tech.name}<br />-${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
     ${bars}`;
     li.dataset.cost = tech.cost;
     if (tech.tooltip) {
@@ -527,7 +527,7 @@ function addToPolicies(policy) {
     if (policy == joker_policy) {
         policy_title = `<input type="text" id="policy_input" value="${joker_policy}" onClick="cancel_buy(event);" />`;
     }
-    li.innerHTML = `${policy_title}:<br /> -<span class="policyCost"></span>$/s, +????$/s`;
+    li.innerHTML = `${policy_title}<br /> -<span class="policyCost"></span>$/s, +????$/s`;
     li.dataset.cost = 0;
     li.classList.add("li_7");
     li.dataset.is_policy = true;
