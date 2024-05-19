@@ -18,10 +18,17 @@
 
 
 @media (orientation: portrait) {
+    .number {
+        font-size: x-large;
+    }
+
+
     #action_zone {
-        position: absolute;
-        overflow: hidden;
-        top: 450px;
+        position: fixed;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        top: 125px;
+        bottom: 16px;
         right: 15px;
         left: 15px;
     }
@@ -76,6 +83,10 @@
 }
 
 @media (orientation: landscape) {
+
+    .number {
+        font-size: xx-large;
+    }
 
     #status_zone {
         position: fixed;
@@ -190,18 +201,12 @@ li {
     background-color: #ffdefa22;
 }
 
-.number {
-    font-size: xx-large;
-}
-
 .number_good {
-    font-size: xx-large;
     color: #45cb8b;
     text-shadow: #45cb8bdd 1px 0px 4px;
 }
 
 .number_bad {
-    font-size: xx-large;
     color: #fb4447;
     text-shadow: #fb4447dd 1px 0px 4px;
 }
