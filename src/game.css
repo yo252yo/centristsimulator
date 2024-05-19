@@ -1,11 +1,20 @@
-body {
+#background_img {
     background-image: url('../files/background.png');
     background-repeat: no-repeat;
     background-position: center bottom;
+
     margin: 0;
     background-color: black;
-}
+    padding: 0;
+    position: fixed;
 
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50%, 0);
+}
 
 #left_block {
     position: absolute;
@@ -20,6 +29,8 @@ body {
     top: 40px;
     left: 40px;
 }
+
+
 
 .popup {
     position: absolute;
