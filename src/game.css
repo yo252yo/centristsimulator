@@ -18,7 +18,7 @@
 
 
 @media (orientation: portrait) {
-    #right_block {
+    #action_zone {
         position: absolute;
         overflow: hidden;
         top: 450px;
@@ -26,7 +26,7 @@
         left: 15px;
     }
 
-    #left_block {
+    #status_zone {
         position: fixed;
         height: 450px;
         overflow: hidden;
@@ -39,14 +39,14 @@
 
 @media (orientation: landscape) {
 
-    #left_block {
+    #status_zone {
         position: absolute;
         width: 400px;
         top: 40px;
         right: 40px;
     }
 
-    #right_block {
+    #action_zone {
         position: absolute;
         width: 450px;
         top: 40px;
