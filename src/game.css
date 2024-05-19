@@ -279,3 +279,52 @@ li {
     margin-right: 10px;
     float: left;
 }
+
+div {
+    scrollbar-width: thin;
+    scrollbar-color: #6b8e8d #bffdfb;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    background: #6b8e8d;
+    height: 4px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 4px;
+    height: 20px;
+    background: #bffdfb;
+    border-radius: 0%;
+    cursor: pointer;
+}
+
+
+input[type=text] {
+    background: #bffdfb;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    font-weight: bold;
+}
+
+input[type=button] {
+    background: #bffdfb;
+    font-size: x-large;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type=button]:hover {
+    background-color: #6b8e8d;
+}
+
+/* Active state */
+input[type=button]:active {
+    transform: translateY(1px);
+    /* Push button down slightly when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Adjust shadow on click */
+}

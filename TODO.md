@@ -23,12 +23,6 @@ ideally each death would be its own popup and make you click as many times as th
 
 
 ====================== LOOKS-related
-stylize:
-- clicker buttons
-- input type text policy
-- scrollbars
-- compassion slider
-
 clicker visual effect
 
 ====================== MUSIC/SFX
