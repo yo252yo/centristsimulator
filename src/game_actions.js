@@ -178,7 +178,7 @@ const TECHNOLOGIES = {
         "tooltip": "Plant crops with multiple year yield, as opposed to annual crops like maize and wheat."
     },
     "t3_7": {
-        "name": "Plant-based Diet Ads",
+        "name": "Plant-Based Diet Ads",
         "category": 2,
         "cost": 30000,
         "income": 40000,
@@ -268,7 +268,7 @@ const TECHNOLOGIES = {
         "tooltip": "Extremely efficient energy generation building that requires a high level of safety and waste management."
     },
     "t5_2": {
-        "name": "Plant-based Diet Subsidy",
+        "name": "Plant Diet Subsidy",
         "category": 2,
         "cost": 10000000,
         "income": 750000,
@@ -278,7 +278,7 @@ const TECHNOLOGIES = {
         "tooltip": "Use government subsidies to shift the ratio of meat to vegetable in stores and restaurants."
     },
     "t5_3": {
-        "name": "Conservation Agriculture",
+        "name": "Conservation Crops",
         "category": 5,
         "cost": 100000000,
         "income": 1000000,
