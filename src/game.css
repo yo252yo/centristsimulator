@@ -16,20 +16,43 @@
     transform: translate(-50%, 0);
 }
 
-#left_block {
-    position: absolute;
-    width: 400px;
-    top: 40px;
-    right: 40px;
+
+@media (orientation: portrait) {
+    #right_block {
+        position: absolute;
+        overflow: hidden;
+        top: 450px;
+        right: 15px;
+        left: 15px;
+    }
+
+    #left_block {
+        position: fixed;
+        height: 450px;
+        overflow: hidden;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+
+    }
 }
 
-#right_block {
-    position: absolute;
-    width: 450px;
-    top: 40px;
-    left: 40px;
-}
+@media (orientation: landscape) {
 
+    #left_block {
+        position: absolute;
+        width: 400px;
+        top: 40px;
+        right: 40px;
+    }
+
+    #right_block {
+        position: absolute;
+        width: 450px;
+        top: 40px;
+        left: 40px;
+    }
+}
 
 
 .popup {
