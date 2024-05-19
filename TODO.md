@@ -8,7 +8,7 @@ make divs collapsable for mobile
 
 option to deactivate crt effect
 load images and media in the background
-refresh disaster progress every time you tweak the compassion gauge
+
 
 == > balance check
 

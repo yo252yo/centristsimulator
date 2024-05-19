@@ -168,6 +168,7 @@ function changeCompassionSlider() {
     death_alert_threshold = death_alert_thresholds[index];
     document.getElementById("compassion_fade").innerText = formatNumber(death_alert_threshold);
     disasters_before_new_compassion_lvl = 0;
+    displayPopulation();
 }
 
 if (localStorage.getItem("compassionMax")) {
