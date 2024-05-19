@@ -13,6 +13,10 @@ refresh disaster progress every time you tweak the compassion gauge
 == > balance check
 
 
+mobile issues:
+- bottom of the screen is wrong somehow
+- the first purchase is displayed in a different css??
+
 ====================== Death engine
 Death narrative engine
 ideally each death would be its own popup and make you click as many times as there are death
