@@ -1,28 +1,17 @@
-CSS :
-- LI elements
-- popup
-- tutorial
-
-
-
-
 
 
 first space press is ignored
 make divs collapsable for mobile
+
+
+
+
 option to deactivate crt effect
 load images and media in the background
 refresh disaster progress every time you tweak the compassion gauge
 
 == > balance check
 
-
-
-
-
-On mobile the right column div is at the top, fixed, subdivided in two colimns
-And the left column is scrollable under. 
-Mb on desktop the left column is further subdivided into two columns 
 
 ====================== Death engine
 Death narrative engine

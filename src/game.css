@@ -160,14 +160,14 @@
 
 
 .popup {
-    position: absolute;
-    top: 50px;
+    position: fixed;
+    top: 200px;
     left: 20%;
     right: 20%;
     padding: 20;
     z-index: 10;
     visibility: hidden;
-    background-color: black;
+    background-color: red;
     opacity: 1.0;
 
     animation: flicker_unpaused 0.1s infinite;
