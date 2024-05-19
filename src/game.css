@@ -89,6 +89,28 @@
 
 @media (orientation: landscape) {
 
+    #action_zone {
+        position: fixed;
+        width: calc(100vw - 550px);
+        top: 40px;
+        left: 40px;
+        bottom: 15px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        overflow: hidden;
+    }
+
+    @media (max-width: 999px) {
+        html {
+            zoom: 0.7;
+            font-size: normal;
+        }
+
+        #action_zone {
+            width: 80vw;
+        }
+    }
+
     ul {
         list-style-type: none;
         padding-left: 20px;
@@ -108,17 +130,6 @@
 
     #status_zone div {
         background-color: #bffdfb22;
-    }
-
-    #action_zone {
-        position: fixed;
-        width: calc(100vw - 550px);
-        top: 40px;
-        left: 40px;
-        bottom: 15px;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        overflow: hidden;
     }
 
     #action_column_exploit {
