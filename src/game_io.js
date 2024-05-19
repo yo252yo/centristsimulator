@@ -210,8 +210,6 @@ if (localStorage.getItem("setting_normalization") == "true") {
 // Keyboard
 
 function handleKeyPress(event) {
-    console.log("AA");
-
     if (event.target.tagName.toLowerCase() === 'input' && event.target.type.toLowerCase() === 'text') {
         return; // If it's an input, don't capture the event
     }
