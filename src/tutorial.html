@@ -23,9 +23,12 @@
         </div>
 
         <div class="cell_div" id="time_div">
-            <span id="date">Year: 2024 ....</span><br />
-            WIN if humanity survives until 2150
-            <span id="timer">..............................</span>
+            <span id="date">Year: 2024 ....</span>
+            <span class="vertical_only"> /2150</span>
+            <span class="horizontal_only">
+
+                <br />Time to 2150 (WIN): <span id="timer">...............</span>
+            </span>
         </div>
 
         <div class="cell_div" id="points_div">
@@ -39,18 +42,22 @@
         </div>
 
         <div class="cell_div hide_normalization" id="alerts_div">
-            $uffering kills ($100 = 1 life)<br />
+
+            <span class="vertical_only"> 100 $uffering = 1 death</span>
+            <span class="horizontal_only">
+                $uffering kills ($100 = 1 life)<br />
+            </span>
 
             Next alert:
+            <span class="vertical_only"><br /></span>
             <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
-                disabled="true" style="width:60px"> <span id="compassion_fade">1</span> deaths<br />
+                disabled="true" style="width:55px"> <span id="compassion_fade">1</span> deaths<br />
 
             <span id="disaster">....................</span><br />
         </div>
 
         <div class="cell_div hide_normalization" id="population_div">
-            Population: <span id="population">8106672020</span><br />
-            LOSE if it reaches 0
+            Population: <span id="population">8106672020</span> <span class="horizontal_only">(LOSE if 0)</span>
         </div>
 
     </div>

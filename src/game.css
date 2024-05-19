@@ -28,22 +28,60 @@
 
     #status_zone {
         position: fixed;
-        height: 450px;
         overflow: hidden;
         top: 15px;
         left: 15px;
         right: 15px;
 
+        gap: 0px;
+        padding: 0px;
+        margin: 0px;
+
+        font-size: x-small;
+        display: grid;
+        grid-template-columns: 60% 40%;
+    }
+
+    #status_zone div {
+        margin: 0px;
+        padding: 2px;
+        border: 1px solid;
+        background-color: #bffdfb22;
+    }
+
+    #points_div {
+        height: 85px;
+        grid-column: 1;
+        grid-row: 2 / span 2;
+        line-height: .8;
+    }
+
+    #alerts_div {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    #population_div {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .vertical_only {
+        display: inline;
+    }
+
+    .horizontal_only {
+        display: none;
     }
 }
 
 @media (orientation: landscape) {
 
     #status_zone {
-        position: absolute;
+        position: fixed;
         width: 400px;
-        top: 40px;
-        right: 40px;
+        top: 45px;
+        right: 45px;
     }
 
     #action_zone {
@@ -51,6 +89,14 @@
         width: 450px;
         top: 40px;
         left: 40px;
+    }
+
+    .vertical_only {
+        display: none;
+    }
+
+    .horizontal_only {
+        display: inline;
     }
 }
 

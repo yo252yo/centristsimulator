@@ -37,7 +37,7 @@ function displayTime() {
     var season = seconds_elapsed % 4;
     document.getElementById("date").innerHTML = `Year: ${year} ${"|".repeat(season)}${".".repeat(4 - season)}`;
 
-    var gauge_characters = 30;
+    var gauge_characters = 15;
     var interval = 1 / gauge_characters;
     var progress = Math.round((seconds_elapsed / GOAL_SECONDS) / interval);
     if (!CAN_WIN()) {
