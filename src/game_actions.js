@@ -313,7 +313,7 @@ function processTechUpgrade(tech_id) {
 
     var nb_bars = tech.current_level;
     var nb_cross = 0;
-    if (nb_bars > 20) {
+    if (nb_bars > 10) {
         nb_cross = Math.floor(nb_bars / 10);
         nb_bars -= nb_cross * 10;
     }

@@ -3,7 +3,7 @@ Centrist Clicker
 
 make divs collapsable for mobile
 click on screen (non button) unpauses
-combine at 10 not 20
+
 
 
 
