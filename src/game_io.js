@@ -150,9 +150,11 @@ function pause(forced_state) {
     if (GAME_PAUSED) {
         document.getElementById("screenfilter").classList.add('screenfilter_paused');
         document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
+        document.getElementById("carbon_capture_button").disabled = true;
     } else {
         document.getElementById("screenfilter").classList.add('screenfilter_unpaused');
         document.getElementById("screenfilter").classList.remove('screenfilter_paused');
+        document.getElementById("carbon_capture_button").disabled = false;
     }
 }
 
