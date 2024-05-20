@@ -42,7 +42,6 @@
         </div>
 
         <div class="cell_div hide_normalization" id="alerts_div">
-
             <span class="vertical_only"> 100 $uffering = 1 death</span>
             <span class="horizontal_only">
                 $uffering kills ($100 = 1 life)<br />
@@ -107,7 +106,7 @@
 
         function displayPopup(text, callback_name) {
             document.getElementById("tuto").innerHTML = `
-            <div style="height:200px">${text}</div>
+            <div style="min-height:200px">${text}</div>
             <br /><input type="button" onClick="${callback_name}();" value="NEXT">
             <br /><br /><a href="game.html">Skip tutorial</a>
             `;
@@ -196,9 +195,10 @@
 
         function step9() {
             displayPopup(`
-            However, in this world, technology allows you to automate away this kind of tedious tasks.<br />
-            Buy some new technologies in the marketplace, or invest in your existing portfolio.<br />
-            You get access to new technologies as the game progresses.
+            However, in this world, technology can automate away tedious tasks.<br />
+            Buy some new tech in the marketplace, or invest in your existing portfolio.<br />
+            You'll get access to new technologies as the game progresses. 
+            <span class="vertical_only">You can collapse any section by clicking its title to browse easily.</span>
             `, "step10");
 
             document.getElementById("carbon_capture_div").style.opacity = 0.2;
@@ -208,6 +208,7 @@
         function step10() {
             displayPopup(`
             Be careful, buying technologies in the marketplace require an increasing license fee!<br />
+            
             Win by being a smart investor and building the right portfolio that can out-race the climate crisis!
 
             `, "step11");

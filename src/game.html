@@ -29,7 +29,7 @@
     </script>
 </head>
 
-<body onclick="console.log('click')">
+<body>
     <div id="screenfilter" class="screenfilter screenfilter_unpaused">
     </div>
     <div id="screen" class="cell_div">
@@ -96,26 +96,32 @@
             </div>
 
             <div class="cell_div" id="portfolio_div">
-                <h3>Current portfolio</h3>
-                <ul id="portfolio">
-                </ul>
+                <h3 onclick="collapse_section(event)">Current portfolio</h3>
+                <div>
+                    <ul id="portfolio">
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div id="action_column_explore">
             <div class="cell_div" id="marketplace_div">
-                <h3>Marketplace of ideas</h3>
-                Licensing fee: $<span id="licensing_fee"></span>
-                <ul id="marketplace">
-                </ul>
+                <h3 onclick="collapse_section(event)">Marketplace of ideas</h3>
+                <div>
+                    Licensing fee: $<span id="licensing_fee"></span>
+                    <ul id="marketplace">
+                    </ul>
+                </div>
             </div>
 
             <div class="cell_div" id="politics_div" style="display:none;">
-                <h3>Political Grand Narratives</h3>
-                High cost, unpredictable results with very high potential
-                <span id="politics_cooldown"></span>
-                <ul id="politics">
-                </ul>
+                <h3 onclick="collapse_section(event)">Political Grand Narratives</h3>
+                <div>
+                    High cost, unpredictable results with very high potential
+                    <span id="politics_cooldown"></span>
+                    <ul id="politics">
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

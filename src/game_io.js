@@ -176,6 +176,16 @@ function speed(set_at) {
     document.getElementById("speed").innerHTML = `x${SPEED}`;
 }
 
+function collapse_section(event) {
+    const content = event.target.nextElementSibling;
+    if (content.style.display == 'none') {
+        content.style.display = 'block';
+        event.target.textContent = event.target.textContent.substring(3);
+    } else {
+        content.style.display = 'none';
+        event.target.textContent = ">> " + event.target.textContent;
+    }
+}
 
 // ==================================================================
 // Ending
@@ -249,7 +259,7 @@ document.addEventListener('keypress', handleKeyPress);
 
 
 document.addEventListener("click", function (event) {
-    if (['a', 'input', 'span', 'li'].includes(event.target.tagName.toLowerCase())) {
+    if (['a', 'input', 'span', 'li', 'h3'].includes(event.target.tagName.toLowerCase())) {
         return;
     }
     if (GAME_PAUSED) {

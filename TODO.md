@@ -1,10 +1,6 @@
 Centrist Clicker
 
 
-make divs collapsable for mobile
-
-
-
 
 
 option to deactivate crt effect

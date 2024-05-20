@@ -68,6 +68,10 @@
         line-height: .8;
     }
 
+    #options_div {
+        font-size: larger;
+    }
+
     #alerts_div {
         grid-column: 2;
         grid-row: 2;
