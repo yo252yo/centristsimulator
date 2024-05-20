@@ -2,7 +2,7 @@ Centrist Clicker
 
 
 make divs collapsable for mobile
-click on screen (non button) unpauses
+
 
 
 

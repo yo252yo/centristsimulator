@@ -346,8 +346,9 @@ function addToPortfolio(tech_id) {
     li.id = "portfolio_" + tech_id;
     li.classList.add("li_" + tech.category);
 
-    li.addEventListener("click", function () {
+    li.addEventListener("click", function (event) {
         upgradeTech(tech_id);
+        event.stopPropagation();
     });
 
     document.getElementById("portfolio").appendChild(li);
@@ -501,8 +502,9 @@ function addToMarketplace(tech_id) {
     li.style.display = "none";
     li.classList.add("li_" + tech.category);
 
-    li.addEventListener("click", function () {
+    li.addEventListener("click", function (event) {
         purchaseTech(tech_id);
+        event.stopPropagation();
     });
 
     if (tech.tooltip) {
@@ -532,8 +534,9 @@ function addToPolicies(policy) {
     li.classList.add("li_7");
     li.dataset.is_policy = true;
 
-    li.addEventListener("click", function () {
+    li.addEventListener("click", function (event) {
         purchasePolicy(policy);
+        event.stopPropagation();
     });
 
     document.getElementById("politics").appendChild(li);

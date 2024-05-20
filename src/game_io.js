@@ -244,3 +244,13 @@ function handleKeyPress(event) {
     event.preventDefault();
 }
 document.addEventListener('keypress', handleKeyPress);
+
+
+document.addEventListener("click", function (event) {
+    if (['a', 'input', 'span', 'li'].includes(event.target.tagName.toLowerCase())) {
+        return;
+    }
+    if (GAME_PAUSED) {
+        pause("ON");
+    }
+});
