@@ -1,3 +1,22 @@
+- improve loot box chances for policy
+- continue after end
+- animate suffering fill the disaster
+- onboardign with progressive interface
+- no clicker button on impossible
+- unpause on clicker button
+- curve strain around 100 million hardcore
+- death per second
+- scale suffering exchange rate
+- compassion popup ease up in early
+- favicon
+
+
+- integrate graphics feedback
+- integrate sfx
+
+
+
+
 Centrist Clicker
 
 
