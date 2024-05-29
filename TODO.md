@@ -5,10 +5,9 @@
 - earning animating text
 - bigger pause effect/UI color change
 - closing popup undoes the pause
-- check max heigh in non canwin
 - keyboard support in tutorial
 - popup positioning
-
+- live graph
 
 ====================== Mobile rendering
 - bottom of the screen is wrong somehow
@@ -27,7 +26,6 @@ NEED THE TITLE CARD
 
 ====================== Stretch i dont think we need
 load images and media in the background
-unpause on clicker button
 
 save/load system for the game
 change options during the game

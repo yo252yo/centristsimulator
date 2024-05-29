@@ -111,7 +111,7 @@ updateHtmlValues();
 
 function clicker() {
     if (GAME_PAUSED) {
-        return;
+        pause("ON");
     }
     if (document.getElementById("marketplace_div").style.visibility == "hidden") {
         document.getElementById("marketplace_div").style.visibility = "visible";
@@ -120,6 +120,7 @@ function clicker() {
     sfx("Clicker");
     GOOD_POINTS += Math.min(1, SPEED);
     displayPoints();
+    document.getElementById("carbon_capture_button").blur();
 }
 
 function dismissPopup() {
@@ -158,13 +159,11 @@ function pause(forced_state) {
         document.getElementById("screenfilter").classList.add('screenflicker_paused');
         document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
         document.getElementById("screenfilter").classList.remove('screenflicker_unpaused');
-        document.getElementById("carbon_capture_button").disabled = true;
     } else {
         document.getElementById("screenfilter").classList.add('screenfilter_unpaused');
         document.getElementById("screenfilter").classList.add('screenflicker_unpaused');
         document.getElementById("screenfilter").classList.remove('screenfilter_paused');
         document.getElementById("screenfilter").classList.remove('screenflicker_paused');
-        document.getElementById("carbon_capture_button").disabled = false;
     }
 }
 
