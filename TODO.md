@@ -8,9 +8,9 @@
 - earning animating text
 - reorder screen, less boxes
 
-- load images and media in the background
 - key/glossary for the hotkeys?
 
+- bigger pause effect/UI color change
 
 
 ====================== CLicker button
@@ -32,9 +32,11 @@ difficulty, choice and title could look better
 
 
 ====================== Stretch i dont think we need
+load images and media in the background
+unpause on clicker button
+
 save/load system for the game
 change options during the game
-unpause on clicker button
 
 
 ====================== Stylize tooltips??
