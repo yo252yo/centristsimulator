@@ -38,7 +38,7 @@ let GOOD_POINTS_PER_SEC = 2 / DIFFICULTY;
 if (CAN_WIN()) {
     GOOD_POINTS = -5;
 } else {
-    document.getElementById("marketplace_div").style.maxHeight = "80vh";
+    document.getElementById("marketplace_div").style.maxHeight = "calc(78vh + 32px)";
     setTimeout(function () {
         pause("OFF");
     }, 250);
