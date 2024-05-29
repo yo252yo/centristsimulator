@@ -32,7 +32,7 @@
             (hides human cost and death toll of your actions)
         </span>
 
-        <a href="title.html">
+        <a onClick="linkSfx('title.html')">
             <h2>BACK</h2>
         </a>
 
@@ -50,6 +50,7 @@
                 var state = !document.getElementById(target + "_box").checked;
                 document.getElementById(target + "_box").checked = state;
                 localStorage.setItem("setting_" + target, state);
+                linkSfx();
             }
 
             document.getElementById("confirmation_box").checked = (localStorage.getItem("setting_confirmation") == "true") || false;

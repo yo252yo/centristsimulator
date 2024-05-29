@@ -14,3 +14,19 @@ function sfx(name) {
         audio.load();
     };
 }
+
+var ongoing = false;
+function linkSfx(destination) {
+    if (ongoing) {
+        return;
+    }
+
+    if (destination) {
+        ongoing = true;
+        setTimeout(() => {
+            window.location.href = destination;
+        }, 300);
+    }
+
+    sfx("Link");
+}

@@ -20,7 +20,7 @@
         <div class="cell_div" id="options_div">
             <a href="javascript:pause();"><span id="pause">UNPAUSE</span></a> -
             Speed <a href="javascript:speed();"><span id="speed">x1</span></a> -
-            <a href="difficulty.html">retry</a>
+            <a onClick="linkSfx('difficulty.html');">retry</a>
         </div>
 
         <div class="cell_div" id="time_div">
@@ -106,10 +106,13 @@
 
 
         function displayPopup(text, callback_name) {
+            if (typeof linkSfx === 'function') {
+                linkSfx();
+            }
             document.getElementById("tuto").innerHTML = `
             <div style="min-height:200px">${text}</div>
             <br /><input type="button" onClick="${callback_name}();" value="NEXT">
-            <br /><br /><a href="game.html">Skip tutorial</a>
+            <br /><br /><a onClick="linkSfx('game.html');">Skip tutorial</a>
             `;
             document.getElementById("tuto").style.visibility = "visible";
             document.getElementById("screenfilter").classList.add('screenfilter_paused');
@@ -226,7 +229,7 @@
         }
 
         function step12() {
-            location.href = "game.html";
+            linkSfx("game.html");
         }
 
     </script>

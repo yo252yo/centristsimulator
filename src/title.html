@@ -8,6 +8,7 @@
         function showCredits() {
             document.getElementById("credits").style.display = "block";
             document.getElementById("credits_link").style.display = "none";
+            linkSfx();
         }
     </script>
     <script src="app.js" defer></script>
@@ -21,10 +22,10 @@
         <h1>Centrist Simulator</h1>
         <h2><i>An anti-idle game about the violence of inaction</i></h2>
 
-        <a href="difficulty.html">
+        <a onClick="linkSfx('difficulty.html')">
             <h2>START</h2>
         </a>
-        <a href="options.html">
+        <a onClick="linkSfx('options.html')">
             <h2>OPTIONS</h2>
         </a>
         <a onClick="showCredits()" id="credits_link">

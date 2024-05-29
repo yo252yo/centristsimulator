@@ -132,6 +132,8 @@ function pause(forced_state) {
     if (GAME_OVER) {
         return;
     }
+
+    linkSfx();
     if (forced_state) {
         if (forced_state == "ON") {
             GAME_PAUSED = false;
@@ -175,6 +177,7 @@ function speed(set_at) {
         SPEED = set_at;
     }
     document.getElementById("speed").innerHTML = `x${SPEED}`;
+    linkSfx();
 }
 
 function collapse_section(event) {
