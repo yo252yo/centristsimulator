@@ -110,7 +110,10 @@
             }
             document.getElementById("tuto").innerHTML = `
             <div style="min-height:200px">${text}</div>
-            <br /><input type="button" onClick="${callback_name}();" value="NEXT">
+            
+            <div class="cell_div" onClick="${callback_name}();" style="width:100px; text-align: center;">
+                <h2>NEXT</h2>
+            </div>
             <br /><br /><a onClick="linkSfx('game.html');">Skip tutorial</a>
             `;
             document.getElementById("tuto").style.visibility = "visible";
