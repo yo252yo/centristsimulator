@@ -1,7 +1,6 @@
 
 - animate suffering fill the disaster
 - onboardign with progressive interface
-- curve strain around 100 million hardcore
 - death per second
 - scale suffering exchange rate
 - favicon
