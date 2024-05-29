@@ -23,21 +23,14 @@
     <script>
         var MUSIC_AUDIO = new Audio();
         MUSIC_AUDIO.loop = "loop";
-        var SFX_AUDIO = new Audio();
 
         function checkVolume() {
             const savedMusicVolume = localStorage.getItem('music_volume');
             if (savedMusicVolume !== null) {
                 MUSIC_AUDIO.volume = savedMusicVolume / 100;
             }
-
-            const savedSFXVolume = localStorage.getItem('sfx_volume');
-            if (savedSFXVolume !== null) {
-                SFX_AUDIO.volume = savedSFXVolume / 100;
-            }
         }
         setInterval(checkVolume, 250);
-
 
 
         MUSIC_AUDIO.src = "files/bgm.ogg";

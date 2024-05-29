@@ -4,6 +4,7 @@
     <title>Options</title>
     <link rel="stylesheet" href="app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -39,6 +40,8 @@
             function changeVolume(target) {
                 var value = document.getElementById(target + "-volume-slider").value;
                 localStorage.setItem(target + '_volume', value);
+
+                sfx("VolumeCheck");
             }
             document.getElementById("music-volume-slider").value = localStorage.getItem("music_volume") || 100;
             document.getElementById("sfx-volume-slider").value = localStorage.getItem("sfx_volume") || 100;
