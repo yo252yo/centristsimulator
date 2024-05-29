@@ -2,9 +2,9 @@
 - animate suffering fill the disaster
 - death per second
 - scale suffering exchange rate
-- earning animating text
+
+
 - bigger pause effect/UI color change
-- closing popup undoes the pause
 - keyboard support in tutorial
 - popup positioning
 - live graph

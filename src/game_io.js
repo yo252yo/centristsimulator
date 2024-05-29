@@ -306,7 +306,11 @@ document.addEventListener("click", function (event) {
         return;
     }
     if (GAME_PAUSED) {
-        pause("ON");
+        if (document.getElementById("popup").style.visibility == "visible") {
+            dismissPopup();
+        } else {
+            pause("ON");
+        }
     } else {
         const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
