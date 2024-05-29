@@ -39,6 +39,13 @@ if (CAN_WIN()) {
     GOOD_POINTS = -5;
 } else {
     document.getElementById("marketplace_div").style.maxHeight = "80vh";
+    setTimeout(function () {
+        pause("OFF");
+    }, 250);
+
+    // Onboarding
+    document.getElementById("portfolio_div").style.visibility = "hidden";
+    document.getElementById("marketplace_div").style.visibility = "hidden";
 }
 
 let BAD_POINTS = 0;

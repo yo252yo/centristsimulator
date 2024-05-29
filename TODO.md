@@ -1,12 +1,13 @@
 
 - animate suffering fill the disaster
-- onboardign with progressive interface
 - death per second
 - scale suffering exchange rate
 - earning animating text
 - bigger pause effect/UI color change
-- start on first click
 - closing popup undoes the pause
+- check max heigh in non canwin
+- keyboard support in tutorial
+- popup positioning
 
 
 ====================== Mobile rendering

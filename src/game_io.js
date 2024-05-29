@@ -113,6 +113,9 @@ function clicker() {
     if (GAME_PAUSED) {
         return;
     }
+    if (document.getElementById("marketplace_div").style.visibility == "hidden") {
+        document.getElementById("marketplace_div").style.visibility = "visible";
+    }
 
     sfx("Clicker");
     GOOD_POINTS += Math.min(1, SPEED);

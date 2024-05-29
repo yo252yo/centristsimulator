@@ -374,6 +374,10 @@ function purchaseTech(tech_id) {
         return;
     }
 
+    if (document.getElementById("portfolio_div").style.visibility == "hidden") {
+        document.getElementById("portfolio_div").style.visibility = "visible";
+    }
+
     sfx("Purchase");
     addToPortfolio(tech_id);
     processTechUpgrade(tech_id);
@@ -484,6 +488,7 @@ function purchasePolicy(policy) {
     if (POLICIES_COOLDOWN > 0) {
         return;
     }
+
     var reward = rewardForPolicy();
     GOOD_POINTS_PER_SEC /= 2;
     addPolicyToPortfolio(policy, GOOD_POINTS_PER_SEC, reward);
