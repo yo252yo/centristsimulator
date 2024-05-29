@@ -2,7 +2,6 @@
 - continue after end
 - animate suffering fill the disaster
 - onboardign with progressive interface
-- no clicker button on impossible
 - unpause on clicker button
 - curve strain around 100 million hardcore
 - death per second
