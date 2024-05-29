@@ -377,13 +377,28 @@ input[type=button]:hover {
 }
 
 input[type=button]:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #6b8e8d;
 }
 
-/* Active state */
-input[type=button]:active {
-    transform: translateY(1px);
-    /* Push button down slightly when clicked */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Adjust shadow on click */
+
+.carbon-dot {
+    position: fixed;
+    color: #45cb8b;
+    text-shadow: #2b7f56dd 1px 0px 4px;
+    opacity: 1;
+    animation: moveAndFade 3s linear forwards;
+}
+
+@keyframes moveAndFade {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--translate-x), var(--translate-y));
+        opacity: 0;
+    }
 }

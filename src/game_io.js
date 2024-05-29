@@ -121,7 +121,34 @@ function clicker() {
     GOOD_POINTS += Math.min(1, SPEED);
     displayPoints();
     document.getElementById("carbon_capture_button").blur();
+    createCarbonDot();
 }
+
+function createCarbonDot() {
+    const carbonDot = document.createElement('div');
+    carbonDot.innerText = "$1";
+    carbonDot.classList.add('carbon-dot');
+
+    const button = document.getElementById('carbon_capture_button');
+    button.parentElement.appendChild(carbonDot);
+
+    const xPos = button.getBoundingClientRect().left + 40 * Math.random();
+    const yPos = button.getBoundingClientRect().top + 50 * Math.random();
+
+    carbonDot.style.left = `${Math.floor(xPos)}px`;
+    carbonDot.style.top = `${Math.floor(yPos)}px`;
+
+    const translateX = -100 - Math.floor(Math.random() * 50);
+    const translateY = Math.floor(Math.random() * 300 - 50);
+
+    carbonDot.style.setProperty('--translate-x', `${translateX}px`);
+    carbonDot.style.setProperty('--translate-y', `${translateY}px`);
+
+    setTimeout(() => {
+        carbonDot.remove();
+    }, 3000);
+}
+
 
 function dismissPopup() {
     document.getElementById("popup").style.visibility = "hidden";
