@@ -353,6 +353,9 @@ function addToPortfolio(tech_id) {
     });
 
     document.getElementById("portfolio").appendChild(li);
+    setTimeout(function () {
+        li.scrollIntoView({ behavior: "instant", block: "end", inline: "end" });
+    }, 250);
 }
 
 function updateLicenseFee() {
@@ -439,6 +442,9 @@ function addPolicyToPortfolio(policy, cost, reward) {
     li.style.opacity = 0.6;
 
     document.getElementById("portfolio").appendChild(li);
+    setTimeout(function () {
+        li.scrollIntoView({ behavior: "instant", block: "end", inline: "end" });
+    }, 250);
 }
 
 var pityPolicyStreak = 0;

@@ -5,9 +5,9 @@
 - scale suffering exchange rate
 - enter submits the current input type text
 - earning animating text
-- scrooldown portfolio on additions
 - bigger pause effect/UI color change
 - start on first click
+- closing popup undoes the pause
 
 
 ====================== Mobile rendering
