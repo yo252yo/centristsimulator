@@ -3,7 +3,6 @@
 - onboardign with progressive interface
 - death per second
 - scale suffering exchange rate
-- enter submits the current input type text
 - earning animating text
 - bigger pause effect/UI color change
 - start on first click

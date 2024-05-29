@@ -233,6 +233,10 @@ if (localStorage.getItem("setting_normalization") == "true") {
 
 function handleKeyPress(event) {
     if (event.target.tagName.toLowerCase() === 'input' && event.target.type.toLowerCase() === 'text') {
+        if (event.key == 'Enter' && event.target.id == "policy_input") {
+            purchasePolicy(joker_policy);
+            event.target.blur();
+        }
         return; // If it's an input, don't capture the event
     }
 
