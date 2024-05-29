@@ -46,6 +46,8 @@ if (CAN_WIN()) {
     // Onboarding
     document.getElementById("portfolio_div").style.visibility = "hidden";
     document.getElementById("marketplace_div").style.visibility = "hidden";
+    document.getElementById("alerts_div").style.visibility = "hidden";
+    document.getElementById("population_div").style.visibility = "hidden";
 }
 
 let BAD_POINTS = 0;
@@ -129,6 +131,16 @@ function updatePoints() {
     BAD_POINTS = getBP(seconds_elapsed);
     PENDING_DISASTER_POINTS += Math.max(0, BAD_POINTS - GOOD_POINTS);
 
+
+    if (BAD_POINTS > GOOD_POINTS) {
+        if (document.getElementById("alerts_div").style.visibility == "hidden") {
+            document.getElementById("alerts_div").style.visibility = "visible";
+        }
+        displaySuffering(BAD_POINTS - GOOD_POINTS);
+    } else {
+        displaySuffering(0);
+    }
+
     // I know what i said before but i think we can let them celebrate small victories since they'll be crushed in the end
     // if (GOOD_POINTS > BAD_POINTS) { // For safety, this should never happen
     //     BAD_POINTS = GOOD_POINTS + 1;
@@ -140,6 +152,45 @@ function updatePoints() {
 setTimeout(updatePoints, 1000);
 
 
+function displaySuffering(suffering) {
+    const sufferintDot = document.createElement('div');
+    let type = "bad";
+    if (suffering == 0) {
+        type = "good";
+    }
+    sufferintDot.innerHTML = `<span class="number_${type}">
+    $${formatNumber(suffering)}=${formatNumber(suffering / pop_disaster_ratio)}deaths
+    </span>`;
+    sufferintDot.classList.add('suffering-dot');
+
+    const from = document.getElementById('differencial');
+    const to = document.getElementById('disaster');
+    document.body.appendChild(sufferintDot);
+
+    let fromX = from.getBoundingClientRect().left - 5;
+    let fromY = from.getBoundingClientRect().top + 20;
+
+    sufferintDot.style.left = `${Math.floor(fromX)}px`;
+    sufferintDot.style.top = `${Math.floor(fromY)}px`;
+
+    let translateX = to.getBoundingClientRect().left - from.getBoundingClientRect().left;
+    let translateY = to.getBoundingClientRect().top - from.getBoundingClientRect().top;
+
+    if (suffering == 0) {
+        translateX *= -0.7;
+        translateY = 30;
+    } else {
+        translateX *= 1.2;
+        translateY *= 1.2;
+    }
+
+    sufferintDot.style.setProperty('--translate-x', `${Math.floor(translateX)}px`);
+    sufferintDot.style.setProperty('--translate-y', `${Math.floor(translateY)}px`);
+
+    setTimeout(() => {
+        sufferintDot.remove();
+    }, 2000);
+}
 // ==================================================================
 // Disaster / population
 let TOTAL_DISASTER_POINTS = 0;
@@ -188,6 +239,10 @@ if (localStorage.getItem("compassionMax")) {
 function handleDisaster() {
     if (PENDING_DISASTER_POINTS > pop_disaster_ratio * death_alert_threshold) {
         var victims = Math.floor(PENDING_DISASTER_POINTS / pop_disaster_ratio);
+
+        if (document.getElementById("population_div").style.visibility == "hidden") {
+            document.getElementById("population_div").style.visibility = "visible";
+        }
 
         if (victims < 10) {
             sfx("Disaster_tiny");

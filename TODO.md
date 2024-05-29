@@ -1,9 +1,4 @@
 
-- animate suffering fill the disaster
-- death per second
-- scale suffering exchange rate
-
-
 - bigger pause effect/UI color change
 - keyboard support in tutorial
 - popup positioning

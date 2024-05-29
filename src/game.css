@@ -89,7 +89,7 @@
 
         font-size: x-small;
         display: grid;
-        grid-template-columns: 60% 40%;
+        grid-template-columns: 59% 41%;
     }
 
     #status_zone div {
@@ -353,6 +353,7 @@ input[type=range]::-webkit-slider-thumb {
     background: #bffdfb;
     border-radius: 0%;
     cursor: pointer;
+    z-index: 4;
 }
 
 
@@ -382,6 +383,13 @@ input[type=button]:active {
     background-color: #6b8e8d;
 }
 
+.suffering-dot {
+    position: fixed;
+    text-shadow: #bffdfbdd 1px 0px 4px;
+    opacity: 1;
+    z-index: 2;
+    animation: moveAndFade 2s linear forwards;
+}
 
 .carbon-dot {
     position: fixed;
@@ -395,6 +403,10 @@ input[type=button]:active {
     0% {
         transform: translate(0, 0);
         opacity: 1;
+    }
+
+    75% {
+        opacity: .7;
     }
 
     100% {
