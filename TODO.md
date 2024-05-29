@@ -1,5 +1,4 @@
 
-- continue after end
 - animate suffering fill the disaster
 - onboardign with progressive interface
 - unpause on clicker button
@@ -8,7 +7,6 @@
 - scale suffering exchange rate
 - favicon
 
-- new font  Source Code Pro - regular and bold
 - earning animating text
 - reorder screen, less boxes
 
