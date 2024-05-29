@@ -274,5 +274,11 @@ document.addEventListener("click", function (event) {
     }
     if (GAME_PAUSED) {
         pause("ON");
+    } else {
+        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobileDevice) {
+            pause();
+        }
     }
 });
