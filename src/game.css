@@ -364,14 +364,17 @@ input[type=text] {
 input[type=button] {
     background: #bffdfb;
     font-size: x-large;
-    padding: 20px;
+    padding: 15px;
     font-family: 'Source Code Pro', monospace;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 50px;
 }
 
 input[type=button]:hover {
+    background-color: #99c9c7;
+}
+
+input[type=button]:active {
     background-color: #6b8e8d;
 }
 

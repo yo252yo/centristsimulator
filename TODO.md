@@ -12,11 +12,6 @@
 - start on first click
 
 
-====================== CLicker button
-better animation
-better look
-it doesnt change back to original color when clicked, it stays at the "hover" color so it's not as click-y
-
 ====================== Mobile rendering
 - bottom of the screen is wrong somehow
 - the first purchase is displayed in a different css??
