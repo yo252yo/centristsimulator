@@ -166,7 +166,9 @@
     #options_div {
         position: fixed;
         bottom: 50px;
-        width: 250px;
+        width: 350px;
+        font-size: large;
+        line-height: 1.5;
     }
 
     #status_zone {
