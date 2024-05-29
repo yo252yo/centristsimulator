@@ -1,7 +1,6 @@
 
 - animate suffering fill the disaster
 - onboardign with progressive interface
-- unpause on clicker button
 - curve strain around 100 million hardcore
 - death per second
 - scale suffering exchange rate
@@ -36,6 +35,7 @@ difficulty, choice and title could look better
 ====================== Stretch i dont think we need
 save/load system for the game
 change options during the game
+unpause on clicker button
 
 
 ====================== Stylize tooltips??
