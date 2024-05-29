@@ -307,7 +307,7 @@ input[type=range]::-webkit-slider-thumb {
 
 input[type=text] {
     background: #bffdfb;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro', monospace;
     width: 100%;
     font-weight: bold;
 }
@@ -316,7 +316,7 @@ input[type=button] {
     background: #bffdfb;
     font-size: x-large;
     padding: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro', monospace;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
