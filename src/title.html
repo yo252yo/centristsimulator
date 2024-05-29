@@ -10,6 +10,11 @@
             document.getElementById("credits_link").style.display = "none";
             linkSfx();
         }
+        function showControls() {
+            document.getElementById("controls").style.display = "block";
+            document.getElementById("controls_link").style.display = "none";
+            linkSfx();
+        }
     </script>
     <script src="app.js" defer></script>
 </head>
@@ -17,8 +22,7 @@
 <body>
     <div id="screenfilter" class="screenfilter screenfilter_unpaused screenflicker_unpaused">
     </div>
-    <div id="screen" class="cell_div">
-
+    <div id="screen" class="cell_div" style="overflow:auto;">
         <h1>Centrist Simulator</h1>
         <h2><i>An anti-idle game about the violence of inaction</i></h2>
 
@@ -28,10 +32,21 @@
         <a onClick="linkSfx('options.html')">
             <h2>OPTIONS</h2>
         </a>
+        <a onClick="showControls()" id="controls_link">
+            <h2>CONTROLS</h2>
+        </a>
+
+        <div id="controls" class="selectable cell_div" style="display:none;">
+            Controlled by mouse/touch<br />
+            KEYBOARD SHORTCUTS:<br />
+            [1] [2] [3] [4] - game speeds<br />
+            [+] [-] - speed up/slow down the game<br />
+            [SPACE] [ENTER] [0] [RETURN] - pause/unpause the game, validate alert messages
+        </div>
+
         <a onClick="showCredits()" id="credits_link">
             <h2>CREDITS</h2>
         </a>
-
         <div id="credits" class="selectable cell_div" style="display:none;">
             CREDITS<br />
             Game design/writing/programming: <a href="https://www.yo252yo.com" target="_blank">yo252yo</a><br />

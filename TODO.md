@@ -8,8 +8,6 @@
 - earning animating text
 - reorder screen, less boxes
 
-- key/glossary for the hotkeys?
-
 - bigger pause effect/UI color change
 
 
