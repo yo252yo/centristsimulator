@@ -35,7 +35,7 @@ function displayAllPurchases() {
 function displayTime() {
     var year = start_year + Math.floor(seconds_elapsed / 4);
     var season = seconds_elapsed % 4;
-    document.getElementById("date").innerHTML = `Year: ${year} ${"|".repeat(season)}${".".repeat(4 - season)}`;
+    document.getElementById("date").innerHTML = `Year: ${year} <span class='loading_bar'>${"|".repeat(season)}${".".repeat(3 - season)}</span>`;
 
     var gauge_characters = 15;
     var interval = 1 / gauge_characters;
@@ -90,7 +90,7 @@ function displayPoliticsCooldown() {
     } else {
         document.getElementById("politics_cooldown").innerHTML = `
             <br />COOLDOWN: 
-            ${"|".repeat(progress)}${".".repeat(gauge_characters - progress)}
+            <span class="loading_bar">${"|".repeat(progress)}${".".repeat(gauge_characters - progress)}</span>
         `;
     }
 

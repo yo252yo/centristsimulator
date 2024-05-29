@@ -321,7 +321,7 @@ function processTechUpgrade(tech_id) {
     li.innerHTML = `
         <img src="../files/icon_cat_${tech.category}.png" class="portfolio_icon" />
         ${tech.name}<br />-${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
-    ${bars}`;
+    <span class="loading_bar">${bars}</span>`;
     li.dataset.cost = tech.cost;
     if (tech.tooltip) {
         li.title = tech.tooltip;
@@ -420,7 +420,7 @@ function addPolicyToPortfolio(policy, cost, reward) {
     let li = document.createElement("li");
     li.id = "portfolio_policy_" + policy;
     policies_purchased++;
-    POLICIES_COOLDOWN_MAX = Math.max(9, parseInt(POLICIES_COOLDOWN_MAX) * .75);
+    POLICIES_COOLDOWN_MAX = Math.max(10, parseInt(POLICIES_COOLDOWN_MAX) * .75);
     sfx("Policy");
 
     var policy_text = policy;

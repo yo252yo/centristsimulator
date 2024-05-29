@@ -4,11 +4,12 @@
 - death per second
 - scale suffering exchange rate
 - favicon
-
+- enter submits the current input type text
 - earning animating text
-- reorder screen, less boxes
-
+- scrooldown portfolio on additions
 - bigger pause effect/UI color change
+- confirmation on exit
+- start on first click
 
 
 ====================== CLicker button

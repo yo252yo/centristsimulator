@@ -39,8 +39,13 @@
 
     <div id="status_zone">
         <div class="cell_div" id="options_div">
-            <a href="javascript:pause();"><span id="pause">PAUSE</span></a> -
-            Speed <a href="javascript:speed();"><span id="speed">x1</span></a> -
+            <span class="horizontal_only">
+                <h2>CENTRIST SIMULATOR</h2>
+            </span>
+            <a href="javascript:pause();"><span id="pause">PAUSE</span></a> <span class="vertical_only">-</span><span
+                class="horizontal_only"><br /></span>
+            <a href="javascript:speed();"><span id="speed">x1</span></a> speed <span class="vertical_only">-</span><span
+                class="horizontal_only"><br /></span>
             <a onClick="linkSfx('title.html');">EXIT</a>
         </div>
 
@@ -49,15 +54,16 @@
             <span class="vertical_only"> /2150</span>
             <span class="horizontal_only">
 
-                <br />Time to 2150 (WIN): <span id="timer">...............</span>
+                <br />Time to 2150 (WIN): <span id="timer" class="loading_bar">...............</span>
             </span>
         </div>
 
         <div class="cell_div" id="points_div">
-            $ignaling..: +$<span id="s_points" class="number number_good"></span>(+<span id="s_income"></span>$/s)
+            <span class="number_good">$ignaling..: +$<span id="s_points" class="number"></span>(+<span
+                    id="s_income"></span>$/s)</span>
             <span class="hide_confirmation">
                 <br />
-                $train.....: -$<span id="c_points" class="number number_bad"></span><br />
+                <span class="number_bad">$train.....: -$<span id="c_points" class="number"></span></span><br />
                 ---------------------------<br />
                 $uffering..: -$<span id="differencial" class="number"></span>
             </span>
@@ -75,7 +81,7 @@
             <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
                 disabled="true" style="width:55px"> <span id="compassion_fade">1</span> deaths<br />
 
-            <span id="disaster"></span>
+            <span id="disaster" class="loading_bar"></span>
         </div>
 
         <div class="cell_div hide_normalization" id="population_div">
@@ -86,11 +92,12 @@
 
     <div id="action_zone">
         <div id="action_column_exploit">
-            <div class="cell_div" id="carbon_capture_div" style="text-align:center;">
+            <div id="carbon_capture_div" class="carbon_capture_divs" style="text-align:center;">
                 <input type="button" id="carbon_capture_button" value="Carbon capture (+1$)" onclick="clicker();" />
             </div>
 
-            <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;text-align:center;">
+            <div id="carbon_capture_div_alternative" class="carbon_capture_divs"
+                style="display:none;text-align:center;">
                 <input type="button" id="carbon_capture_button" value="Carbon capture (+1$)" disabled="disabled"
                     style="opacity:0.2;text-decoration: line-through" /><br />
                 No virtue signaling in IMPOSSIBLE
@@ -118,7 +125,7 @@
             <div class="cell_div" id="politics_div" style="display:none;">
                 <h3 onclick="collapse_section(event)">Political Grand Narratives</h3>
                 <div>
-                    High cost, unpredictable results with very high potential
+                    High cost, unpredictable results with very high potential<br />
                     <span id="politics_cooldown"></span>
                     <ul id="politics">
                     </ul>
@@ -135,8 +142,8 @@
             fade
             to see this less often
             with the slider on the
-            <span class="horizontal_only">bottom</span><span class="vertical_only">top</span>
-            right.</span><br />
+            <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>
+            .</span><br />
         <div class="cell_div" onClick="dismissPopup();" style="width:150px; text-align: center;">
             <h2>DISMISS</h2>
         </div>

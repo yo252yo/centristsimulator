@@ -16,10 +16,48 @@
     transform: translate(-50%, 0);
 }
 
+.popup {
+    position: fixed;
+    top: 150px;
+    left: 20%;
+    right: 20%;
+    padding: 20;
+    z-index: 10;
+    visibility: hidden;
+    background-color: red;
+    opacity: 1.0;
+
+    animation: flicker_unpaused 0.1s infinite;
+
+    background: linear-gradient(rgba(15, 13, 13, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 6px, 5px 100%;
+    z-index: 3;
+}
+
+
+.loading_bar {
+    background-color: #000;
+    border-radius: 8px;
+    border: 2px solid #bffdfbdd;
+    padding: 2px;
+    line-height: 2.5;
+    font-size: small;
+    font-weight: bold;
+}
 
 @media (orientation: portrait) {
     .number {
         font-size: x-large;
+    }
+
+    .loading_bar {
+        font-size: xx-small;
+        line-height: 2.5;
+    }
+
+    .popup {
+        top: 50px;
     }
 
     ul {
@@ -32,8 +70,8 @@
         position: fixed;
         overflow-y: scroll;
         overflow-x: hidden;
-        top: 125px;
-        bottom: 16px;
+        top: 150px;
+        bottom: 20px;
         right: 15px;
         left: 15px;
     }
@@ -97,7 +135,7 @@
         position: fixed;
         width: calc(100vw - 550px);
         top: 40px;
-        left: 40px;
+        right: 40px;
         bottom: 15px;
         display: grid;
         grid-template-columns: 50% 50%;
@@ -125,24 +163,38 @@
         font-size: xx-large;
     }
 
+    #options_div {
+        position: fixed;
+        bottom: 50px;
+        width: 250px;
+    }
+
     #status_zone {
         position: fixed;
         width: 400px;
         top: 45px;
-        right: 45px;
+        left: 45px;
     }
 
     #status_zone div {
-        background-color: #bffdfb22;
+        background-color: #bffdfb00;
+        border: 0px;
+    }
+
+    #status_zone .cell_div {
+        margin: 10px;
+        padding: 5px;
+        border: solid 0px #bffdfbdd;
+        box-shadow: none;
     }
 
     #action_column_exploit {
-        grid-column: 2;
+        grid-column: 1;
         grid-row: 1;
     }
 
     #action_column_explore {
-        grid-column: 1;
+        grid-column: 2;
         grid-row: 1;
     }
 
@@ -153,13 +205,19 @@
     }
 
     #politics_div {
-        max-height: 30vh;
+        max-height: 28vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
 
+    .carbon_capture_divs {
+        height: 13vh;
+        margin: 10px;
+        padding: 11.6;
+    }
+
     #portfolio_div {
-        max-height: 73vh;
+        max-height: 65vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -173,25 +231,6 @@
     }
 }
 
-
-.popup {
-    position: fixed;
-    top: 200px;
-    left: 20%;
-    right: 20%;
-    padding: 20;
-    z-index: 10;
-    visibility: hidden;
-    background-color: red;
-    opacity: 1.0;
-
-    animation: flicker_unpaused 0.1s infinite;
-
-    background: linear-gradient(rgba(15, 13, 13, 0) 50%, rgba(0, 0, 0, 0.15) 50%),
-        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 6px, 5px 100%;
-    z-index: 3;
-}
 
 .redbox {
     border: solid 2px #fb4447;
@@ -209,6 +248,21 @@ li {
     border: solid #679c9b 1px;
     margin: 10px;
     padding: 5px;
+
+    box-shadow: -2px -2px 4px 4px #bffdfb22;
+    background-color: #00000055;
+}
+
+
+
+#portfolio_div .loading_bar {
+    line-height: 2;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    font-size: xx-small;
+    vertical-align: top;
 }
 
 .li_1 {
@@ -255,9 +309,9 @@ li {
 
 .li_7 {
     /* Policies */
-    border: solid #ffdefa 1px;
-    box-shadow: -2px -2px 4px 4px #ffdefa22;
-    background-color: #ffdefa22;
+    border: solid #4285F4 1px;
+    box-shadow: -2px -2px 4px 4px #4285F422;
+    background-color: #4285F422;
 }
 
 .number_good {
@@ -314,6 +368,7 @@ input[type=button] {
     font-family: 'Source Code Pro', monospace;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
 }
 
 input[type=button]:hover {

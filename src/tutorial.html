@@ -24,19 +24,21 @@
         </div>
 
         <div class="cell_div" id="time_div">
-            <span id="date">Year: 2024 ....</span>
+            <span id="date">Year: 2024 <span class="loading_bar">....</span></span>
             <span class="vertical_only"> /2150</span>
             <span class="horizontal_only">
 
-                <br />Time to 2150 (WIN): <span id="timer">...............</span>
+                <br />Time to 2150 (WIN): <span id="timer" class="loading_bar">...............</span>
             </span>
         </div>
 
         <div class="cell_div" id="points_div">
-            $ignaling..: +$<span id="s_points" class="number number_good">3</span>(+<span id="s_income">1</span>$/s)
+            <span class="number_good">$ignaling..: +$<span id="s_points" class="number">3</span>(+<span
+                    id="s_income">1</span>$/s)</span>
             <span class="hide_confirmation">
                 <br />
-                <span id="strain">$train.....: -$<span id="c_points" class="number number_bad">2</span></span><br />
+                <span id="strain" class="number_bad">$train.....: -$<span id="c_points"
+                        class="number">2</span></span><br />
                 ---------------------------<br />
                 <span id="suffering">$uffering..: -$<span id="differencial" class="number number_bad">1</span></span>
             </span>
@@ -53,7 +55,7 @@
             <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
                 disabled="true" style="width:55px"> <span id="compassion_fade">1</span> deaths<br />
 
-            <span id="disaster">....................</span><br />
+            <span id="disaster" class="loading_bar">....................</span><br />
         </div>
 
         <div class="cell_div hide_normalization" id="population_div">
@@ -65,11 +67,11 @@
 
     <div id="action_zone">
         <div id="action_column_exploit">
-            <div class="cell_div" id="carbon_capture_div">
+            <div class="carbon_capture_divs" id="carbon_capture_div">
                 <input type="button" value="Carbon capture (+1$)" onclick="clicker();" />
             </div>
 
-            <div class="cell_div" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
+            <div class="carbon_capture_divs" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
                 No virtue signaling in IMPOSSIBLE
             </div>
 
@@ -183,7 +185,7 @@
 
         function step7() {
             displayPopup(`
-            You'll get an alert bulletin when people die. You can control when in the <span class="horizontal_only">bottom</span><span class="vertical_only">top</span> right.<br />
+            You'll get an alert bulletin when people die. You can control when in the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.<br />
             Over time, you can group more and more death together so they shouldn't bother you too much.
             `, "step8");
 
