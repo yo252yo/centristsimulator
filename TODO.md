@@ -7,7 +7,6 @@
 - curve strain around 100 million hardcore
 - death per second
 - scale suffering exchange rate
-- compassion popup ease up in early
 - favicon
 
 

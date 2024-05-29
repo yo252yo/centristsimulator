@@ -417,7 +417,7 @@ function addPolicyToPortfolio(policy, cost, reward) {
     let li = document.createElement("li");
     li.id = "portfolio_policy_" + policy;
     policies_purchased++;
-    POLICIES_COOLDOWN_MAX = Math.max(5, parseInt(POLICIES_COOLDOWN_MAX) * .75);
+    POLICIES_COOLDOWN_MAX = Math.max(9, parseInt(POLICIES_COOLDOWN_MAX) * .75);
 
     var policy_text = policy;
     if (policy == joker_policy) {
@@ -437,24 +437,32 @@ function addPolicyToPortfolio(policy, cost, reward) {
     document.getElementById("portfolio").appendChild(li);
 }
 
+var pityPolicyStreak = 0;
+var maxPityStreakMechanism = 4;
 function rewardForPolicy() {
     var lootbox_chance = Math.random();
     if (policies_purchased == 0) {
         lootbox_chance = 1; // First policy just works
     }
 
-    if (lootbox_chance < 0.2) { // bad outcome
-        return GOOD_POINTS_PER_SEC * Math.max(0.5 * Math.random(), 0.1);
-    } else if (lootbox_chance < 0.5) { // medium outcome, reimburse more or less 
-        return (0.5 * GOOD_POINTS_PER_SEC) * (0.7 + Math.random() * 1);
-    } else if (lootbox_chance < 0.8) { // good outcome, doubles
-        return GOOD_POINTS_PER_SEC * (1.5 + Math.random() * 3.5);
+    if (lootbox_chance < 0.2 && pityPolicyStreak < maxPityStreakMechanism) { // bad outcome
+        pityPolicyStreak++;
+        return GOOD_POINTS_PER_SEC * Math.max(0.3 * Math.random(), 0.1);
+    } else if (lootbox_chance < 0.4 && pityPolicyStreak < maxPityStreakMechanism) { // medium outcome, reimburse more or less 
+        pityPolicyStreak++;
+        return (0.5 * GOOD_POINTS_PER_SEC) * (0.6 + Math.random() * 1);
+    } else if (lootbox_chance < 0.8 && pityPolicyStreak < maxPityStreakMechanism) { // good outcome, doubles
+        pityPolicyStreak++;
+        return GOOD_POINTS_PER_SEC * (1.5 + Math.random() * 5.5);
     } else { // best outcome, change order of magnitude
+        pityPolicyStreak = 0;
         var base = 10;
         var oom_rng = Math.random();
         if (oom_rng < 0.1) {
+            base = 2000;
+        } else if (oom_rng < 0.3 || policies_purchased == 0) {
             base = 1000;
-        } else if (oom_rng < 0.8 || policies_purchased == 0) {
+        } else if (oom_rng < 0.8) {
             base = 100;
         }
 
