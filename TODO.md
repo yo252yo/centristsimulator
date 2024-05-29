@@ -8,25 +8,21 @@
 - death per second
 - scale suffering exchange rate
 - favicon
+- option to deactivate crt effect
 
+- new font  Source Code Pro - regular and bold
+- earning animating text
+- reorder screen, less boxes
 
-- integrate graphics feedback
-- integrate sfx
-
-
-
-
-Centrist Clicker
-
+- load images and media in the background
+- key/glossary for the hotkeys?
 
 
 
-option to deactivate crt effect
-load images and media in the background
-
-
-== > balance check
-
+====================== CLicker button
+better animation
+better look
+it doesnt change back to original color when clicked, it stays at the "hover" color so it's not as click-y
 
 ====================== Mobile rendering
 - bottom of the screen is wrong somehow
