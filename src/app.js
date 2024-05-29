@@ -8,4 +8,9 @@ function sfx(name) {
         audio.volume = savedSFXVolume / 100;
     }
     audio.play();
+
+    audio.onended = () => {
+        audio.src = '';
+        audio.load();
+    };
 }

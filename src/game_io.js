@@ -114,6 +114,7 @@ function clicker() {
         return;
     }
 
+    sfx("Clicker");
     GOOD_POINTS += Math.min(1, SPEED);
     displayPoints();
 }
