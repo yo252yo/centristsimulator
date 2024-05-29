@@ -162,7 +162,7 @@ function dismissDisaster() {
     displayPopulation();
 }
 
-var death_alert_thresholds = [1, 2, 5, 10, 20, 50, 100, 1000, 10000, 100000, 1000000, 10000000, 1000000000];
+var death_alert_thresholds = [1, 2, 5, 10, 100, 1000, 100000, 1000000, 100000000, 1000000000];
 function changeCompassionSlider() {
     var index = parseInt(document.getElementById("compassion_slider").value);
     death_alert_threshold = death_alert_thresholds[index];
@@ -178,11 +178,18 @@ if (localStorage.getItem("compassionMax")) {
 
 function handleDisaster() {
     if (PENDING_DISASTER_POINTS > pop_disaster_ratio * death_alert_threshold) {
+        var victims = Math.floor(PENDING_DISASTER_POINTS / pop_disaster_ratio);
+
+        if (victims < 10) {
+            sfx("Disaster_tiny");
+        } else if (victims < 1000) {
+            sfx("Disaster_small");
+        } else {
+            sfx("Disaster_huge");
+        }
+
         disasters_before_new_compassion_lvl++;
         if (disasters_before_new_compassion_lvl == 2) {
-
-
-
             var maxSlider = Math.min(death_alert_thresholds.length - 1, 1 + parseInt(document.getElementById("compassion_slider").max));
             localStorage.setItem("compassionMax", maxSlider);
             document.getElementById("compassion_slider").max = maxSlider;
@@ -191,7 +198,7 @@ function handleDisaster() {
         }
 
         document.getElementById("death_report").innerHTML = `
-        ${Math.floor(PENDING_DISASTER_POINTS / pop_disaster_ratio)} people died in horrible circumstances.        
+        ${victims} people died in horrible circumstances.        
         `;
 
         if (localStorage.getItem("setting_normalization") != "true") {
