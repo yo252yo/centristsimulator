@@ -16,9 +16,14 @@ function sfx(name) {
 }
 
 var ongoing = false;
-function linkSfx(destination) {
+function linkSfx(destination, confirmation) {
     if (ongoing) {
         return;
+    }
+    if (confirmation) {
+        if (!window.confirm("Leaving will reset all progress. Do you really want to?")) {
+            return;
+        }
     }
 
     if (destination) {

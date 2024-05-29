@@ -3,12 +3,10 @@
 - onboardign with progressive interface
 - death per second
 - scale suffering exchange rate
-- favicon
 - enter submits the current input type text
 - earning animating text
 - scrooldown portfolio on additions
 - bigger pause effect/UI color change
-- confirmation on exit
 - start on first click
 
 
@@ -22,7 +20,9 @@ ideally each death would be its own popup and make you click as many times as th
 
 
 ====================== LOOKS-related
-difficulty, choice and title could look better
+NEED THE TITLE CARD
+- favicon
+- difficulty, choice and title could look better
 
 
 ====================== Stretch i dont think we need
