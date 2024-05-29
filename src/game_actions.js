@@ -335,6 +335,7 @@ function upgradeTech(tech_id) {
         return;
     }
 
+    sfx("Upgrade");
     processTechUpgrade(tech_id);
     updateHtmlValues();
 }
@@ -369,6 +370,8 @@ function purchaseTech(tech_id) {
     if (tech.cost + LICENSING_FEE > GOOD_POINTS) {
         return;
     }
+
+    sfx("Purchase");
     addToPortfolio(tech_id);
     processTechUpgrade(tech_id);
 
@@ -418,6 +421,7 @@ function addPolicyToPortfolio(policy, cost, reward) {
     li.id = "portfolio_policy_" + policy;
     policies_purchased++;
     POLICIES_COOLDOWN_MAX = Math.max(9, parseInt(POLICIES_COOLDOWN_MAX) * .75);
+    sfx("Policy");
 
     var policy_text = policy;
     if (policy == joker_policy) {
