@@ -195,12 +195,14 @@ function win() {
     pause("OFF");
     GAME_OVER = true;
     document.getElementById("popup_win").style.visibility = "visible";
+    sfx("Victory");
 }
 
 function lose() {
     pause("OFF");
     GAME_OVER = true;
     document.getElementById("popup_lose").style.visibility = "visible";
+    sfx("Defeat");
 }
 
 // ==================================================================
