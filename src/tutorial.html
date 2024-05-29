@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="screenfilter" class="screenfilter screenfilter_unpaused">
+    <div id="screenfilter" class="screenfilter screenfilter_unpaused screenflicker_unpaused">
     </div>
     <div id="screen" class="cell_div">
     </div>
@@ -115,7 +115,9 @@
             `;
             document.getElementById("tuto").style.visibility = "visible";
             document.getElementById("screenfilter").classList.add('screenfilter_paused');
+            document.getElementById("screenfilter").classList.add('screenflicker_paused');
             document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
+            document.getElementById("screenfilter").classList.remove('screenflicker_unpaused');
         }
 
         displayPopup("Centrist Simulator is a game where you need to save humanity.", "step1");

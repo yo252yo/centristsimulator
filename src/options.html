@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="screenfilter" class="screenfilter screenfilter_unpaused">
+    <div id="screenfilter" class="screenfilter screenfilter_unpaused screenflicker_unpaused">
     </div>
     <div id="screen" class="cell_div">
 
@@ -19,6 +19,13 @@
         <br />
         SFX....: <input type="range" id="sfx-volume-slider" min="0" max="100" value="100"
             oninput="changeVolume('sfx');">
+        <br />
+
+        <span onClick="toggle('flicker')">
+            <h3 style="display:inline"><input type="checkbox" onClick="toggle('flicker')" id="flicker_box" />CRT
+                flicker visual effect
+            </h3>
+        </span>
 
         <h2>Centrist vision</h2>
 
@@ -59,6 +66,13 @@
 
             document.getElementById("confirmation_box").checked = (localStorage.getItem("setting_confirmation") == "true") || false;
             document.getElementById("normalization_box").checked = (localStorage.getItem("setting_normalization") == "true") || false;
+
+
+
+            if (localStorage.getItem("setting_flicker") == undefined) {
+                localStorage.setItem("setting_flicker", true);
+            }
+            document.getElementById("flicker_box").checked = (localStorage.getItem("setting_flicker") == "true") || false;
 
 
         </script>

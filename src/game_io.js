@@ -152,11 +152,15 @@ function pause(forced_state) {
     document.getElementById("pause").innerHTML = GAME_PAUSED ? "UNPAUSE" : "PAUSE";
     if (GAME_PAUSED) {
         document.getElementById("screenfilter").classList.add('screenfilter_paused');
+        document.getElementById("screenfilter").classList.add('screenflicker_paused');
         document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
+        document.getElementById("screenfilter").classList.remove('screenflicker_unpaused');
         document.getElementById("carbon_capture_button").disabled = true;
     } else {
         document.getElementById("screenfilter").classList.add('screenfilter_unpaused');
+        document.getElementById("screenfilter").classList.add('screenflicker_unpaused');
         document.getElementById("screenfilter").classList.remove('screenfilter_paused');
+        document.getElementById("screenfilter").classList.remove('screenflicker_paused');
         document.getElementById("carbon_capture_button").disabled = false;
     }
 }

@@ -7,7 +7,7 @@
 - death per second
 - scale suffering exchange rate
 - favicon
-- option to deactivate crt effect
+- difficulty menu
 
 - new font  Source Code Pro - regular and bold
 - earning animating text
