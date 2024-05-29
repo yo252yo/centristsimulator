@@ -284,11 +284,6 @@ li {
     float: left;
 }
 
-div {
-    scrollbar-width: thin;
-    scrollbar-color: #6b8e8d #bffdfb;
-}
-
 input[type=range] {
     -webkit-appearance: none;
     background: #6b8e8d;

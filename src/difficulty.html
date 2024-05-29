@@ -5,43 +5,54 @@
     <link rel="stylesheet" href="app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="app.js" defer></script>
+    <style>
+        h3 {
+            margin-left: 15px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .difficulty_div {
+            font-size: normal;
+            margin-left: 50px;
+            margin-right: 50px;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="screenfilter" class="screenfilter screenfilter_unpaused screenflicker_unpaused">
     </div>
-    <div id="screen" class="cell_div">
+    <div id="screen" class="cell_div" style="overflow:auto;">
         <h2>
             DIFFICULTY: Pick your lifestyle
         </h2>
-        <table border="1">
-            <tr class="toGreyOutFirstVisit">
-                <td style="width:20%"><a onClick="linkSfx('game.html?difficulty=1')"
-                        class="to_cancel_first_visit">EASIER TIMES</a>
-                </td>
-                <td style="width:80%">For people longing for a simpler experience, brings you back to a time when pace
-                    was
-                    slower.</td>
-            </tr>
-            <tr>
-                <td><a onClick="linkSfx('game.html?difficulty=0')" id="normal_link">NORMAL</a></td>
-                <td>The default game experience, recommended.</td>
-            </tr>
-            <tr class="toGreyOutFirstVisit">
-                <td><a onClick="linkSfx('game.html?difficulty=2')" class="to_cancel_first_visit">NEW NORMAL</a></td>
-                <td>Normality has become more challenging and survival more complicated.</td>
-            </tr>
-            <tr class="toGreyOutFirstVisit">
-                <td><a onClick="linkSfx('game.html?difficulty=3')" class="to_cancel_first_visit">POST NEW NORMAL</a>
-                </td>
-                <td>Life has become even more difficult, make sure you're ready.</td>
-            </tr>
-            <tr class="toGreyOutFirstVisit">
-                <td><a onClick="linkSfx('choice.html')" class="to_cancel_first_visit">IMPOSSIBLE</a></td>
-                <td>Extreme challenge with more complexity for people who are not afraid to tackle an impossible fight.
-                </td>
-            </tr>
-        </table>
+
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div"
+            onClick="linkSfx('game.html?difficulty=1')">
+            <h3>EASIER TIMES</h3>
+            For people longing for a simpler experience, brings you back to a time when pace was slower
+        </div>
+        <div class="cell_div difficulty_div" id="options_div" onClick="linkSfx('game.html?difficulty=0')">
+            <h3>NORMAL</h3>
+            The default game experience, recommended
+        </div>
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div"
+            onClick="linkSfx('game.html?difficulty=2')">
+            <h3>NEW NORMAL</h3>
+            Normality has become more challenging and survival more complicated
+        </div>
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div"
+            onClick="linkSfx('game.html?difficulty=3')">
+            <h3>POST NEW NORMAL</h3>
+            Life has become even more difficult, make sure you're ready
+        </div>
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div" onClick="linkSfx('choice.html')">
+            <h3>IMPOSSIBLE</h3>
+            Extreme challenge with more complexity for people who are not afraid to tackle an impossible fight
+        </div>
+
         <div style="margin-top:20px" id="tutorial_link">
             If you missed the initial explanations, you can redo the <a onClick="linkSfx('tutorial.html')">TUTORIAL</a>.
         </div>
@@ -52,12 +63,8 @@
                 for (var e of elements) {
                     e.style.opacity = 0.25;
                     e.title = "You must try the normal mode first to unlock the other options";
-                }
-
-                var links = document.getElementsByClassName("to_cancel_first_visit");
-                for (var l of links) {
-                    l.href = "#";
-                    l.style.textDecoration = "line-through";
+                    e.style.textDecoration = "line-through";
+                    e.removeAttribute('onClick');
                 }
 
                 document.getElementById("normal_link").href = "tutorial.html";

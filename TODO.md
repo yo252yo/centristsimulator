@@ -7,7 +7,6 @@
 - death per second
 - scale suffering exchange rate
 - favicon
-- difficulty menu
 
 - new font  Source Code Pro - regular and bold
 - earning animating text
@@ -33,26 +32,7 @@ ideally each death would be its own popup and make you click as many times as th
 
 
 ====================== LOOKS-related
-clicker visual effect
-
-====================== MUSIC/SFX
-for music i can contact https://yearn.bandcamp.com/ from https://www.oselkasound.com/
-https://yearn.bandcamp.com/track/near
-https://yearn.bandcamp.com/track/jiro-dreams
-https://yearn.bandcamp.com/track/always-on
-
-if roz: @hotline.gov, interstellar capitalism, hangover
-
-SFX
-- in options for volume test 
-- purchase technology 
-- upgrade technology
-- purchase policy 
-- alert bulletin on deaths 
-- defeat
-- victory
-- time tick (metronome?)
-- clicker button 
+difficulty, choice and title could look better
 
 
 ====================== Stretch i dont think we need
