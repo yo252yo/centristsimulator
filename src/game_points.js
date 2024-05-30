@@ -235,8 +235,8 @@ function dismissDisaster() {
     displayPopulation();
 }
 
-var death_alert_thresholds = [1, 2, 5, 10, 100, 1000, 100000, 1000000, 100000000, 1000000000];
-// 1k, 100k, 1M, 100M, 1B
+var death_alert_thresholds = [1, 2, 5, 10, 100, 1000, 100000, 1000000, 100000000, 3000000000];
+// 1k, 100k, 1M, 100M, 3B
 function changeCompassionSlider() {
     var index = parseInt(document.getElementById("compassion_slider").value);
     death_alert_threshold = death_alert_thresholds[index];
