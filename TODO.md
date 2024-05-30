@@ -1,7 +1,5 @@
-
-====================== Death engine
-Death narrative engine
-ideally each death would be its own popup and make you click as many times as there are death
+improve narrative engine
+try audio library
 
 
 ====================== LOOKS-related
