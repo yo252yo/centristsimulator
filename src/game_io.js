@@ -187,11 +187,17 @@ function pause(forced_state) {
         document.getElementById("screenfilter").classList.add('screenflicker_paused');
         document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
         document.getElementById("screenfilter").classList.remove('screenflicker_unpaused');
+        document.documentElement.style.setProperty('--ui-color', '#858e8d99');
+        document.documentElement.style.setProperty('--ui-color-transparent', '#d5dedd66');
+        document.documentElement.style.setProperty('--ui-color-dark', '#d5dedd66');
     } else {
         document.getElementById("screenfilter").classList.add('screenfilter_unpaused');
         document.getElementById("screenfilter").classList.add('screenflicker_unpaused');
         document.getElementById("screenfilter").classList.remove('screenfilter_paused');
         document.getElementById("screenfilter").classList.remove('screenflicker_paused');
+        document.documentElement.style.setProperty('--ui-color', '#bffdfb');
+        document.documentElement.style.setProperty('--ui-color-transparent', '#bffdfbdd');
+        document.documentElement.style.setProperty('--ui-color-dark', '#bffdfb22');
     }
 }
 

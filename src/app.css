@@ -1,14 +1,20 @@
+:root {
+    --ui-color: #bffdfb;
+    --ui-color-transparent: #bffdfbdd;
+    --ui-color-dark: #bffdfb22;
+}
+
 .cell_div {
     margin: 10px;
     padding: 10px;
-    border: solid 2px #bffdfbdd;
-    box-shadow: -2px -2px 4px 4px #bffdfb22;
+    border: solid 2px var(--ui-color-transparent);
+    box-shadow: -2px -2px 4px 4px var(--ui-color-dark);
     background-color: #00000055;
 }
 
 @keyframes flicker_unpaused {
     0% {
-        background-color: #171c16;
+        background-color: #191e18;
     }
 
     100% {
@@ -34,7 +40,7 @@
     }
 
     100% {
-        background-color: #343434;
+        background-color: #333333;
     }
 }
 
@@ -86,8 +92,8 @@ body {
     -ms-user-select: none;
     user-select: none;
 
-    color: #bffdfb;
-    text-shadow: #bffdfbdd 1px 0px 4px;
+    color: var(--ui-color);
+    text-shadow: var(--ui-color-transparent) 1px 0px 4px;
     font-family: 'Source Code Pro', monospace;
     font-optical-sizing: auto;
 
@@ -108,5 +114,5 @@ body {
 
 div {
     scrollbar-width: thin;
-    scrollbar-color: #6b8e8d #bffdfb;
+    scrollbar-color: #6b8e8d var(--ui-color);
 }

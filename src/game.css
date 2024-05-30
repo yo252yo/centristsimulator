@@ -39,7 +39,7 @@
 .loading_bar {
     background-color: #000;
     border-radius: 8px;
-    border: 2px solid #bffdfbdd;
+    border: 2px solid var(--ui-color-transparent);
     padding: 2px;
     line-height: 2.5;
     font-size: small;
@@ -186,7 +186,7 @@
     #status_zone .cell_div {
         margin: 10px;
         padding: 5px;
-        border: solid 0px #bffdfbdd;
+        border: solid 0px var(--ui-color-transparent);
         box-shadow: none;
     }
 
@@ -237,6 +237,7 @@
 .redbox {
     border: solid 2px #fb4447;
     box-shadow: -1px -1px 2px 2px #fb444722;
+    color: #bffdfb;
 }
 
 .bluebox {
@@ -251,7 +252,7 @@ li {
     margin: 10px;
     padding: 5px;
 
-    box-shadow: -2px -2px 4px 4px #bffdfb22;
+    box-shadow: -2px -2px 4px 4px var(--ui-color-dark);
     background-color: #00000055;
 }
 
@@ -271,42 +272,42 @@ li {
     /* Energy */
     border: solid
         /* #eef99f*/
-        #bffdfb 1px;
+        var(--ui-color) 1px;
 }
 
 .li_2 {
     /* Food */
     border: solid
         /* #9674ff*/
-        #bffdfb 1px;
+        var(--ui-color) 1px;
 }
 
 .li_3 {
     /* Transport */
     border: solid
         /* #ff8766*/
-        #bffdfb 1px;
+        var(--ui-color) 1px;
 }
 
 .li_4 {
     /* Industry */
     border: solid
         /* #62a7ff*/
-        #bffdfb 1px;
+        var(--ui-color) 1px;
 }
 
 .li_5 {
     /* Land */
     border: solid
         /* #9dffdc*/
-        #bffdfb 1px;
+        var(--ui-color) 1px;
 }
 
 .li_6 {
     /* Colonialism */
     border: solid
         /* #ff50ac*/
-        #bffdfb 1px;
+        var(--ui-color) 1px;
 }
 
 .li_7 {
@@ -350,7 +351,7 @@ input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 4px;
     height: 20px;
-    background: #bffdfb;
+    background: var(--ui-color);
     border-radius: 0%;
     cursor: pointer;
     z-index: 4;
@@ -358,14 +359,14 @@ input[type=range]::-webkit-slider-thumb {
 
 
 input[type=text] {
-    background: #bffdfb;
+    background: var(--ui-color);
     font-family: 'Source Code Pro', monospace;
     width: 100%;
     font-weight: bold;
 }
 
 input[type=button] {
-    background: #bffdfb;
+    background: var(--ui-color);
     font-size: x-large;
     padding: 15px;
     font-family: 'Source Code Pro', monospace;
@@ -385,7 +386,7 @@ input[type=button]:active {
 
 .suffering-dot {
     position: fixed;
-    text-shadow: #bffdfbdd 1px 0px 4px;
+    text-shadow: var(--ui-color-transparent) 1px 0px 4px;
     opacity: 1;
     z-index: 2;
     animation: moveAndFade 2s linear forwards;

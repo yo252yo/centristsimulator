@@ -1,5 +1,4 @@
 
-- bigger pause effect/UI color change
 - live graph
 
 ====================== Mobile rendering
