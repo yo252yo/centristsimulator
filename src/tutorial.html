@@ -11,103 +11,104 @@
 <body>
     <div id="screenfilter" class="screenfilter screenfilter_unpaused screenflicker_unpaused">
     </div>
-    <div id="screen" class="cell_div">
-    </div>
     <div id="background_img">
     </div>
 
-    <div id="status_zone">
+    <div id="screen" class="cell_div">
+        <div id="status_zone">
 
-        <div class="cell_div" id="options_div">
-            <a onClick="linkSfx('title.html', true);">EXIT</a> -
-            <a href="javascript:speed();"><span id="speed">x1</span></a> speed -
-            <a href="javascript:pause();"><span id="pause">PAUSE</span></a>
+            <div class="cell_div" id="options_div">
+                <a onClick="linkSfx('title.html', true);">EXIT</a> -
+                <a href="javascript:speed();"><span id="speed">x1</span></a> speed -
+                <a href="javascript:pause();"><span id="pause">PAUSE</span></a>
+            </div>
+
+            <div class="cell_div" id="time_div">
+                <span id="date">Year: 2024 <span class="loading_bar">....</span></span>
+                <span class="vertical_only"> /2150</span>
+                <span class="horizontal_only">
+
+                    <br />Time to 2150 (WIN): <span id="timer" class="loading_bar">...............</span>
+                </span>
+            </div>
+
+            <div class="cell_div" id="points_div">
+                <span class="number_good">$ignaling..: +$<span id="s_points" class="number">3</span>(+<span
+                        id="s_income">1</span>$/s)</span>
+                <span class="hide_confirmation">
+                    <br />
+                    <span id="strain" class="number_bad">$train.....: -$<span id="c_points"
+                            class="number">2</span></span><br />
+                    ---------------------------<br />
+                    <span id="suffering">$uffering..: -$<span id="differencial"
+                            class="number number_bad">1</span></span>
+                </span>
+            </div>
+            <div class="cell_div hide_normalization" id="alerts_div">
+                <span class="vertical_only"> 100 $uffering = 1 death</span>
+                <span class="horizontal_only">
+                    $uffering kills, next alert:<br />
+                </span>
+                <span class="vertical_only">
+                    Alert: $<span id="compassion_fade_100">0/100</span><br />
+                </span>
+
+                <span id="disaster" class="loading_bar">....................</span>
+
+                <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
+                    disabled="true" style="width:55px"> <span id="compassion_fade">1</span> deaths<br />
+
+                <span class="horizontal_only"><span id="compassion_fade_100">0/100</span>
+                    $uffering accumulated</span>
+            </div>
+
+
+            <div class="cell_div hide_normalization" id="population_div">
+                Population: <span id="population">8106672020</span> <span class="horizontal_only">(LOSE if 0)</span>
+            </div>
+
+            <div class="cell_div horizontal_only" id="graph_div">
+                <canvas id="graphCanvas" width="300" height="200"></canvas>
+            </div>
+
         </div>
 
-        <div class="cell_div" id="time_div">
-            <span id="date">Year: 2024 <span class="loading_bar">....</span></span>
-            <span class="vertical_only"> /2150</span>
-            <span class="horizontal_only">
 
-                <br />Time to 2150 (WIN): <span id="timer" class="loading_bar">...............</span>
-            </span>
-        </div>
+        <div id="action_zone">
+            <div id="action_column_exploit">
+                <div class="carbon_capture_divs" id="carbon_capture_div">
+                    <input type="button" value="Carbon capture (+1$)" onclick="clicker();" />
+                </div>
 
-        <div class="cell_div" id="points_div">
-            <span class="number_good">$ignaling..: +$<span id="s_points" class="number">3</span>(+<span
-                    id="s_income">1</span>$/s)</span>
-            <span class="hide_confirmation">
-                <br />
-                <span id="strain" class="number_bad">$train.....: -$<span id="c_points"
-                        class="number">2</span></span><br />
-                ---------------------------<br />
-                <span id="suffering">$uffering..: -$<span id="differencial" class="number number_bad">1</span></span>
-            </span>
-        </div>
-        <div class="cell_div hide_normalization" id="alerts_div">
-            <span class="vertical_only"> 100 $uffering = 1 death</span>
-            <span class="horizontal_only">
-                $uffering kills, next alert:<br />
-            </span>
-            <span class="vertical_only">
-                Alert: $<span id="compassion_fade_100">0/100</span><br />
-            </span>
+                <div class="carbon_capture_divs" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
+                    No virtue signaling in IMPOSSIBLE
+                </div>
 
-            <span id="disaster" class="loading_bar">....................</span>
+                <div class="cell_div" id="portfolio_div">
+                    <h3>Current portfolio</h3>
+                    <ul id="portfolio">
+                        <li class="li_1">Invest more here: -1$, +1.0$/s<br />||</li>
+                    </ul>
+                </div>
+            </div>
 
-            <input type="range" min="0" max="0" value="0" id="compassion_slider" oninput="changeCompassionSlider()"
-                disabled="true" style="width:55px"> <span id="compassion_fade">1</span> deaths<br />
-
-            <span class="horizontal_only"><span id="compassion_fade_100">0/100</span>
-                $uffering accumulated</span>
+            <div id="action_column_explore">
+                <div class="cell_div" id="marketplace_div">
+                    <h3>Marketplace of ideas</h3>
+                    Licensing fee: $<span id="licensing_fee">1</span>
+                    <ul id="marketplace">
+                        <li class="li_2">New Technology<br />-1$,+1.0$/s</li>
+                        <li class="li_3">Other Technology<br />-10$,+2.0$/s</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
 
-        <div class="cell_div hide_normalization" id="population_div">
-            Population: <span id="population">8106672020</span> <span class="horizontal_only">(LOSE if 0)</span>
-        </div>
 
-        <div class="cell_div horizontal_only" id="graph_div">
-            <canvas id="graphCanvas" width="300" height="200"></canvas>
-        </div>
+        <div class="bluebox popup" id="tuto" style="max-width: 400px;right:20%;"></div>
 
     </div>
-
-
-    <div id="action_zone">
-        <div id="action_column_exploit">
-            <div class="carbon_capture_divs" id="carbon_capture_div">
-                <input type="button" value="Carbon capture (+1$)" onclick="clicker();" />
-            </div>
-
-            <div class="carbon_capture_divs" id="carbon_capture_div_alternative" style="display:none;opacity: 0.5;">
-                No virtue signaling in IMPOSSIBLE
-            </div>
-
-            <div class="cell_div" id="portfolio_div">
-                <h3>Current portfolio</h3>
-                <ul id="portfolio">
-                    <li class="li_1">Invest more here: -1$, +1.0$/s<br />||</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="action_column_explore">
-            <div class="cell_div" id="marketplace_div">
-                <h3>Marketplace of ideas</h3>
-                Licensing fee: $<span id="licensing_fee">1</span>
-                <ul id="marketplace">
-                    <li class="li_2">New Technology<br />-1$,+1.0$/s</li>
-                    <li class="li_3">Other Technology<br />-10$,+2.0$/s</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="bluebox popup" id="tuto" style="max-width: 400px;right:20%;"></div>
-
 
     <script>
         var NEXT_FUNCTION = "step1";
