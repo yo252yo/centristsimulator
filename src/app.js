@@ -2,6 +2,7 @@
 function sfx(name) {
     var audio = new Audio();
     audio.src = `../files/sfx/${name}.ogg`;
+    audio.currentTime = 1;
 
     const savedSFXVolume = localStorage.getItem('sfx_volume') || 100;
     if (savedSFXVolume !== null) {
