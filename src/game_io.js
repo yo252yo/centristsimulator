@@ -77,7 +77,9 @@ function displayPopulation() {
     var progress = Math.round(decimals / interval);
     document.getElementById("disaster").innerHTML = "|".repeat(progress) + ".".repeat(gauge_characters - progress);
 
-    document.getElementById("compassion_fade_100").innerText = formatNumber(PENDING_DISASTER_POINTS) + "/" + formatNumber(death_alert_threshold * pop_disaster_ratio);
+    for (var e of document.getElementsByClassName("compassion_fade_100")) {
+        e.innerText = formatNumber(PENDING_DISASTER_POINTS) + "/" + formatNumber(death_alert_threshold * pop_disaster_ratio);
+    }
     document.getElementById("population").innerHTML = `${current_population()}`;
 }
 

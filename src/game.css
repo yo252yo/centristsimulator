@@ -74,6 +74,7 @@
         bottom: 20px;
         right: 15px;
         left: 15px;
+        height: calc(83vh - 150px);
     }
 
     #status_zone {
