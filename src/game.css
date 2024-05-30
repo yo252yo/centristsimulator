@@ -161,16 +161,29 @@
         left: 45px;
     }
 
-    #status_zone div {
-        background-color: #bffdfb00;
-        border: 0px;
+
+    #options_div {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        height: 15px;
+        margin: 0px;
+        background-color: #9fdddb44;
+        width: 500px;
+        border: solid 2px var(--ui-color-transparent);
+        box-shadow: -2px -2px 4px 4px var(--ui-color-dark);
+        padding: 3px;
+        line-height: .9;
     }
+
 
     #status_zone .cell_div {
         margin: 3px;
         padding: 5px;
         border: solid 0px var(--ui-color-transparent);
         box-shadow: none;
+        background-color: #bffdfb00;
+        border: 0px;
     }
 
     #action_column_exploit {
