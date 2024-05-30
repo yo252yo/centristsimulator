@@ -82,18 +82,18 @@ function getBPMilestone(x) {
     return { previousKey, nextKey };
 }
 
-function getBP(seconds) {
+function getRawBP(seconds) {
     var bp = 0;
     if (seconds in BP_milestones) {
         bp = BP_milestones[seconds];
     } else if (seconds > 300) {
-        bp = Math.floor(1.4 * Math.pow(seconds, 4.5));
+        bp = Math.floor(1.4 * Math.pow(seconds, 4.5)) - 185414561578;
     } else if (seconds >= 400) {
         if (CAN_WIN()) {
-            bp = Math.floor(1.4 * Math.pow(seconds, 4.5));
+            bp = Math.floor(1.4 * Math.pow(seconds, 4.5)) - 185414561578;
         } else {
             // Let's be honest this should never happen but just in case.
-            bp = 716800000000 * Math.exp(seconds - 400);
+            bp = 1032408931155 * Math.exp(seconds - 400);
         }
     } else {
         const milestones = getBPMilestone(seconds);
@@ -105,6 +105,14 @@ function getBP(seconds) {
     }
 
     return Math.floor(bp * Math.sqrt(DIFFICULTY));
+}
+
+// Smooth the curve for display purposes
+function getBP(seconds) {
+    if (seconds < 60) {
+        return getRawBP(seconds);
+    }
+    return Math.floor((getRawBP(seconds - 7) + getRawBP(seconds - 5) + getRawBP(seconds) + getRawBP(seconds + 5) + getRawBP(seconds + 7)) / 5);
 }
 
 // This is the main game loop
@@ -146,6 +154,7 @@ function updatePoints() {
     //     BAD_POINTS = GOOD_POINTS + 1;
     // }
     handleDisaster();
+    drawGraphTick();
     updateHtmlValues();
     POLICIES_COOLDOWN--;
 }
@@ -282,3 +291,91 @@ function handleDisaster() {
 }
 
 
+
+// ==================================================================
+// Graph
+const canvas = document.getElementById('graphCanvas');
+const ctx = canvas.getContext('2d');
+const maxXGraph = 500;
+const maxYGraph = 3000000000000;
+const minYGraph = 10;
+const marginGraph = 10;
+
+function graphY(points) {
+    if (points < 5) {
+        return canvas.height - marginGraph;
+    }
+    const value = Math.max(1, Math.log(points) - Math.log(minYGraph));
+    return canvas.height - marginGraph - (value / (Math.log(maxYGraph) - Math.log(minYGraph)) * (canvas.height - 2 * marginGraph));
+}
+
+function graphX(seconds) {
+    var linearZone = 175;
+    var linearZone_time = 200;
+
+    if (seconds < linearZone_time) {
+        return marginGraph + (seconds / linearZone_time) * linearZone;
+    } else {
+        return marginGraph + linearZone + (Math.log(seconds) - Math.log(linearZone_time)) / (Math.log(maxXGraph) - Math.log(linearZone_time)) * (canvas.width - 2 * marginGraph - linearZone);
+    }
+}
+
+function drawLine(fromX, fromY, toX, toY) {
+    ctx.beginPath();
+    ctx.moveTo(fromX, fromY);
+    ctx.lineTo(toX, toY);
+    ctx.stroke();
+}
+
+function drawAxes() {
+    ctx.strokeStyle = '#bffdfb';
+    ctx.fillStyle = '#bffdfb';
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // X axis
+    drawLine(marginGraph, canvas.height - marginGraph, canvas.width - marginGraph, canvas.height - marginGraph);
+    for (var label = 60; label < maxXGraph; label += 60) {
+        drawLine(graphX(label), canvas.height - 1.5 * marginGraph, graphX(label), canvas.height - 0.5 * marginGraph);
+    }
+
+    // Y axis
+    drawLine(marginGraph, marginGraph, marginGraph, canvas.height - marginGraph);
+    for (var label = minYGraph; label < maxYGraph; label *= 10) {
+        drawLine(0.5 * marginGraph, graphY(label), 1.5 * marginGraph, graphY(label));
+    }
+}
+
+let initialLimit = localStorage.getItem("highest_reached_point") || 0;
+var previousPoints = {};
+function drawPoint(time, rawY, color, thick) {
+    ctx.fillStyle = color;
+    ctx.strokeStyle = color;
+    const x = graphX(time);
+    const y = graphY(rawY);
+
+    if (previousPoints[color] != undefined) {
+        drawLine(graphX(time) - 1, previousPoints[color], x, y);
+    }
+    ctx.beginPath();
+    ctx.arc(x, y, thick || 1, 0, 2 * Math.PI);
+    ctx.fill();
+    previousPoints[color] = y;
+    localStorage.setItem("highest_reached_point", Math.max(time, initialLimit));
+}
+
+drawAxes();
+function drawGraphTick() {
+    drawPoint(seconds_elapsed, GOOD_POINTS, '#45cb8b');
+
+    if (localStorage.getItem("setting_confirmation") != "true") {
+        drawPoint(seconds_elapsed, BAD_POINTS, '#fb4447');
+    }
+}
+
+if (localStorage.getItem("setting_confirmation") != "true") {
+    for (var i = 0; i <= initialLimit; i++) {
+        drawPoint(i, getBP(i), '#fb444703', 6);
+    }
+
+}

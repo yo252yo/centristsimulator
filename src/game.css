@@ -152,13 +152,6 @@
         font-size: xx-large;
     }
 
-    #options_div {
-        position: fixed;
-        bottom: 50px;
-        width: 350px;
-        font-size: large;
-        line-height: 1.5;
-    }
 
     #status_zone {
         position: fixed;
@@ -173,7 +166,7 @@
     }
 
     #status_zone .cell_div {
-        margin: 10px;
+        margin: 3px;
         padding: 5px;
         border: solid 0px var(--ui-color-transparent);
         box-shadow: none;

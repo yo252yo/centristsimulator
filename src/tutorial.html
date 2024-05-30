@@ -17,15 +17,11 @@
     </div>
 
     <div id="status_zone">
+
         <div class="cell_div" id="options_div">
-            <span class="horizontal_only">
-                <h2>CENTRIST SIMULATOR</h2>
-            </span>
-            <a href="javascript:pause();"><span id="pause">PAUSE</span></a> <span class="vertical_only">-</span><span
-                class="horizontal_only"><br /></span>
-            <a href="javascript:speed();"><span id="speed">x1</span></a> speed <span class="vertical_only">-</span><span
-                class="horizontal_only"><br /></span>
-            <a onClick="linkSfx('title.html', true);">EXIT</a>
+            <a onClick="linkSfx('title.html', true);">EXIT</a> -
+            <a href="javascript:speed();"><span id="speed">x1</span></a> speed -
+            <a href="javascript:pause();"><span id="pause">PAUSE</span></a>
         </div>
 
         <div class="cell_div" id="time_div">
@@ -69,6 +65,10 @@
 
         <div class="cell_div hide_normalization" id="population_div">
             Population: <span id="population">8106672020</span> <span class="horizontal_only">(LOSE if 0)</span>
+        </div>
+
+        <div class="cell_div horizontal_only" id="graph_div">
+            <canvas id="graphCanvas" width="300" height="200"></canvas>
         </div>
 
     </div>
@@ -151,7 +151,7 @@
         function step1() {
             displayPopup(`
             It's simple: you win if you survive past 2150.<br />
-            You can see the date and control the time on the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.<br />
+            You can see the date and control the time on the <span class="horizontal_only">top left</span><span class="vertical_only">top right</span>.<br />
             If you have a keyboard, you can use SPACE to pause and the numbers to control speed.
             `, "step2");
 
@@ -173,6 +173,8 @@
 
             document.getElementById("options_div").style.opacity = 0.2;
             document.getElementById("points_div").style.opacity = 1;
+            document.getElementById("graph_div").style.opacity = 1;
+
             document.getElementById("strain").style.opacity = 0.2;
             document.getElementById("suffering").style.opacity = 0.2;
         }
@@ -206,11 +208,12 @@
 
         function step7() {
             displayPopup(`
-            You'll get an alert bulletin when people die. You can control its content in the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.<br />
+            You'll get an alert bulletin when people die. You can control its content in the <span class="horizontal_only">top left</span><span class="vertical_only">top right</span>.<br />
             Over time, you can group more and more death together so they shouldn't bother you too much.
             `, "step8");
 
             document.getElementById("points_div").style.opacity = 0.2;
+            document.getElementById("graph_div").style.opacity = 0.2;
             document.getElementById("alerts_div").style.opacity = 1;
         }
 
@@ -258,6 +261,60 @@
         function step12() {
             linkSfx("game.html");
         }
+
+        const canvas = document.getElementById('graphCanvas');
+        const ctx = canvas.getContext('2d');
+        const maxXGraph = 500;
+        const maxYGraph = 3000000000000;
+        const minYGraph = 10;
+        const marginGraph = 10;
+
+        function graphY(points) {
+            if (points < 5) {
+                return canvas.height - marginGraph;
+            }
+            const value = Math.max(1, Math.log(points) - Math.log(minYGraph));
+            return canvas.height - marginGraph - (value / (Math.log(maxYGraph) - Math.log(minYGraph)) * (canvas.height - 2 * marginGraph));
+        }
+
+        function graphX(seconds) {
+            var linearZone = 175;
+            var linearZone_time = 200;
+
+            if (seconds < linearZone_time) {
+                return marginGraph + (seconds / linearZone_time) * linearZone;
+            } else {
+                return marginGraph + linearZone + (Math.log(seconds) - Math.log(linearZone_time)) / (Math.log(maxXGraph) - Math.log(linearZone_time)) * (canvas.width - 2 * marginGraph - linearZone);
+            }
+        }
+
+        function drawLine(fromX, fromY, toX, toY) {
+            ctx.beginPath();
+            ctx.moveTo(fromX, fromY);
+            ctx.lineTo(toX, toY);
+            ctx.stroke();
+        }
+
+        function drawAxes() {
+            ctx.strokeStyle = '#bffdfb';
+            ctx.fillStyle = '#bffdfb';
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // X axis
+            drawLine(marginGraph, canvas.height - marginGraph, canvas.width - marginGraph, canvas.height - marginGraph);
+            for (var label = 60; label < maxXGraph; label += 60) {
+                drawLine(graphX(label), canvas.height - 1.5 * marginGraph, graphX(label), canvas.height - 0.5 * marginGraph);
+            }
+
+            // Y axis
+            drawLine(marginGraph, marginGraph, marginGraph, canvas.height - marginGraph);
+            for (var label = minYGraph; label < maxYGraph; label *= 10) {
+                drawLine(0.5 * marginGraph, graphY(label), 1.5 * marginGraph, graphY(label));
+            }
+        }
+
+        drawAxes();
 
     </script>
 

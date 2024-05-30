@@ -38,15 +38,11 @@
     </div>
 
     <div id="status_zone">
+
         <div class="cell_div" id="options_div">
-            <span class="horizontal_only">
-                <h2>CENTRIST SIMULATOR</h2>
-            </span>
-            <a href="javascript:pause();"><span id="pause">PAUSE</span></a> <span class="vertical_only">-</span><span
-                class="horizontal_only"><br /></span>
-            <a href="javascript:speed();"><span id="speed">x1</span></a> speed <span class="vertical_only">-</span><span
-                class="horizontal_only"><br /></span>
-            <a onClick="linkSfx('title.html', true);">EXIT</a>
+            <a onClick="linkSfx('title.html', true);">EXIT</a> -
+            <a href="javascript:speed();"><span id="speed">x1</span></a> speed -
+            <a href="javascript:pause();"><span id="pause">PAUSE</span></a>
         </div>
 
         <div class="cell_div" id="time_div">
@@ -90,6 +86,10 @@
 
         <div class="cell_div hide_normalization" id="population_div">
             Population: <span id="population"></span> <span class="horizontal_only">(LOSE if 0)</span>
+        </div>
+
+        <div class="cell_div horizontal_only" id="graph_div">
+            <canvas id="graphCanvas" width="300" height="200" title="$ignaling and $train over time"></canvas>
         </div>
     </div>
 
@@ -143,7 +143,7 @@
         <h2>ALERT</h2>
         <span id="death_report"></span><br /><br />
         <span id="compassion_slider_disclaimer" style="display:none;">You can use the slider on the
-            <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>
+            <span class="horizontal_only">top left</span><span class="vertical_only">top right</span>
             to control the scale of your compassion by grouping deaths together and see this less often.
         </span><br />
         <div class="cell_div" style="width:150px; text-align: center;">

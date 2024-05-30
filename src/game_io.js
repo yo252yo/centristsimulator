@@ -190,6 +190,7 @@ function pause(forced_state) {
         document.documentElement.style.setProperty('--ui-color', '#858e8d99');
         document.documentElement.style.setProperty('--ui-color-transparent', '#d5dedd66');
         document.documentElement.style.setProperty('--ui-color-dark', '#d5dedd66');
+        document.getElementById('graphCanvas').style.opacity = 0.5;
     } else {
         document.getElementById("screenfilter").classList.add('screenfilter_unpaused');
         document.getElementById("screenfilter").classList.add('screenflicker_unpaused');
@@ -198,6 +199,7 @@ function pause(forced_state) {
         document.documentElement.style.setProperty('--ui-color', '#bffdfb');
         document.documentElement.style.setProperty('--ui-color-transparent', '#bffdfbdd');
         document.documentElement.style.setProperty('--ui-color-dark', '#bffdfb22');
+        document.getElementById('graphCanvas').style.opacity = 1;
     }
 }
 
