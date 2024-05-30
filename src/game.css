@@ -142,17 +142,6 @@
         overflow: hidden;
     }
 
-    @media (max-width: 1099px) {
-        html {
-            zoom: 0.7;
-            font-size: normal;
-        }
-
-        #action_zone {
-            width: 80vw;
-        }
-    }
-
     ul {
         list-style-type: none;
         padding-left: 20px;
@@ -231,6 +220,34 @@
     .horizontal_only {
         display: inline;
     }
+
+    @media (max-width: 1099px) {
+        html {
+            zoom: 0.7;
+            font-size: normal;
+        }
+
+        #action_zone {
+            width: 80vw;
+        }
+
+        #marketplace_div {
+            max-height: 65vh;
+        }
+
+        #politics_div {
+            max-height: 45vh;
+        }
+
+        .carbon_capture_divs {
+            height: 20vh;
+        }
+
+        #portfolio_div {
+            max-height: 90vh;
+        }
+    }
+
 }
 
 
