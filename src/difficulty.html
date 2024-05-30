@@ -29,26 +29,23 @@
             DIFFICULTY: Pick your lifestyle
         </h2>
 
-        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div"
-            onClick="linkSfx('game.html?difficulty=1')">
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" onClick="linkSfx('game.html?difficulty=1')">
             <h3>EASIER TIMES</h3>
             For people longing for a simpler experience, brings you back to a time when pace was slower
         </div>
-        <div class="cell_div difficulty_div" id="options_div" onClick="linkSfx('game.html?difficulty=0')">
+        <div class="cell_div difficulty_div" id="normal_link" onClick="linkSfx('game.html?difficulty=0')">
             <h3>NORMAL</h3>
             The default game experience, recommended
         </div>
-        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div"
-            onClick="linkSfx('game.html?difficulty=2')">
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" onClick="linkSfx('game.html?difficulty=2')">
             <h3>NEW NORMAL</h3>
             Normality has become more challenging and survival more complicated
         </div>
-        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div"
-            onClick="linkSfx('game.html?difficulty=3')">
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" onClick="linkSfx('game.html?difficulty=3')">
             <h3>POST NEW NORMAL</h3>
             Life has become even more difficult, make sure you're ready
         </div>
-        <div class="cell_div difficulty_div toGreyOutFirstVisit" id="options_div" onClick="linkSfx('choice.html')">
+        <div class="cell_div difficulty_div toGreyOutFirstVisit" onClick="linkSfx('choice.html')">
             <h3>IMPOSSIBLE</h3>
             Extreme challenge with more complexity for people who are not afraid to tackle an impossible fight
         </div>
@@ -67,7 +64,9 @@
                     e.removeAttribute('onClick');
                 }
 
-                document.getElementById("normal_link").href = "tutorial.html";
+                document.getElementById("normal_link").removeAttribute('onClick');
+                document.getElementById("normal_link").addEventListener("click", function () { linkSfx('tutorial.html') });
+
                 document.getElementById("tutorial_link").style.visibility = "hidden";
             } 
         </script>
