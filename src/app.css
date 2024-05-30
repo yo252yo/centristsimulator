@@ -128,5 +128,6 @@ div {
 @media (orientation: portrait) {
     #screen {
         bottom: 100px;
+        overflow: auto;
     }
 }
