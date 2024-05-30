@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="game.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <script>
         function formatNumber(number) {
             if (number >= 1000000000) {
@@ -139,7 +140,7 @@
         </div>
 
 
-        <div class="popup redbox" id="popup">
+        <div class="popup redbox" id="popup" style="overflow: auto;max-height: 500px;">
             <h2>ALERT</h2>
             <span id="death_report"></span><br /><br />
             <span id="compassion_slider_disclaimer" style="display:none;">You can use the slider on the
@@ -179,6 +180,7 @@
     <script src="game_actions.js" defer></script>
     <script src="game_io.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="narrative.js" defer></script>
 
 </body>
 

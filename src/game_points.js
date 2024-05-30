@@ -236,6 +236,7 @@ function dismissDisaster() {
 }
 
 var death_alert_thresholds = [1, 2, 5, 10, 100, 1000, 100000, 1000000, 100000000, 1000000000];
+// 1k, 100k, 1M, 100M, 1B
 function changeCompassionSlider() {
     var index = parseInt(document.getElementById("compassion_slider").value);
     death_alert_threshold = death_alert_thresholds[index];
@@ -248,6 +249,32 @@ function changeCompassionSlider() {
 if (localStorage.getItem("compassionMax")) {
     document.getElementById("compassion_slider").max = parseInt(localStorage.getItem("compassionMax"));
     document.getElementById("compassion_slider").disabled = false;
+}
+
+function victims_text(number) {
+    if (number <= 10) {
+        var s = "";
+        for (var i = 0; i < number; i++) {
+            s += "- " + randomBlurb() + "<br />";
+        }
+        return s;
+    } else if (number <= 1000) {
+        var s = "Your device can only display a list of names for amounts this high.<br />";
+        for (var i = 0; i < number; i++) {
+            s += "- " + randomName() + "<br />";
+        }
+        return s;
+    } else if (number <= 100000) {
+        var s = "Your device cannot display this amount of names, so we will represent each victim by a dot. Remember them.<br /><span style='overflow-wrap:anywhere'>";
+        s += ".".repeat(number);
+        s += "</span>";
+        return s;
+    } else {
+        var s = "Your device cannot display this amount of dots, actually. We will use the character ▒ to represent a wall full of dots such as the one you saw previously. Each dot is, well rather was, a person.<br /><span style='overflow-wrap:anywhere'>";
+        s += "▒".repeat(Math.floor(number / 100000));
+        s += "</span>";
+        return s;
+    }
 }
 
 function handleDisaster() {
@@ -276,8 +303,11 @@ function handleDisaster() {
         }
 
         document.getElementById("death_report").innerHTML = `
-        ${victims} people died in horrible circumstances.        
+        ${victims} people died in horrible circumstances.
+        <br />
+        ${victims_text(victims)}
         `;
+        document.getElementById("popup").scrollTop = 0;
 
         if (localStorage.getItem("setting_normalization") != "true") {
             pause("OFF");
