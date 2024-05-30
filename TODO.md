@@ -1,7 +1,6 @@
 
-- bigger pause effect/UI color change
 - keyboard support in tutorial
-- popup positioning
+- bigger pause effect/UI color change
 - live graph
 
 ====================== Mobile rendering

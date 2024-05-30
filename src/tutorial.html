@@ -18,8 +18,13 @@
 
     <div id="status_zone">
         <div class="cell_div" id="options_div">
-            <a href="javascript:pause();"><span id="pause">UNPAUSE</span></a> -
-            Speed <a href="javascript:speed();"><span id="speed">x1</span></a> -
+            <span class="horizontal_only">
+                <h2>CENTRIST SIMULATOR</h2>
+            </span>
+            <a href="javascript:pause();"><span id="pause">PAUSE</span></a> <span class="vertical_only">-</span><span
+                class="horizontal_only"><br /></span>
+            <a href="javascript:speed();"><span id="speed">x1</span></a> speed <span class="vertical_only">-</span><span
+                class="horizontal_only"><br /></span>
             <a onClick="linkSfx('title.html', true);">EXIT</a>
         </div>
 
@@ -90,7 +95,7 @@
         <div id="action_column_explore">
             <div class="cell_div" id="marketplace_div">
                 <h3>Marketplace of ideas</h3>
-                Licensing fee: $<span id="licensing_fee"></span>
+                Licensing fee: $<span id="licensing_fee">1</span>
                 <ul id="marketplace">
                     <li class="li_2">New Technology<br />-1$,+1.0$/s</li>
                     <li class="li_3">Other Technology<br />-10$,+2.0$/s</li>
@@ -101,7 +106,7 @@
 
 
 
-    <div class="bluebox popup" id="tuto" style="max-width: 400px;"></div>
+    <div class="bluebox popup" id="tuto" style="max-width: 400px;right:20%;"></div>
 
 
     <script>
@@ -134,7 +139,7 @@
         function step1() {
             displayPopup(`
             It's simple: you win if you survive past 2150.<br />
-            You can see the date and control the time on the top right.<br />
+            You can see the date and control the time on the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.<br />
             If you have a keyboard, you can use SPACE to pause and the numbers to control speed.
             `, "step2");
 
@@ -189,7 +194,7 @@
 
         function step7() {
             displayPopup(`
-            You'll get an alert bulletin when people die. You can control when in the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.<br />
+            You'll get an alert bulletin when people die. You can control its content in the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.<br />
             Over time, you can group more and more death together so they shouldn't bother you too much.
             `, "step8");
 
