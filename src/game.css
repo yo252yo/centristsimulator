@@ -214,7 +214,7 @@
         display: inline;
     }
 
-    @media (max-width: 1099px) {
+    @media (max-width: 1299px) {
         html {
             zoom: 0.7;
             font-size: normal;
