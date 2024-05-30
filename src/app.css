@@ -111,10 +111,10 @@ body {
 #screen {
     position: fixed;
 
-    top: 20px;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
 
     padding: 20px;
     margin: 0px;
