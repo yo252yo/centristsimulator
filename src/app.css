@@ -124,3 +124,9 @@ div {
     scrollbar-width: thin;
     scrollbar-color: #6b8e8d var(--ui-color);
 }
+
+@media (orientation: portrait) {
+    #screen {
+        bottom: 50px;
+    }
+}
