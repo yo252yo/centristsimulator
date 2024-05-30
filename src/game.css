@@ -142,7 +142,7 @@
         overflow: hidden;
     }
 
-    @media (max-width: 999px) {
+    @media (max-width: 1099px) {
         html {
             zoom: 0.7;
             font-size: normal;
