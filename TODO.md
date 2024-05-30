@@ -1,5 +1,4 @@
 
-- keyboard support in tutorial
 - bigger pause effect/UI color change
 - live graph
 

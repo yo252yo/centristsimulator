@@ -110,6 +110,17 @@
 
 
     <script>
+        var NEXT_FUNCTION = "step1";
+        function handleKeyPress(event) {
+            if (event.key === ' ' || event.key === '0' || event.key === 'Enter' || event.key === 'Return') {
+                eval(`${NEXT_FUNCTION}()`);
+            }
+
+            event.stopPropagation();
+            event.preventDefault();
+        }
+        document.addEventListener('keypress', handleKeyPress);
+
         for (var e of document.getElementsByClassName("cell_div")) {
             e.style.opacity = 0.2;
         }
@@ -119,6 +130,7 @@
             if (typeof linkSfx === 'function') {
                 linkSfx();
             }
+            NEXT_FUNCTION = callback_name;
             document.getElementById("tuto").innerHTML = `
             <div style="min-height:200px">${text}</div>
             
