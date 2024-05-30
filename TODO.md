@@ -16,6 +16,17 @@ load images and media in the background
 save/load system for the game
 change options during the game
 
+====================== SFX
+Click A -> Clicker
+Defeat
+Victory -> VolumeCheck
+VictoryActive -> Victory
+death notification -> disaster small/tiny/huge
+Purhcase policy B -> Policy
+Purchase Tech A -> link
+Purchase tech d -> purchase
+Upgrade tech A -> Upgrade
+
 
 ====================== Stylize tooltips??
 
