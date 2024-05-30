@@ -258,13 +258,13 @@ function victims_text(number) {
             s += "- " + randomBlurb() + "<br />";
         }
         return s;
-    } else if (number <= 1000) {
+    } else if (number <= 1500) {
         var s = "Your device can only display a list of names for amounts this high.<br />";
         for (var i = 0; i < number; i++) {
             s += "- " + randomName() + "<br />";
         }
         return s;
-    } else if (number <= 100000) {
+    } else if (number <= 150000) {
         var s = "Your device cannot display this amount of names, so we will represent each victim by a dot. Remember them.<br /><span style='overflow-wrap:anywhere'>";
         s += ".".repeat(number);
         s += "</span>";
