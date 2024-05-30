@@ -162,6 +162,10 @@ setTimeout(updatePoints, 1000);
 
 
 function displaySuffering(suffering) {
+    if (localStorage.getItem("setting_confirmation") == "true") {
+        return;
+    }
+
     const sufferintDot = document.createElement('div');
     let type = "bad";
     if (suffering == 0) {
@@ -377,5 +381,4 @@ if (localStorage.getItem("setting_confirmation") != "true") {
     for (var i = 0; i <= initialLimit; i++) {
         drawPoint(i, getBP(i), '#fb444703', 6);
     }
-
 }

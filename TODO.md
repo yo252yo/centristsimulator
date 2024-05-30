@@ -1,6 +1,3 @@
-confirmationbias mode with the suffering animation
-mb put the ui in red if suffering is >0?
-
 
 ====================== Mobile rendering
 - bottom of the screen is wrong somehow
