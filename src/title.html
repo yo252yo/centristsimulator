@@ -15,6 +15,76 @@
             document.getElementById("controls_link").style.display = "none";
             linkSfx();
         }
+
+
+        function revertText(node) {
+            const headers = document.querySelectorAll('h1, h2');
+            headers.forEach(header => {
+                header.textContent = header.originalText;
+            });
+        }
+
+        function replaceText() {
+            const headers = document.querySelectorAll('h1, h2');
+            headers.forEach(header => {
+                header.originalText = header.textContent;
+                header.innerHTML = header.innerHTML.replace(/S/g, '<span class="number_bad">$</span>');
+            });
+        }
+
+
+        function replaceSToDollar() {
+            replaceText();
+            document.getElementById("screen").style.top = "17px";
+            document.getElementById("screen").style.left = "17px";
+            document.getElementById("screen").style.right = "13px";
+            document.getElementById("screen").style.bottom = "13px";
+
+            document.getElementById("screenfilter").classList.add('screenfilter_paused');
+            document.getElementById("screenfilter").classList.add('screenflicker_paused');
+            document.getElementById("screenfilter").classList.remove('screenfilter_unpaused');
+            document.getElementById("screenfilter").classList.remove('screenflicker_unpaused');
+            document.documentElement.style.setProperty('--ui-color', '#858e8d99');
+            document.documentElement.style.setProperty('--ui-color-transparent', '#d5dedd66');
+            document.documentElement.style.setProperty('--ui-color-dark', '#d5dedd66');
+
+            var delay = Math.floor(50 + 400 * Math.random());
+            setTimeout(() => {
+                revertText();
+
+                document.getElementById("screenfilter").classList.add('screenfilter_unpaused');
+                document.getElementById("screenfilter").classList.add('screenflicker_unpaused');
+                document.getElementById("screenfilter").classList.remove('screenfilter_paused');
+                document.getElementById("screenfilter").classList.remove('screenflicker_paused');
+                document.documentElement.style.setProperty('--ui-color', '#bffdfb');
+                document.documentElement.style.setProperty('--ui-color-transparent', '#bffdfbdd');
+                document.documentElement.style.setProperty('--ui-color-dark', '#bffdfb22');
+
+                document.getElementById("screen").style.top = "15px";
+                document.getElementById("screen").style.left = "15px";
+                document.getElementById("screen").style.right = "15px";
+                document.getElementById("screen").style.bottom = "15px";
+            }, delay);
+        }
+
+
+        function setRandomInterval() {
+            let interval = Math.floor(Math.random() * 2000 + 500);
+
+            setTimeout(() => {
+                replaceSToDollar();
+                setRandomInterval();
+            }, interval);
+        }
+
+        setRandomInterval();
+
+
+
+
+
+
+
     </script>
     <script src="app.js" defer></script>
 </head>
@@ -23,8 +93,8 @@
     <div id="screenfilter" class="screenfilter screenfilter_unpaused screenflicker_unpaused">
     </div>
     <div id="screen" class="cell_div" style="overflow:auto;">
-        <h1>Centrist Simulator</h1>
-        <h2><i>An anti-idle game about the violence of inaction</i></h2>
+        <h1>CENTRIST SIMULATOR</h1>
+        <h2 style="font-weight: normal; font-style: italic;">an anti-idle game about the violence of inaction</h2>
 
         <a onClick="linkSfx('difficulty.html')">
             <h2>START</h2>

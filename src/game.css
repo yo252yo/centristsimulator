@@ -343,15 +343,6 @@ li {
     background-color: #4285F422;
 }
 
-.number_good {
-    color: #45cb8b;
-    text-shadow: #45cb8bdd 1px 0px 4px;
-}
-
-.number_bad {
-    color: #fb4447;
-    text-shadow: #fb4447dd 1px 0px 4px;
-}
 
 .marketplace_icon {
     width: 38px;
