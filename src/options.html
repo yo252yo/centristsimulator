@@ -12,7 +12,7 @@
     </div>
     <div id="screen" class="cell_div">
 
-        <h1>Options</h1>
+        <h1>Audio</h1>
 
         Music..: <input type="range" id="music-volume-slider" min="0" max="100" value="100"
             oninput="changeVolume('music');">
@@ -21,13 +21,15 @@
             oninput="changeVolume('sfx');">
         <br />
 
+        <h1>Video</h1>
+
         <span onClick="toggle('flicker')">
             <h3 style="display:inline"><input type="checkbox" onClick="toggle('flicker')" id="flicker_box" />CRT
                 flicker visual effect
             </h3>
         </span>
 
-        <h2>Centrist vision</h2>
+        <h1>Centrist vision</h1>
 
         <span onClick="toggle('confirmation')">
             <h3 style="display:inline"><input type="checkbox" onClick="toggle('confirmation')"
