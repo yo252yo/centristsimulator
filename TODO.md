@@ -4,7 +4,6 @@ try audio library
 
 ====================== LOOKS-related
 NEED THE TITLE CARD
-- favicon
 - difficulty, choice and title could look better
 
 
