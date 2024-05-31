@@ -330,3 +330,18 @@ document.addEventListener("click", function (event) {
         }
     }
 });
+
+document.addEventListener('wheel', (event) => {
+    if (event.ctrlKey) {
+        return;
+    }
+
+    var element = event.target;
+    while (element) {
+        if (element.scrollHeight - element.scrollTop != element.clientHeight) {
+            return;
+        }
+        element = element.parentElement;
+    }
+    event.preventDefault();
+}, { passive: false });
