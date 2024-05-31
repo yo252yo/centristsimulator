@@ -48,6 +48,13 @@ if (CAN_WIN()) {
     document.getElementById("marketplace_div").style.visibility = "hidden";
     document.getElementById("alerts_div").style.visibility = "hidden";
     document.getElementById("population_div").style.visibility = "hidden";
+
+    setTimeout(function () {
+        if (document.getElementById("marketplace_div").style.visibility == "hidden") {
+            document.getElementById("marketplace_div").style.visibility = "visible";
+        }
+    }, 10000);
+
 }
 
 let BAD_POINTS = 0;
@@ -242,6 +249,9 @@ function changeCompassionSlider() {
     death_alert_threshold = death_alert_thresholds[index];
     document.getElementById("compassion_fade").innerText = formatNumber(death_alert_threshold);
     disasters_before_new_compassion_lvl = 0;
+    if (index >= 6) {
+        disasters_before_new_compassion_lvl++;
+    }
     displayPopulation();
     linkSfx();
 }

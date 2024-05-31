@@ -244,6 +244,9 @@ function win() {
     GAME_OVER = true;
     document.getElementById("popup_win").style.visibility = "visible";
     sfx("Victory");
+    if (TOTAL_DISASTER_POINTS == 0) {
+        document.getElementById("no_death").style.display = "block";
+    }
 }
 
 function lose() {
