@@ -268,13 +268,13 @@ if (localStorage.getItem("compassionMax")) {
 }
 
 function victims_text(number) {
-    if (number <= 10) {
+    if (number <= 20) { //5,10
         var s = "";
         for (var i = 0; i < number; i++) {
-            s += "- " + randomBlurb() + "<br />";
+            s += "- " + randomBlurb(death_alert_threshold < 5 ? 2 : 1) + "<br />";
         }
         return s;
-    } else if (number <= 1500) {
+    } else if (number <= 1500) { // 100, 1000
         var s = "Your device can only display a list of names for amounts this high.<br />";
         for (var i = 0; i < number; i++) {
             s += "- " + randomName() + "<br />";
@@ -286,8 +286,9 @@ function victims_text(number) {
         s += "</span>";
         return s;
     } else {
-        var s = "Your device cannot display this amount of dots, actually. We will use the character ▒ to represent a wall full of dots such as the one you saw previously. Each dot is, well rather was, a person.<br /><span style='overflow-wrap:anywhere'>";
+        var s = "Your device cannot display this amount of dots, actually. We will use the character ▒ to represent a wall full of 100k dots such as the one you saw previously. Each dot is, well rather was, a person. You can think of ▒ as a big city the size of Geneva.<br /><span style='overflow-wrap:anywhere'>";
         s += "▒".repeat(Math.floor(number / 100000));
+        s += ".".repeat(Math.floor(number - (100000 * Math.floor(number / 100000))));
         s += "</span>";
         return s;
     }

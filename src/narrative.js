@@ -1,3 +1,7 @@
+var pick = function (fromArray) {
+    return fromArray[Math.floor(fromArray.length * Math.random())];
+}
+
 var firstNames = {
     "Martina": "F",
     "Emma": "F",
@@ -3455,6 +3459,7 @@ var countries = {
     "ZW": "Zimbabwe"
 };
 
+// from world census 2024
 var getAge = function () {
     var group = 8 * Math.random();
     if (group < 0.8) {
@@ -3665,6 +3670,7 @@ var cods = [
     'succumbed to acute kidney injury from dehydration during droughts',
 ];
 
+// get more from wikipedia?
 var hobbies = [
     "3D printing",
     "Acrobatics",
@@ -4163,21 +4169,19 @@ var hobbies = [
 ];
 
 var randomPerson = function () {
-    var f = FNkeys[Math.floor(FNkeys.length * Math.random())];
-    var l = LNkeys[Math.floor(LNkeys.length * Math.random())];
-    var cod = cods[Math.floor(cods.length * Math.random())];
-    var hobby = hobbies[Math.floor(hobbies.length * Math.random())];
+    var fname = pick(FNkeys);
+    var lname = pick(LNkeys);
+
     return {
-        name: `${f} ${l}`,
-        country: countries[lastNames[l]],
-        gender: firstNames[f],
-        cod: cod,
-        hobby: hobby,
+        name: `${fname} ${lname}`,
+        country: countries[lastNames[lname]],
+        gender: firstNames[fname],
+        cod: pick(cods),
         age: getAge()
     }
 }
 
-var verbs_hobby = [
+var base_verbs_hobby = [
     "really enjoyed",
     "just started",
     "hated",
@@ -4192,7 +4196,38 @@ var verbs_hobby = [
     "always wanted to try",
     "did not get a chance to try",
     "looked forward to trying",
+    "spend time doing",
+    "lost hours in",
+    "was dedicated to",
+    "was skilled in",
+    "experimented with",
+    "taught",
+    "found relaxation in",
+    "was passionate about",
+    "was curious about",
+    "dabbled in",
+    "organized events around",
+    "made lifelong friends through",
 ];
+var verbs_hobby = function (person) {
+    var verbs_hobby = base_verbs_hobby;
+    var adj = pick(['successful', 'mediocre', 'rather good', 'esteemed', 'average', 'disastrous', 'great', 'terrible']);
+    if (person.age > 20) {
+        verbs_hobby = verbs_hobby.concat([
+            'worked in',
+            `had a ${adj} career in`,
+            `was ${adj} in`,
+            'spent way too much money in',
+            'wasted way too much time in',
+            'was relatively famous for contributions in',
+            'was mostly known famous for',
+            'contributed to the field of',
+            'never quite succeeded in the field of',
+            'dropped everything to focus on'
+        ]);
+    }
+    return verbs_hobby;
+}
 
 var verbs_family = [
     "loved",
@@ -4205,9 +4240,32 @@ var verbs_family = [
     "often watched tv with",
     "talked a lot with",
     "spent most of the time with",
+    "leaves behind",
+    "had a special bond with",
+    "talked for hours with",
+    "traveled with",
+    "celebrated holidays with",
+    "supported",
+    "confided in",
+    "enjoyed quiet moments with",
+    "dreamed big with",
+    "took care of",
+    "received the best advice from",
+    "learned new things with",
+    "volunteered together with",
+    "did chores with",
+    "sang songs with",
+    "read books with",
+    "went fishing with",
+    "camped with",
+    "explored nature with",
+    "celebrated successes with",
+    "gave and received love from",
+    "experienced life's ups and downs with",
+    "shared a lifetime of memories with",
 ]
 
-var family = [
+var base_family = [
     "brother",
     "sister",
     "mother",
@@ -4215,43 +4273,172 @@ var family = [
     "cousin",
     "cat",
     "dog",
+    "rabbit",
+    "hamster",
+    "pet",
     "siblings",
     "best friend",
+    "friend group",
+    "friends from online forums",
 ]
+var getFamily = function (person) {
+    var f = base_family;
+    if (person.age > 30) {
+        f = f.concat(['children', 'daughter', 'son', 'daughters', 'sons', 'niece', 'nephew', 'foster child']);
+    }
+    if (person.age < 40) {
+        f = f.concat(['mom', 'mother', 'dad', 'father', 'grandparents', 'foster parents']);
+    }
+    return f;
+}
 
+var quirkAdj = [
+    'athletic',
+    'messy',
+    'organized',
+    'pretty',
+    'ugly',
+    'popular',
+    'solitary',
+    'lazy',
+    'ticklish',
+    'disheveled',
+    'lethargic',
+    'hyperactive',
+    'social',
+    'an adrenaline junkie',
+    'a risk-taker',
+    'over-enthusiastic',
+    'hyper-introverted',
+    'impulsive',
+    'judgmental',
+    'too trustful',
+    'suspicious',
+    'emotional',
+    'caring',
+    'a control freak',
+    'patient',
+    'extremely competitive',
+    'overly humble',
+    'a great speaker',
+    'a caring friend',
+    'socially awkward',
+    'an alcoholic',
+    'a kleptomaniac',
+    'a compulsive liar',
+    'punctual',
+    'manipulative',
+    'jealous',
+    'narcissistic',
+    'overly dramatic',
+    'political',
+    'positive',
+    'negative',
+    'supersticious'
+];
 
+var quirkSentence = [
+    'had lots of tattoos',
+    'was always too hot or too cold',
+    'always wore too much makeup',
+    'had a very fun accent',
+    'was always concerned about the approval of others',
+    'were obsessed with personal hygiene',
+    'was always looking for new challenges',
+    'didnt like change',
+    'often took credit for other peoples work',
+    'liked to one-up people',
+    'took things too personally',
+    'was a lovable teddy bear',
+    'loved to argueu for no reason',
+    'prefered to live without a plan',
+    'didnt like physical contact',
+    'lied compulsively',
+    'never admitted to being wrong',
+    'had a pretty... unique sense of humor',
+    'had a famously weird sense of taste',
+    'had the weirdest taste in food',
+    'wore the weirdest outfits',
+    'slept all the time',
+    'had a horrible sense of direction',
+    'loved meeting new people',
+    'liked to chew gum',
+    'had a language tic',
+    'had the loudest laugh',
+    'hummed all the time',
+    'made a lot of hand gestures when talking',
+    'paced a lot when thinking',
+    'scoffed a lot',
+    'giggled frequently',
+    'used air quotes when talking',
+    'made up words all the time',
+    'ate really fast',
+    'belched loudly after eating',
+    'was constantly talking about diet',
+    'was a very picky eater',
+    'liked to cook for others more than themselves',
+    'had a peppy bouncy walk',
+    'walked so fast',
+    'walked so slow',
+    'knew a lot of useless trivia',
+    'never said things directly',
+    'gave nicknames to everyone',
+    'muttered thoughts out loud all the time',
+    'liked to exaggerate',
+    'got frequent hiccups',
+    'only drank sparkling water',
+    'sung passionately in the shower',
+    'quoted movies all the time',
+    'had a vision board'
+];
 
-var trivia = function (r) {
+var was = [
+    "was",
+    "was famous for being",
+    "was known for being",
+    "was definitely",
+    "was quite noticeably",
+    "stood out for being",
+];
+
+var trivia = function (person) {
     var p = "They";
     var pp = "their";
-    if (r.gender == "M") { p = "He" } else if (r.gender == "F") { p = "She" };
-    if (r.gender == "M") { pp = "his" } else if (r.gender == "F") { pp = "her" };
+    if (person.gender == "M") { p = "He" } else if (person.gender == "F") { p = "She" };
+    if (person.gender == "M") { pp = "his" } else if (person.gender == "F") { pp = "her" };
     var possibilities = [
         function () {
-            var verb = verbs_hobby[Math.floor(verbs_hobby.length * Math.random())];
-            return `${p} ${verb} ${r.hobby.toLowerCase()}`;
+            return `${p} ${pick(verbs_hobby(person))} ${pick(hobbies).toLowerCase()}`;
         },
         function () {
-            var verb = verbs_hobby[Math.floor(verbs_hobby.length * Math.random())];
-            return `${p} ${verb} ${r.hobby.toLowerCase()}`;
+            return `${p} ${pick(verbs_family)} ${pp} ${pick(getFamily(person))}`;
         },
         function () {
-            var verb = verbs_family[Math.floor(verbs_family.length * Math.random())];
-            var f = family[Math.floor(family.length * Math.random())];
-            return `${p} ${verb} ${pp} ${f}`;
+            return `${p} ${pick(verbs_hobby(person))} ${pick(hobbies).toLowerCase()} with ${pp} ${pick(getFamily(person))}`;
+        },
+        function () {
+            return `${p} ${pick(quirkSentence)}`;
+        },
+        function () {
+            return `${p} ${pick(was)} ${pick(quirkAdj)}`;
         }
+        // humanitarian causes
     ];
-    return possibilities[Math.floor(Math.random() * possibilities.length)]();
+    return (pick(possibilities))();
 }
 
-// Can display 1k blurb
-var randomBlurb = function () {
+// A page can handle 1k blurb
+var randomBlurb = function (trivias) {
+    trivias = trivias || 1;
     var r = randomPerson();
-    return `${r.name} (aged ${r.age}) from ${r.country} ${r.cod}. ${trivia(r)}.
-    `;
+    var result = `${r.name} (aged ${r.age}) from ${r.country} ${r.cod}.`;
+    for (var i = 0; i < trivias; i++) {
+        result += ` ${trivia(r)}.`;
+    }
+    return result;
 }
 
-// Can display 100k names
+// A page can handle 100k names
 var randomName = function () {
     var r = randomPerson();
     return `${r.name} (aged ${r.age}).`;
