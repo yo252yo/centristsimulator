@@ -164,18 +164,20 @@
         </div>
 
         <div class="popup redbox" id="popup_lose" style="z-index: 10;">
-            <h1>DEFEAT</h1><br />
+            <h1 class="number_bad">DEFEAT</h1><br />
             You could not save humanity from self-annihilation :(<br />
             Bummer.<br />
             But in this simulation, contrary to real life, you get to try again!<br />
-            <h2>If you struggle, consider trying other difficulties!</h2>
+            <h2>If you struggle, consider trying other <span class="number_bad">DIFFICULTIES</span>!</h2>
             <h2 style="display:none" id="easy_hint">Some problems can't be solved by taking the <span
                     class="number_bad">EASY</span> way out.</h2>
-            <h1><a onClick="linkSfx('difficulty.html');">Try again!</a></h1>
+            <div class="cell_div" style="width:200px; text-align: center;" onClick="linkSfx('difficulty.html');">
+                <h1>TRY AGAIN</h1>
+            </div>
         </div>
 
         <div class="popup bluebox" id="popup_win" style="z-index: 10;">
-            <h1>VICTORY</h1><br />
+            <h1 class="number_good">VICTORY</h1><br />
             Congratulations, you managed to reclaim political agency and survive the most dangerous century in the
             history of mankind.<br />
             Perhaps all hope is not lost after all.<br />
@@ -184,7 +186,7 @@
             If you found this game interesting, please consider visiting
             <a href="https://www.yo252yo.com" target="_blank">yo252yo.com</a>
             for more free experimental multimedia projects!
-            <div id="no_death" style="display:none">
+            <div id="no_death" style="display:none" class="number_good">
                 <br />
                 BTW I couldn't help but notice that you achieved a NO DEATH victory, which is quite a feat!<br />
                 You have my deepest congratulations for tackling this achievement! You have officially beat the game

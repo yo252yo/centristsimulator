@@ -246,6 +246,10 @@ function win() {
     sfx("Victory");
     if (TOTAL_DISASTER_POINTS == 0) {
         document.getElementById("no_death").style.display = "block";
+        gtag('event', 'game_perfect', {
+            'event_category': 'Game',
+            'event_label': 'Perfect'
+        });
     }
     gtag('event', 'game_win', {
         'event_category': 'Game',

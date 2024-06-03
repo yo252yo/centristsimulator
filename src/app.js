@@ -30,7 +30,7 @@ function linkSfx(destination, confirmation) {
         ongoing = true;
         setTimeout(() => {
             window.location.href = destination;
-        }, 300);
+        }, 350);
     }
 
     sfx("Link");
