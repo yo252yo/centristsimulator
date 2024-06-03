@@ -83,6 +83,7 @@
         top: 15px;
         left: 15px;
         right: 15px;
+        height: calc(83vh);
 
         gap: 0px;
         padding: 0px;
@@ -91,6 +92,7 @@
         font-size: x-small;
         display: grid;
         grid-template-columns: 59% 41%;
+        grid-template-rows: 25px 71px 20px calc(83vh - 80px);
     }
 
     #status_zone div {
@@ -128,6 +130,30 @@
     .horizontal_only {
         display: none;
     }
+
+    #graph_div {
+        z-index: -1;
+        visibility: hidden;
+        left: 10px;
+        bottom: 20px;
+        opacity: 0.5;
+        height: calc(83vh - 80px);
+
+        grid-row: 4;
+        grid-column: 1 / span 2;
+        overflow: visible;
+        padding-bottom: 0px;
+    }
+
+    #graph_div canvas {
+        z-index: -1;
+        visibility: visible;
+        bottom: 0px;
+        width: 100%;
+        position: absolute;
+        margin-bottom: 0px;
+    }
+
 }
 
 @media (orientation: landscape) {
