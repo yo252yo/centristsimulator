@@ -28,6 +28,11 @@ if (difficulty_param == 1) { // easy
     document.getElementById("politics_div").style.display = "block";
 }
 
+gtag('event', 'game_difficulty', {
+    'event_category': 'Game',
+    'event_label': 'Difficulty' + DIFFICULTY
+});
+
 function CAN_WIN() {
     return (DIFFICULTY >= 4);
 }

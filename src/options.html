@@ -64,6 +64,12 @@
                 document.getElementById(target + "_box").checked = state;
                 localStorage.setItem("setting_" + target, state);
                 linkSfx();
+
+                gtag('event', 'option_toggle', {
+                    'event_category': 'Options',
+                    'event_label': 'Option' + target
+                });
+
             }
 
             document.getElementById("confirmation_box").checked = (localStorage.getItem("setting_confirmation") == "true") || false;

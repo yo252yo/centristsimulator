@@ -247,6 +247,10 @@ function win() {
     if (TOTAL_DISASTER_POINTS == 0) {
         document.getElementById("no_death").style.display = "block";
     }
+    gtag('event', 'game_win', {
+        'event_category': 'Game',
+        'event_label': 'Win'
+    });
 }
 
 function lose() {
@@ -254,6 +258,15 @@ function lose() {
     GAME_OVER = true;
     document.getElementById("popup_lose").style.visibility = "visible";
     sfx("Defeat");
+    gtag('event', 'game_lose', {
+        'event_category': 'Game',
+        'event_label': 'Lose'
+    });
+    gtag('event', 'defeat_timer', {
+        'event_category': 'Game',
+        'event_label': 'DefeatTimer',
+        'value': seconds_elapsed
+    });
 }
 
 // ==================================================================
