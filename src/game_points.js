@@ -321,7 +321,7 @@ function handleDisaster() {
 
         document.getElementById("death_report").innerHTML = `
         ${victims} people died in horrible circumstances.
-        <br />
+        <br /><br />
         ${victims_text(victims)}
         `;
         document.getElementById("popup").scrollTop = 0;
