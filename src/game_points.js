@@ -28,7 +28,7 @@ if (difficulty_param == 1) { // easy
     document.getElementById("politics_div").style.display = "block";
 }
 
-gtag('event', 'game_difficulty', {
+gtag('event', 'game_difficulty_' + DIFFICULTY, {
     'event_category': 'Game',
     'event_label': 'Difficulty' + DIFFICULTY
 });
