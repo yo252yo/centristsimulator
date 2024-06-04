@@ -24,6 +24,32 @@
         }
     </style>
     <script>
+        const audioFiles = [
+            'files/bgm.ogg',
+            'files/sfx/Clicker.ogg',
+            'files/sfx/Defeat.ogg',
+            'files/sfx/Disaster_huge.ogg',
+            'files/sfx/Disaster_small.ogg',
+            'files/sfx/Disaster_tiny.ogg',
+            'files/sfx/Link.ogg',
+            'files/sfx/Policy.ogg',
+            'files/sfx/Purchase.ogg',
+            'files/sfx/Upgrade.ogg',
+            'files/sfx/Victory.ogg',
+            'files/sfx/VolumeCheck.ogg',
+        ];
+
+        function preloadAudio(files) {
+            files.forEach(file => {
+                const audio = new Audio(file);
+                audio.preload = 'auto';
+                // Load the audio file
+                audio.load();
+            });
+        }
+        preloadAudio(audioFiles);
+
+
         var MUSIC_AUDIO = new Audio();
         MUSIC_AUDIO.loop = "loop";
 

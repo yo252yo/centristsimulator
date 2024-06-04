@@ -1,5 +1,79 @@
 - wikidata narrative engine
-- preload media loading
+- reduce tutorial
+
+- Can I get a list of alive ppl from Wikipedia? Not even sure it'd be worth it 
+
+
+this is jobs
+
+
+function getOccupations() {
+    const url = 'https://query.wikidata.org/sparql?query=' +
+        encodeURIComponent(`
+        SELECT ?item ?itemLabel WHERE {
+          ?item wdt:P31 wd:Q28640;  # Instances of occupation (Q28640)
+                wdt:P279* wd:Q12737077.  # Subclasses of profession (Q12737077)
+          SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+        } LIMIT 10000
+    `) + '&format=json';
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            try {
+                const data = JSON.parse(xhr.responseText);
+                const occupations = data.results.bindings.map(binding => binding.itemLabel.value);
+
+                console.log('Potential occupations:', occupations);
+            } catch (error) {
+                console.error('Error parsing response:', error);
+            }
+        } else if (xhr.readyState === 4) {
+            console.error('Error fetching occupations from Wikidata:', xhr.statusText);
+        }
+    };
+
+    xhr.send();
+}
+
+getOccupations();
+
+
+
+
+function getActivities() {
+    const url = 'https://query.wikidata.org/sparql?query=' +
+        encodeURIComponent(`
+        SELECT ?item ?itemLabel WHERE {
+          ?item wdt:P3095 ?person.
+          SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+        } LIMIT 100
+    `) + '&format=json';
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            try {
+                const data = JSON.parse(xhr.responseText);
+                const activities = data.results.bindings.map(binding => binding.itemLabel.value);
+
+                console.log('Potential activities:', activities);
+            } catch (error) {
+                console.error('Error parsing response:', error);
+            }
+        } else if (xhr.readyState === 4) {
+            console.error('Error fetching activities from Wikidata:', xhr.statusText);
+        }
+    };
+
+    xhr.send();
+}
+
+getActivities();
 
 
 ====================== Stretch i dont think we need
