@@ -1,6 +1,4 @@
 - wikidata narrative engine
-- reduce tutorial
-
 - Can I get a list of alive ppl from Wikipedia? Not even sure it'd be worth it 
 
 

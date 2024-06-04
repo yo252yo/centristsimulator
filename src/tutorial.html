@@ -145,7 +145,7 @@
             <div class="cell_div" onClick="${callback_name}();" style="width:100px; text-align: center;">
                 <h2>NEXT</h2>
             </div>
-            <br /><br /><a onClick="linkSfx('game.html');">Skip tutorial</a>
+            <br /><a onClick="linkSfx('game.html');">Click here to SKIP this tutorial if you're familiar with idle games</a>
             `;
             document.getElementById("tuto").style.visibility = "visible";
             document.getElementById("screenfilter").classList.add('screenfilter_paused');
@@ -154,13 +154,13 @@
             document.getElementById("screenfilter").classList.remove('screenflicker_unpaused');
         }
 
-        displayPopup("Centrist Simulator is a game where you need to save humanity.", "step1");
+        displayPopup("Centrist Simulator is a game where you need to save humanity from self-annihilation.", "step1");
 
         function step1() {
             displayPopup(`
             It's simple: you win if you survive past 2150.<br />
-            You can see the date and control the time on the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.<br />
-            If you have a keyboard, you can use SPACE to pause and the numbers to control speed.
+            The date and SPEED of time are on the <span class="horizontal_only">bottom left</span><span class="vertical_only">top right</span>.
+            <span class="horizontal_only"><br />You can use SPACE to pause and number keys to control speed.</span>
             `, "step2");
 
             document.getElementById("time_div").style.opacity = 1;
@@ -169,14 +169,14 @@
 
         function step2() {
             displayPopup(`
-            The screen is grey when the game is PAUSED like now.<br />
+            The screen is grey like now when the game is PAUSED.<br />
             You can still take decisions but time does not progress.
             `, "step3");
         }
 
         function step3() {
             displayPopup(`
-            This is an idle game. It revolves around a score that increases over time called $ignaling.
+            This is an idle game. It revolves around a score that increases over time called $IGNALING.
             `, "step4");
 
             document.getElementById("options_div").style.opacity = 0.2;
@@ -189,7 +189,7 @@
 
         function step4() {
             displayPopup(`
-            However, this game has a twist. Contrary to normal idle games, you are in competition with an "enemy" score called $train that also increases over time.
+            However, this game has a twist. Contrary to normal idle games, you are in competition with an "enemy" score called $TRAIN representing the consequences of the climate crisis. It also increases over time.
             `, "step5");
 
             document.getElementById("strain").style.opacity = 1;
@@ -197,7 +197,7 @@
 
         function step5() {
             displayPopup(`
-            Their difference, $uffering, corresponds to this complex mathematical equation:<br />
+            Their difference, $UFFERING, corresponds to this complex mathematical equation:<br />
             $uffering = $ignaling - $train
             `, "step6");
 
@@ -216,7 +216,7 @@
 
         function step7() {
             displayPopup(`
-            You'll get an alert bulletin when people die. You can control its content in the <span class="horizontal_only">left</span><span class="vertical_only">top right</span>.<br />
+            You'll get an ALERT bulletin when people die. You can control its content in the <span class="horizontal_only">left</span><span class="vertical_only">top right</span>.<br />
             Over time, you can group more and more death together so they shouldn't bother you too much.
             `, "step8");
 
@@ -227,7 +227,7 @@
 
         function step8() {
             displayPopup(`
-            To gain $ignaling, you may click this button like crazy. This is an idle game after all.
+            To gain $ignaling, you may click this BUTTON like crazy. This is an idle game after all.
             `, "step9");
 
             document.getElementById("population_div").style.opacity = 0.2;
@@ -238,8 +238,8 @@
         function step9() {
             displayPopup(`
             However, in this world, technology can automate away tedious tasks.<br />
-            Buy some new tech in the marketplace, or invest in your existing portfolio.<br />
-            You'll get access to new technologies as the game progresses. 
+            Buy some new tech in the MARKETPLACE, or invest in your existing PORTFOLIO.<br />
+            You'll get access to more as the game progresses. 
             <span class="vertical_only">You can collapse any section by clicking its title to browse easily.</span>
             `, "step10");
 
@@ -249,17 +249,12 @@
         }
         function step10() {
             displayPopup(`
-            Be careful, buying technologies in the marketplace require an increasing license fee!<br />
+            Be careful, buying technologies in the marketplace require an increasing LICENSE FEE!<br />
             
-            Win by being a smart investor and building the right portfolio that can out-race the climate crisis!
-
-            `, "step11");
-        }
-
-        function step11() {
-            displayPopup(`
-            Ok, that's about it, I've told you everything I know.<br />
+            Win by being a smart investor and building the right portfolio that can OUT-RACE the climate crisis!<br /><br />
+            
             Are you ready to save the world? We're all counting on you!
+
             `, "step12");
 
             document.getElementById("portfolio_div").style.opacity = .2;
