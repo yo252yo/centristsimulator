@@ -1,0 +1,1 @@
+Launch index.html with any web browser
