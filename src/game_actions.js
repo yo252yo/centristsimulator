@@ -302,8 +302,8 @@ const TECHNOLOGIES = {
 function processTechUpgrade(tech_id) {
     let tech = TECHNOLOGIES[tech_id];
 
-    GOOD_POINTS -= parseInt(tech.cost);
-    GOOD_POINTS_PER_SEC += parseInt(tech.income);
+    GOOD_POINTS -= parseFloat(tech.cost);
+    GOOD_POINTS_PER_SEC += parseFloat(tech.income);
 
     tech.current_level += 1;
     tech.cost *= tech.level_cost_increase;
