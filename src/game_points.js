@@ -17,6 +17,7 @@ var DIFFICULTY = 1;
 if (difficulty_param == 1) { // easy
     DIFFICULTY = 0.5;
     document.getElementById("easy_hint").style.display = "block";
+    document.getElementById("easy_hint_2").style.display = "block";
 } else if (difficulty_param == 2) { // new normal
     DIFFICULTY = 2;
 } else if (difficulty_param == 3) { // post new normal
