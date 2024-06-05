@@ -123,7 +123,7 @@ const TECHNOLOGIES = {
         "cost": 5000,
         "income": 500,
         "level_cost_increase": 1.5,
-        "level_income_increase": 1.49,
+        "level_income_increase": 1.41,
         "current_level": 0,
         "tooltip": "Replace hydrofluorocarbons by alternative, less poluting refrigerants."
     },

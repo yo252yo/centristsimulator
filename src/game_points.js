@@ -107,6 +107,8 @@ function getRawBP(seconds) {
         } else {
             // Let's be honest this should never happen but just in case.
             bp = 1032408931155 * Math.exp(seconds - 400);
+            // Official cheating to crush people who make it so far
+            bp += GOOD_POINTS * (seconds - 400) / 15;
         }
     } else {
         const milestones = getBPMilestone(seconds);
