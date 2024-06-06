@@ -80,7 +80,23 @@ function displayPopulation() {
     for (var e of document.getElementsByClassName("compassion_fade_100")) {
         e.innerText = formatNumber(PENDING_DISASTER_POINTS) + "/" + formatNumber(death_alert_threshold * pop_disaster_ratio);
     }
-    document.getElementById("population").innerHTML = `${current_population()}`;
+
+    if (!current_population()) {
+        document.getElementById("population").innerHTML = '0';
+        return;
+    }
+
+    var pendingDeath = Math.ceil(PENDING_DISASTER_POINTS / pop_disaster_ratio);
+    var display = `${current_population()}`;
+    var i = 0;
+    while (pendingDeath > 0) {
+        pendingDeath = Math.round(pendingDeath / 10);
+        i++;
+    }
+    if (i > 0) {
+        display = display.substr(0, display.length - i - 1) + '?'.repeat(i + 1);
+    }
+    document.getElementById("population").innerHTML = display;
 }
 
 function displayPoliticsCooldown() {
