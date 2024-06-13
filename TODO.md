@@ -1,3 +1,12 @@
+- indicate that youre not expected to win on your first try
+- color dollars signs, green for signaling red for strain
+
+======================
+
+
+
+
+
 - wikidata narrative engine
 - Can I get a list of alive ppl from Wikipedia? Not even sure it'd be worth it 
 
