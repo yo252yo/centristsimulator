@@ -1,6 +1,7 @@
 - indicate that youre not expected to win on your first try
 - color dollars signs, green for signaling red for strain
 - check option screen in mobile
+- advertize on reddit idlegame
 
 ======================
 
