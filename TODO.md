@@ -2,6 +2,8 @@
 - color dollars signs, green for signaling red for strain
 - check option screen in mobile
 - advertize on reddit idlegame
+- presskit
+- some discords are missing
 
 ======================
 
