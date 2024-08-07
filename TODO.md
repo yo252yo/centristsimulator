@@ -1,5 +1,3 @@
-current portfolio "upgradable"
-
 - advertize on reddit idlegame
 - deploy presskit
 - change github name

@@ -320,8 +320,10 @@ function processTechUpgrade(tech_id) {
     var bars = "X".repeat(nb_cross) + "|".repeat(nb_bars);
     li.innerHTML = `
         <img src="../files/icon_cat_${tech.category}.png" class="portfolio_icon" />
-        ${tech.name}<br />-<span class="number_good">${formatNumber(tech.cost)}$</span>, +<span class="number_good">${formatNumber(tech.income)}$</span>/s<br />    
-    <span class="loading_bar">${bars}</span>`;
+        ${tech.name}<br />
+        <span class="loading_bar">${bars}</span><br />
+        -<span class="number_good">${formatNumber(tech.cost)}$</span>, +<span class="number_good">${formatNumber(tech.income)}$</span>/s
+    `;
     li.dataset.cost = tech.cost;
     if (tech.tooltip) {
         li.title = tech.tooltip;
