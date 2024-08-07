@@ -320,7 +320,7 @@ function processTechUpgrade(tech_id) {
     var bars = "X".repeat(nb_cross) + "|".repeat(nb_bars);
     li.innerHTML = `
         <img src="../files/icon_cat_${tech.category}.png" class="portfolio_icon" />
-        ${tech.name}<br />-${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s<br />    
+        ${tech.name}<br />-<span class="number_good">${formatNumber(tech.cost)}$</span>, +<span class="number_good">${formatNumber(tech.income)}$</span>/s<br />    
     <span class="loading_bar">${bars}</span>`;
     li.dataset.cost = tech.cost;
     if (tech.tooltip) {
@@ -441,7 +441,7 @@ function addPolicyToPortfolio(policy, cost, reward) {
     }
     li.classList.add("li_7");
 
-    li.innerHTML = `${policy_text}: +${formatNumber(reward)}$/s`;
+    li.innerHTML = `${policy_text}: +<span class="number_good">${formatNumber(reward)}$</span>/s`;
     li.dataset.cost = 0;
     li.style.opacity = 0.6;
 
@@ -518,7 +518,7 @@ function addToMarketplace(tech_id) {
             SKIP
         </a></span>
         <br />
-        -${formatNumber(tech.cost)}$, +${formatNumber(tech.income)}$/s
+        -<span class="number_good">${formatNumber(tech.cost)}$</span>, +<span class="number_good">${formatNumber(tech.income)}$</span>/s
     `;
     li.dataset.cost = tech.cost;
     li.dataset.is_market = true;
@@ -552,7 +552,7 @@ function addToPolicies(policy) {
     if (policy == joker_policy) {
         policy_title = `<input type="text" id="policy_input" value="${joker_policy}" onClick="cancel_buy(event);" />`;
     }
-    li.innerHTML = `${policy_title}<br /> -<span class="policyCost"></span>$/s, +????$/s`;
+    li.innerHTML = `${policy_title}<br /> -<span class="number_good"><span class="policyCost"></span>$</span>/s, +<span class="number_good">????$</span>/s`;
     li.dataset.cost = 0;
     li.classList.add("li_7");
     li.dataset.is_policy = true;
