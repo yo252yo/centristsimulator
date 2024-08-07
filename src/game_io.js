@@ -75,10 +75,10 @@ function displayPopulation() {
     var gauge_characters = 20;
     var interval = 1 / gauge_characters;
     var progress = Math.round(decimals / interval);
-    document.getElementById("disaster").innerHTML = "|".repeat(progress) + ".".repeat(gauge_characters - progress);
+    document.getElementById("disaster").innerHTML = `<span class="number_bad">` + "|".repeat(progress) + "</span>" + ".".repeat(gauge_characters - progress);
 
     for (var e of document.getElementsByClassName("compassion_fade_100")) {
-        e.innerText = formatNumber(PENDING_DISASTER_POINTS) + "/" + formatNumber(death_alert_threshold * pop_disaster_ratio);
+        e.innerHTML = `<span class="number_bad">` + formatNumber(PENDING_DISASTER_POINTS) + "</span>/" + formatNumber(death_alert_threshold * pop_disaster_ratio);
     }
 
     if (!current_population()) {

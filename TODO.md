@@ -1,5 +1,4 @@
 current portfolio "upgradable"
-paint in red the suffering 
 
 - advertize on reddit idlegame
 - deploy presskit
