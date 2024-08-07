@@ -38,6 +38,9 @@
             DIFFICULTY: Choose your lifestyle
         </h2>
 
+        <span id="extrahelp">Nobody is expected to win on their first try, we recommend you try NORMAL to get
+            familiar with the game before trying out anything else.<br /><br /></span>
+
         <div class="cell_div difficulty_div toGreyOutFirstVisit" onClick="linkSfx('game.html?difficulty=1')">
             <h3>EASIER TIMES [*]</h3>
             For people longing for a simpler experience, brings you back to a time when pace was slower
@@ -77,7 +80,9 @@
                 document.getElementById("normal_link").addEventListener("click", function () { linkSfx('tutorial.html') });
 
                 document.getElementById("tutorial_link").style.visibility = "hidden";
-            } 
+            } else {
+                document.getElementsById("extrahelp").style.visibility = "hidden";
+            }
         </script>
     </div>
 
