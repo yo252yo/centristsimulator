@@ -4458,10 +4458,12 @@ var randomBlurb = function (trivias, total_victims) {
         attempt++;
     }
     usedPortraits.add(filename + index);
-
     var img = `
-            <img src="../files/portraits/${filename}portrait (${index}).jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;" />`;
+        <img src="../files/portraits/unknown.jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;" />`;
 
+    if (localStorage.getItem("setting_portrait") != "false") {
+        img = `<img src="../files/portraits/${filename}portrait (${index}).jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;" />`;
+    }
     return `<p style="min-height:${height}px">${img} - ${blurb}</p>`;
 }
 

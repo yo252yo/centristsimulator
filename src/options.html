@@ -53,6 +53,12 @@
                 Status-Quo</h3>
             (hides human cost and death toll of your actions)
         </span>
+        <br />
+        <span onClick="toggle('portrait')">
+            <h3 style="display:inline"><input type="checkbox" onClick="toggle('portrait')"
+                    id="portrait_box" />Identifiable Victim Effect</h3>
+            (displays casualties as white-friendly people)
+        </span>
 
         <a onClick="linkSfx('title.html')">
             <h2>BACK</h2>
@@ -83,6 +89,7 @@
 
             document.getElementById("confirmation_box").checked = (localStorage.getItem("setting_confirmation") == "true") || false;
             document.getElementById("normalization_box").checked = (localStorage.getItem("setting_normalization") == "true") || false;
+            document.getElementById("portrait_box").checked = (localStorage.getItem("setting_portrait") == "true") || (localStorage.getItem("setting_portrait") == undefined);
 
 
 
