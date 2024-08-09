@@ -4174,7 +4174,7 @@ var randomPerson = function () {
 
     return {
         name: `${fname} ${lname}`,
-        country: countries[lastNames[lname]],
+        country: countries[lastNames[lname]] || " a refugee community",
         gender: firstNames[fname],
         cod: pick(cods),
         age: getAge()
@@ -4350,7 +4350,7 @@ var quirkSentence = [
     'liked to one-up people',
     'took things too personally',
     'was a lovable teddy bear',
-    'loved to argueu for no reason',
+    'loved to argue for no reason',
     'prefered to live without a plan',
     'didnt like physical contact',
     'lied compulsively',
@@ -4428,14 +4428,41 @@ var trivia = function (person) {
 }
 
 // A page can handle 1k blurb
-var randomBlurb = function (trivias) {
+var usedPortraits = new Set();
+var randomBlurb = function (trivias, total_victims) {
     trivias = trivias || 1;
     var r = randomPerson();
-    var result = `${r.name} (aged ${r.age}) from ${r.country} ${r.cod}.`;
+    var blurb = `${r.name} (aged ${r.age}) from ${r.country} ${r.cod}.`;
     for (var i = 0; i < trivias; i++) {
-        result += ` ${trivia(r)}.`;
+        blurb += ` ${trivia(r)}.`;
     }
-    return result;
+    var height = Math.max(1, 150 * (20 - total_victims) / 20);
+
+    var total_portraits = 3300;
+    var filename = r.gender;
+    if (r.age < 15) {
+        filename += "_child";
+        total_portraits = 500;
+    } else if (r.age < 27) {
+        filename += "_young";
+        total_portraits = 550;
+    } else if (r.age > 55) {
+        filename += "_elder";
+        total_portraits = 225;
+    }
+    filename += "/";
+    var index = Math.floor(Math.random() * total_portraits) + 1;
+    var attempt = 0;
+    while (usedPortraits.has(filename + index) && attempt < 150) {
+        index = Math.floor(Math.random() * total_portraits) + 1;
+        attempt++;
+    }
+    usedPortraits.add(filename + index);
+
+    var img = `
+            <img src="../files/portraits/${filename}portrait (${index}).jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;" />`;
+
+    return `<p style="min-height:${height}px">${img} - ${blurb}</p>`;
 }
 
 // A page can handle 100k names
@@ -4444,3 +4471,30 @@ var randomName = function () {
     return `${r.name} (aged ${r.age}).`;
 }
 
+function victims_text(number) {
+    if (number <= 20) { //5,10
+        var s = "";
+        for (var i = 0; i < number; i++) {
+            s += randomBlurb(death_alert_threshold < 5 ? 2 : 1, number);
+        }
+
+        return s;
+    } else if (number <= 1500) { // 100, 1000
+        var s = "Your device can only display a list of names for amounts this high.<br />";
+        for (var i = 0; i < number; i++) {
+            s += "- " + randomName() + "<br />";
+        }
+        return s;
+    } else if (number <= 150000) {
+        var s = "Your device cannot display this amount of names, so we will represent each victim by a dot. Remember them.<br /><span style='overflow-wrap:anywhere'>";
+        s += ".".repeat(number);
+        s += "</span>";
+        return s;
+    } else {
+        var s = "Your device cannot display this amount of dots, actually. We will use the character ▒ to represent a wall full of 100k dots such as the one you saw previously. Each dot is, well rather was, a person. You can think of ▒ as a big city the size of Geneva.<br /><span style='overflow-wrap:anywhere'>";
+        s += "▒".repeat(Math.floor(number / 100000));
+        s += ".".repeat(Math.floor(number - (100000 * Math.floor(number / 100000))));
+        s += "</span>";
+        return s;
+    }
+}
