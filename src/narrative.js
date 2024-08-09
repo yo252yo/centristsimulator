@@ -4437,6 +4437,7 @@ var randomBlurb = function (trivias, total_victims) {
         blurb += ` ${trivia(r)}.`;
     }
     var height = Math.max(1, 150 * (20 - total_victims) / 20);
+    var blur = Math.min(5, 5 * total_victims / 20);
 
     var total_portraits = 3300;
     var filename = r.gender;
@@ -4459,10 +4460,10 @@ var randomBlurb = function (trivias, total_victims) {
     }
     usedPortraits.add(filename + index);
     var img = `
-        <img src="../files/portraits/unknown.jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;" />`;
+        <img src="../files/portraits/unknown.jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;filter:blur(${blur}px);" />`;
 
     if (localStorage.getItem("setting_portrait") != "false") {
-        img = `<img src="../files/portraits/${filename}portrait (${index}).jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;" />`;
+        img = `<img src="../files/portraits/${filename}portrait (${index}).jpg" style="float: left;width:${height}px;height:${height}px;margin-right:10px;filter:blur(${blur}px);" />`;
     }
     return `<p style="min-height:${height}px">${img} - ${blurb}</p>`;
 }
