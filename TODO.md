@@ -1,5 +1,0 @@
-- advertize on reddit idlegame
-- deploy presskit
-- change github name
-- some discords are missing
-- screenshot for presskit and itch 
